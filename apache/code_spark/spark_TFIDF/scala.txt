@@ -1,0 +1,12 @@
+val js=sc.textFile("d:/project/spark_TFIDF/a.txt")
+js.foreach(print)
+System.getProperty("file.encoding")
+
+import scala.io.Source
+import java.io.{File, PrintWriter}
+val a= Source.fromFile("d:/project/spark_TFIDF/a.txt","GBK")
+val c= new PrintWriter(new File("d:/project/spark_TFIDF/c.txt"),"UTF-8")
+ for(line <- a.getLines()){
+      c.println(line)
+    }
+c.close()
