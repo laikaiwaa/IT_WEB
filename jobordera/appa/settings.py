@@ -15,7 +15,8 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
-
+#BASE_DIR1 = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(BASE_DIR+"//../")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -88,7 +89,7 @@ WSGI_APPLICATION = 'jobordera.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.sqlite3',
-'NAME': '/root/liekiewaa/web/analysis.db',
+'NAME': BASE_DIR+'//../analysis.db',
 'USER': '',
 'PASSWORD': '',
 'HOST': '',
@@ -177,7 +178,7 @@ LOGGING = {
         'request_handler': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': BASE_DIR+'/logs/script.log',
+            'filename': BASE_DIR+'/logs/request_script.log',
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 5,
             'formatter': 'standard',
@@ -185,7 +186,7 @@ LOGGING = {
         'scprits_handler': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': BASE_DIR+'/logs/script.log',
+            'filename': BASE_DIR+'/logs/scprits_script.log',
             'maxBytes': 1024 * 1024 * 5,
             'backupCount': 5,
             'formatter': 'standard',
@@ -193,7 +194,8 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['default', 'console'],
+            #'handlers': ['default', 'console'],
+            'handlers': [ 'console'],
             'level': 'DEBUG',
             'propagate': False
         },
