@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'jobordera.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.sqlite3',
-'NAME': 'analysis',
+'NAME': '/root/liekiewaa/web/analysis.db',
 'USER': '',
 'PASSWORD': '',
 'HOST': '',

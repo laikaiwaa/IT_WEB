@@ -16,7 +16,7 @@ Including another URLconf
 import random
 from django.contrib import admin
 from django.urls import path
-import mvc.views as views
+import appa.views as views
 adminr=random.randint(0,9)
 urlpatterns = [
     path('', views.login),
