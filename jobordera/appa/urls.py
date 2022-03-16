@@ -21,5 +21,7 @@ adminr=random.randint(0,9)
 urlpatterns = [
     path('', views.login),
     path('admin/', views.admin),
-    path('use/', views.use),
+    path('usehistory/', views.usehistory),
+    path('user/',views.user),
+    path('checklisttemplate/',views.checklisttemplate)
 ]
