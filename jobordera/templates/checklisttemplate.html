@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checklisttemplte</title>
+    <script type="text/javascript">
+    function addrow(formid){
+        var a=document.getElementById(formid).tBodies[0]
+        rowid=event.srcElement.parentElement.parentElement.rowIndex
+        alert(rowid)
+        irow=a.insertRow(rowid+1)
+        irow.innerHTML=irow.innerHTML+
+        "<td><input type='texta"+rowid+"&apos; name='text'></td>"+
+        "<td><input type='textb"+rowid+"&apos; name='text'></td>"+
+        "<td><input type='button' name='text' value='添加' onclick=' addrow(&apos;"+formid+ "&apos;)'>\n"+
+        "<input type='button' name='text' value='删除' onclick=' deleterow(&apos;"+formid+ "&apos;)'></td>"
+    }
+    function deleterow(formid){
+        var a=document.getElementById(formid).tBodies[0]
+        rowid=event.srcElement.parentElement.parentElement.rowIndex
+        h=a.deleteRow(rowid)
+    }
+    </script>
+</head>
+<body>
+    <form action="" method="POST">
+        选择模板: <select style="width:100px;"  name="templteselect" >
+                    {% for i in  namelist %}
+                    {% if i.0 == selectnow %}
+                    <option value={{i.0}} selected="selected" >{{i.0}}</option>
+                    {% else %}
+                    <option value={{i.0}} >{{i.0}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select><br>
+        模板名称: <input type="text" name="templtename" /><br>
+        模板类型: <select style="width:100px;"  name="templtekind"><option value="admin">usera</option><option value="user">userb</option></select>
+        <input type="submit" name='searchtemplte' value="查找模板" >
+        <input type="submit" name='addtemplte' value="添加模板" >
+        <input type="submit" name='deletetemplte' value="删除模板" >
+
+    </form>
+    <table border="1" id="forma">
+            <tr>
+                <td>项目</td><td>状态</td><td>操作</td>
+            </tr>
+
+            {% for eachfile in resultlist%}
+                <tr>
+                    <td><input type='text' name='texta' value="{{ eachfile.0}}"></td>
+                    <td><input type='text' name='textb' value="{{ eachfile.1}}"></td>
+                    <td><input type="button" name='addrows' value="添加" onclick="addrow('forma')">
+                        <input type='button' name='deleterows' value='删除' onclick=" deleterow('forma')"></td>
+                </tr>
+            {% endfor %}
+    </table>
+    其他信息：
+    <table border="1">
+            <tr>
+                <td>模板ID</td><td>模板类型</td><td>创建时间</td>
+            </tr>
+            <tr>
+                {% for eachothinfo in othinfo%}
+                    <td>{{ eachothinfo}}</td>
+                {% endfor %}
+            </tr>
+    </table>
+</body>
+
+</html>
