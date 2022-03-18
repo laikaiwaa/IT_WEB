@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>usehistory</title>
+</head>
+<body>
+    <form action="" method="POST">
+    开始时间: <input type="date" name="btime" />
+    结束时间: <input type="date" name="etime" />
+    <input type="submit" name='serch' value="serch" >
+    </form>
+    <table border="1">
+        {{ btime }}    {{ etime }}
+        <tr>
+        <td>序號</td><td>用戶ID</td><td>用戶名</td><td>用戶類型</td><td>操作类型</td>
+        </tr>
+        {% for each in list %}
+            <tr>
+        <td>{{ each.0}}</td><td>{{ each.1}}</td><td>{{ each.2}}</td><td>{{ each.3}}</td><td>{{ each.4}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
