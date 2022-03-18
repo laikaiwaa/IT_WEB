@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', views.admin),
     path('usehistory/', views.usehistory),
     path('user/',views.user),
-    path('checklisttemplate/',views.checklisttemplate)
+    #path('checklisttemplate/',views.checklisttemplate)
 ]
