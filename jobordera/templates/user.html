@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>use</title>
+    <title>user</title>
+    <script type="text/javascript">
+    function gettemplteform(){
+        a=event.srcElement.parentElement
+        a.submit()
+    }
+    </script>
 </head>
 <body>
+    <form action="" method="POST" enctype="multipart/form-data">
+        选择模板: <select style="width:100px;"  name="templteselect" onchange="gettemplteform()">
+                    {% for i in  namelist %}
+                    {% if i.0 == selectnow %}
+                    <option value={{i.0}} selected="selected" >{{i.0}}</option>
+                    {% else %}
+                    <option value={{i.0}} >{{i.0}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select><br>
+        <input type="submit" name='updata' value="上传表单" >
+        <input type="submit" name='myform' value="查看表单" >
+        <input type="submit" name='usehistory' value="使用记录" >
 
+        <table border="1">
+            <tr>
+                <td>项目</td><td>状态</td>
+            </tr>
+            {% for i in testloop %}
+            <tr><td>{{i.0}}</td><td><input type="checkbox" name="checkbox{{i.1}}" ></td></tr>
+            {% endfor %}
+            <tr>
+                <td>
+                    <input type="file" name='chosefiles' multiple="multiple"  >
+                </td>
+            </tr>
+            {% for eachfile in result%}
+            <tr>
+                <td>{{ eachfile.name}}</td><td>{{ eachfile.size}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
 </body>
 </html>
