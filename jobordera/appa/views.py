@@ -6,9 +6,10 @@ from django.db import connection, connections, models
 import logging
 import datetime
 import os
+import json
 
 mylog = logging.getLogger('myproject.custom')
-filepath = "c:\\liekiewaa\\web\\imagefiles"
+filepath = "D:\\project\\program\\python-web-2019\\imagefiles"
 
 
 def logincheck(ausername, busercode):
@@ -98,12 +99,12 @@ def admin(request):
         elif request.method == "POST":
             data = None
             if (request.POST.get("checklisttemplate") is not None) | (
-                    request.session['htmlname'] == "checklisttemplate.html"):
+                        request.session['htmlname'] == "checklisttemplate.html"):
                 request.session['htmlname'] = "checklisttemplate.html"
                 retrundata = checklisttemplate(request)
                 return render(request, 'checklisttemplate.html', retrundata)
             elif (request.POST.get("usehistory") is not None) | (
-                    request.session['htmlname'] == "usehistory.html"):
+                        request.session['htmlname'] == "usehistory.html"):
                 request.session['htmlname'] = "usehistory.html"
                 retrundata = usehistory(request)
                 return render(request, 'usehistory.html', retrundata)
@@ -120,6 +121,7 @@ def admin(request):
 
 
 def user(request):
+
     status = request.COOKIES.get("name")
     usrname = request.session['username']
     templteselected = request.POST.get('templteselect')
@@ -128,8 +130,7 @@ def user(request):
         etime = request.POST.get('etime')
     except:
         pass
-    if templteselected is None:
-        templteselected = ""
+
     formfilekind = ""
     formlist = [""]
 
@@ -138,16 +139,18 @@ def user(request):
     else:
         cursor = connection.cursor()
         formnames = cursor.execute("select templtename from appa_checklisttemplte").fetchall()
+
+        if templteselected is None:
+            templteselected = formnames[0][0]
+
         formmessage = cursor.execute(
             "select formlist,templtekind from appa_checklisttemplte where templtename='" + templteselected + "'").fetchall()
         if len(formmessage) >= 1:
-            formlist = formmessage[0][0].split(";")[:-1]
+            formlist = json.loads(formmessage[0][0])
             formfilekind = formmessage[0][1]
-            cantainlen = len(formlist)
 
-        userdata = {"testloop": [["", 0], ["", 1]], "namelist": formnames, "result": [{"name": "", "size": 0}],
-                    "selectnow": ""}
-
+        userdata = {"testloop": formlist, "namelist": formnames, "eachfile": [{"name": "", "size": 0}],
+                    "selectnow": "","eachfile":""}
         if request.method == "GET":
             request.session['htmlname'] = "user.html"
             return render(request, 'user.html', userdata)
@@ -155,32 +158,34 @@ def user(request):
             formfileid = 1
             userdata2 = {"formnamelist": ["", ""], "formcantans": ["", ""], "selectednow": 0}
             if (request.POST.get("usehistory") is not None) | (
-                    request.session['htmlname'] == "usehistory.html"):
+                        request.session['htmlname'] == "usehistory.html"):
                 request.session['htmlname'] = "usehistory.html"
                 retrundata = usehistory(request)
                 return render(request, 'usehistory.html', retrundata)
             elif (request.POST.get("myform") is not None) | (
-                    request.session['htmlname'] == "myform.html"):
+                        request.session['htmlname'] == "myform.html"):
                 request.session['htmlname'] = "myform.html"
                 if request.POST.get("myform"):
                     userdata2['formnamelist'] = myform(request, usrname, formfileid)
                     request.session['formnamelist'] = userdata2['formnamelist']
                 else:
                     userdata2['selectednow'] = int(request.POST.get("templteselect"))
-                    userdata2['formcantans'] = myform(request, usrname, str(userdata2['selectednow']))[0]
+                    formbase=myform(request, usrname, str(userdata2['selectednow']))
+                    userdata2['eachfile']=formbase[0][1]
+                    userdata2['formcantans'] = json.loads(formbase[0][0])
                     userdata2['formnamelist'] = request.session['formnamelist']
-                    print("还是生活时尚生活2", userdata2['formcantans'][0][1:-1])
                 return render(request, 'myform.html', userdata2)
             else:
                 request.session['htmlname'] = "user.html"
                 if request.POST.get("updata"):
-                    formcantain = [[formlist[i] , request.POST.get("checkbox" + str(i))] for i in range(cantainlen)]
+                    formcantain = request.POST.get("formcantain")
                     files = request.FILES.getlist('chosefiles')
                     upformdata(files, usrname, formfilekind, templteselected, formcantain)
                     operationmark(usrname, "updata")
-                    return render(request, 'finish.html')
+                    userdata['result']=files
+                    return render(request, 'user.html', userdata)
                 elif request.POST.get("templteselect"):
-                    userdata['testloop'] = [[formlist[i], i] for i in range(cantainlen)]
+                    userdata['testloop'] = formlist
                     userdata['namelist'] = formnames
                     userdata['result'] = [{"name": "", "size": 0}]
                     userdata['selectnow'] = templteselected
@@ -209,12 +214,13 @@ def upformdata(form, usrname, formfilekind, formtempltename, formcantain):
     cursor = connection.cursor()
     k = cursor.execute("select max(formfileid) from appa_formfilelist where uploader='" + usrname + "'").fetchall()[0][
         0]
-
+    if k is None:
+        k = 0
     # 读取文档
     fileaddress = list()
     for eachfile in form:
         timemark = datetime.datetime.strftime(datetime.datetime.now(), "%Y_%m_%d_%H_%M_%S")
-        name = usrname + "//" + str(k + 1) + "_" + formtempltename + "_" + str.replace(timemark, " :",
+        name = usrname + "//" + str(k + 1) + "_" + formtempltename + "_" + str.replace(timemark, ":",
                                                                                        "_") + "_" + eachfile.name
         with open(filepath + "//" + name, 'wb') as f:
             for i in eachfile.chunks():
@@ -231,7 +237,7 @@ def upformdata(form, usrname, formfilekind, formtempltename, formcantain):
 
 
 def checklisttemplate(request):
-    retrundata = {"httempltename": "", 'resultlist': [["", ""]], 'file': "", "othinfo": ["", "", ""],
+    retrundata = {"httempltename": "", 'resultlist': [["", "", ""]], 'file': "", "othinfo": ["", "", ""],
                   "namelist": [""], "selectnow": ""}
     cursor = connection.cursor()
     request.session['templtenamelist'] = cursor.execute(
@@ -245,15 +251,16 @@ def checklisttemplate(request):
         tform = checklisttemplte.objects.filter(templtename=templtename).values()[0]
         # 返回值
         retrundata['httempltename'] = tform['templtename']
-        retrundata['resultlist'] = strtolist(tform['formlist'])
+        retrundata['resultlist'] = json.loads(tform['formlist'])
         retrundata['othinfo'] = [tform['templteid'], tform['templtekind'], tform['createtime']]
         retrundata['namelist'] = request.session['templtenamelist']
         retrundata['selectnow'] = templtename
         retrundata['file'] = tform['fileaddress']
     elif request.POST.get("addtemplte"):
+        retrundata['selectnow'] = request.POST.get("templtename")
         retrundata['namelist'] = addtemplate(templtename=request.POST.get("templtename"),
                                              templtekind=request.POST.get("templtekind"),
-                                             formlist="testa, 2;testb,3;", fileaddress="noaddres")
+                                             formlist=request.POST.get("formlist"))
     elif request.POST.get("deletetemplte"):
         deletetemplate(request.POST.get("templteselect"))
         cursor = connection.cursor()
@@ -264,12 +271,14 @@ def checklisttemplate(request):
     return retrundata
 
 
-def addtemplate(templtename, templtekind, formlist, fileaddress):
+def addtemplate(templtename, templtekind, formlist):
+
     cursor = connection.cursor()
     k = cursor.execute("select max(templteid) from appa_checklisttemplte").fetchall()[0][0]
+    if k is None:
+        k = 0
     checklisttemplte.objects.create(templteid=k + 1, templtename=templtename, templtekind=templtekind,
-                                    formlist=formlist,
-                                    fileaddress=fileaddress)
+                                    formlist=formlist)
     templtenamelist = cursor.execute("select templtename from appa_checklisttemplte").fetchall()
     return templtenamelist
 
@@ -280,14 +289,19 @@ def deletetemplate(templtename):
     return None
 
 
-def strtolist(str):
+def strtolist(strs):
     la = list()
-    al = str.split(";")
+    al = strs.split(";")
+    index = 0
     for i in al:
-        la.append(list(i.split(',')))
+        la.append(list(i.split(',')) + [str(index)])
+        index = index + 1
     return la[:-1]
+
+
 def strtolistfrombase(str):
     la = list()
+
 
 def myform(request, name, formfileid):
     cursor = connection.cursor()
@@ -297,5 +311,11 @@ def myform(request, name, formfileid):
         return formnamelist
     else:
         formmessage = cursor.execute(
-            "select formcantain from appa_formfilelist where formfileid='" + formfileid + "' and uploader='" + name + "'").fetchall()
+            "select formcantain,fileaddress from appa_formfilelist where formfileid='" + formfileid + "' and uploader='" + name + "'").fetchall()
         return formmessage
+
+
+def gettemplteitem(request):
+    temp=request.POST.get("len")
+
+    return None
