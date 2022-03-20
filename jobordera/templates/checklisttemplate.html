@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checklisttemplte</title>
+    <script type="text/javascript">
+    function addrow(formid){
+        var a=document.getElementById(formid).tBodies[0];
+        rowid=event.srcElement.parentElement.parentElement.rowIndex;
+        irow=a.insertRow(rowid+1);
+        irow.innerHTML=irow.innerHTML+
+        "<td><input name='texta"+rowid+"&apos; type='text'></td>"+
+        "<td><input name='textb"+rowid+"&apos; type='text'></td>"+
+        "<td><input type='button' name='text' value='添加' onclick=' addrow(&apos;"+formid+ "&apos;)'>\n"+
+        "<input type='button' name='text' value='删除' onclick=' deleterow(&apos;"+formid+ "&apos;)'></td>";
+    }
+    function deleterow(formid){
+        var a=document.getElementById(formid).tBodies[0];
+        rowid=event.srcElement.parentElement.parentElement.rowIndex;
+        h=a.deleteRow(rowid)
+    }
+    function readrow(tableid,formid){
+	    f=document.getElementById(formid);
+        var a=document.getElementById(tableid);
+        rowslen=a.rows.length-1;
+        l=[];
+
+	    df=[];
+        vdf=[];
+        for (var i=0;i<rowslen;i++)
+        {
+            temp={};
+            temp.cola=a.rows[i+1].cells[0].childNodes[0].value;
+            temp.colb=i;
+            l.push(temp)
+        }
+        data=new FormData(f);
+        m=JSON.stringify(l);
+        data.append("formlist",m);
+        data.append("addtemplte","add");
+
+
+        x=new XMLHttpRequest;
+        x.onreadystatechange=backalert;
+        x.open("POST","./",true);
+        x.send(data);
+
+    }
+    function backalert(){
+     if(x.readyState==4){alert("添加成功")}
+    }
+    </script>
+</head>
+<body>
+    <form action="" method="POST" id="forma">
+        选择模板: <select style="width:100px;"  name="templteselect" >
+                    {% for i in  namelist %}
+                    {% if i.0 == selectnow %}
+                    <option value={{i.0}} selected="selected" >{{i.0}}</option>
+                    {% else %}
+                    <option value={{i.0}} >{{i.0}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select><br>
+        模板名称: <input type="text" name="templtename" id="templtename" /><br>
+        模板类型: <select style="width:100px;"  name="templtekind"><option value="admin">usera</option><option value="user">userb</option></select>
+        <input type="submit" name='searchtemplte' value="查找模板" >
+
+        <input type="submit" name='deletetemplte' value="删除模板" >
+        <input type="submit" name='back' value="返回" formmethod="get">
+    </form>
+    <input type="submit" name='addtemplte' value="添加模板" onclick="readrow('tablea','forma')">
+    <table border="1" id="tablea">
+            <tr>
+                <td>项目</td><td>状态</td><td>操作</td>
+            </tr>
+            {% for eachfile in resultlist%}
+                <tr>
+                    <td><input type='text' id='texta{{ eachfile.colb }}' value="{{ eachfile.cola}}"></td>
+                    <td><input type='text' id='textb{{ eachfile.colb }}' value="{{ eachfile.colb}}"></td>
+                    <td><input type="button" name='addrows' value="添加" onclick="addrow('tablea')">
+                        <input type='button' name='deleterows' value='删除' onclick=" deleterow('tablea')"></td>
+                </tr>
+            {% endfor %}
+    </table>
+    其他信息：
+    <table border="1">
+            <tr>
+                <td>模板ID</td><td>模板类型</td><td>创建时间</td>
+            </tr>
+            <tr>
+                {% for eachothinfo in othinfo%}
+                    <td>{{ eachothinfo}}</td>
+                {% endfor %}
+            </tr>
+    </table>
+</body>
+
+</html>

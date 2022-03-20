@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checklisttemplte</title>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+    <form action="" method="POST">
+        选择表单: <select style="width:100px;"  name="templteselect" >
+                    {% for i in  formnamelist %}
+                    {% if i.0 == selectednow %}
+                    <option value={{i.0}} selected="selected" >{{i.0}}_{{i.1}}</option>
+                    {% else %}
+                    <option value={{i.0}} >{{i.0}}_{{i.1}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+        <input type="submit" name='displayform' value="查看" >
+        <input type="submit" name='back' value="返回" formmethod="get">
+
+    </form>
+    <table border="1" id="forma">
+            <tr>
+                <td>项目</td><td>状态</td>
+            </tr>
+            {% for eachitem in formcantans%}
+                <tr>
+                    <td>{{eachitem.itemm}}</td><td>{{eachitem.statuss}}</td>
+                </tr>
+            {% endfor %}
+    </table>
+    其他档案：
+    <table border="1">
+            <tr>
+                <td>{{ eachfile}}</td>
+            </tr>
+    </table>
+</body>
+
+</html>
