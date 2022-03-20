@@ -17,24 +17,24 @@
                     {% endif %}
                     {% endfor %}
                 </select>
-        <input type="submit" name='displayform' value="查看表单" >
+        <input type="submit" name='displayform' value="查看" >
+        <input type="submit" name='back' value="返回" formmethod="get">
 
     </form>
     <table border="1" id="forma">
             <tr>
                 <td>项目</td><td>状态</td>
             </tr>
-            {% for eachfile in formcantans%}
+            {% for eachitem in formcantans%}
                 <tr>
-                    <td><input type='text' name='texta' value="{{ eachfile.0}}"></td>
-                    <td><input type='text' name='textb' value="{{ eachfile.1}}"></td>
+                    <td>{{eachitem.itemm}}</td><td>{{eachitem.statuss}}</td>
                 </tr>
             {% endfor %}
     </table>
     其他档案：
     <table border="1">
             <tr>
-                <td>{{ eachfile.name}}</td><td>{{ eachfile.size}}</td>
+                <td>{{ eachfile}}</td>
             </tr>
     </table>
 </body>

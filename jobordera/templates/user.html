@@ -8,10 +8,41 @@
         a=event.srcElement.parentElement
         a.submit()
     }
+    function successm(formid,tableid){
+
+        f=document.getElementById(formid)
+
+
+        var a=document.getElementById(tableid);
+        rowslen=a.rows.length-3;
+        l=[];
+        for (var i=0;i<rowslen;i++)
+        {
+            temp={};
+            temp.itemm=a.rows[i+1].cells[0].childNodes[0].textContent;
+            temp.statuss=a.rows[i+1].cells[1].childNodes[0].checked;
+            l.push(temp)
+            console.log(temp)
+        }
+
+        data=new FormData(f)
+        data.append("updata","updata")
+        m=JSON.stringify(l);
+        data.append("formcantain",m);
+
+        x=new XMLHttpRequest
+        x.onreadystatechange=backalert
+        x.open("POST","./",true)
+        x.send(data)
+    }
+    function backalert(){
+         if(x.readyState==4){alert("添加成功")}
+    }
+
     </script>
 </head>
 <body>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" id="formb">
         选择模板: <select style="width:100px;"  name="templteselect" onchange="gettemplteform()">
                     {% for i in  namelist %}
                     {% if i.0 == selectnow %}
@@ -21,16 +52,17 @@
                     {% endif %}
                     {% endfor %}
                 </select><br>
-        <input type="submit" name='updata' value="上传表单" >
+
         <input type="submit" name='myform' value="查看表单" >
         <input type="submit" name='usehistory' value="使用记录" >
 
-        <table border="1">
+
+        <table border="1"  id="tableb">
             <tr>
                 <td>项目</td><td>状态</td>
             </tr>
             {% for i in testloop %}
-            <tr><td>{{i.0}}</td><td><input type="checkbox" name="checkbox{{i.1}}" ></td></tr>
+            <tr><td>{{i.cola}}</td><td><input type="checkbox" name="checkbox{{i.colb}}" ></td></tr>
             {% endfor %}
             <tr>
                 <td>
@@ -44,5 +76,6 @@
             {% endfor %}
         </table>
     </form>
+<input type="submit" name='updata' value="上传表单" onclick="successm('formb','tableb')">
 </body>
 </html>
