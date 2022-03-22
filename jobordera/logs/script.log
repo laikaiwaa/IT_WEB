@@ -2233,3 +2233,69 @@ KeyError: 'userkind'
 2022-03-20 07:29:01,367 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
 2022-03-20 07:29:01,455 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
 2022-03-20 08:16:18,237 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-20 09:34:58,007 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-20 09:35:06,077 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('../')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:35:18,243 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('../')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:36:27,140 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('./')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:37:28,175 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('../admin')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:38:05,174 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('admin/')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:39:37,545 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 83, in admin
+    def admin(request):
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'userkind'
+2022-03-20 09:41:27,474 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('../')
+UnboundLocalError: local variable 'data' referenced before assignment

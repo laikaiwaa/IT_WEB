@@ -22,11 +22,11 @@
             temp.itemm=a.rows[i+1].cells[0].childNodes[0].textContent;
             temp.statuss=a.rows[i+1].cells[1].childNodes[0].checked;
             l.push(temp)
-            console.log(temp)
         }
 
         data=new FormData(f)
         data.append("updata","updata")
+        data.append("updatereflush","updatereflush")
         m=JSON.stringify(l);
         data.append("formcantain",m);
 
@@ -34,9 +34,17 @@
         x.onreadystatechange=backalert
         x.open("POST","./",true)
         x.send(data)
+        //监听进度
+        x.upload.addEventListener("progress", uploadProgress(event), false);
+         
+         
+    }
+    function uploadProgress(event) {
+    a=document.getElementById("formb");
+    a.insertBefore(document.createTextNode("上传中"),a.childNodes[10]);
     }
     function backalert(){
-         if(x.readyState==4){alert("添加成功")}
+         if(x.readyState==4){alert("上传完成")}
     }
 
     </script>
@@ -55,8 +63,7 @@
 
         <input type="submit" name='myform' value="查看表单" >
         <input type="submit" name='usehistory' value="使用记录" >
-
-
+        <input type="submit" name='updata' value="上传表单" onclick="successm('formb','tableb')" >
         <table border="1"  id="tableb">
             <tr>
                 <td>项目</td><td>状态</td>
@@ -69,13 +76,13 @@
                     <input type="file" name='chosefiles' multiple="multiple"  >
                 </td>
             </tr>
-            {% for eachfile in result%}
+            {% for eachfile in result %}
             <tr>
                 <td>{{ eachfile.name}}</td><td>{{ eachfile.size}}</td>
             </tr>
             {% endfor %}
         </table>
     </form>
-<input type="submit" name='updata' value="上传表单" onclick="successm('formb','tableb')">
+
 </body>
 </html>

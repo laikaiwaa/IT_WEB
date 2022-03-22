@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <title>checklisttemplte</title>
     <script type="text/javascript">
+    function display(){
+        alert("ff")
+        x=document.getElementById("formd")
+        x.submit()
+    }
+    function displayfilename(){
+        x=document.getElementById("formd")
+        for (i in {{formnamelist}}){
+            x.innerHTML=x.innerHTML+"<td><input name='filename' type='submit' value="+i+" onclick='display()'></td>"
+        }
+    }
+    
     </script>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="" method="POST"> 
         选择表单: <select style="width:100px;"  name="templteselect" >
                     {% for i in  formnamelist %}
                     {% if i.0 == selectednow %}
@@ -17,26 +29,34 @@
                     {% endif %}
                     {% endfor %}
                 </select>
-        <input type="submit" name='displayform' value="查看" >
-        <input type="submit" name='back' value="返回" formmethod="get">
-
+        <input type="submit" name='displayform' value="查看"  >
+        <input type="submit" name='back' value="返回" formmethod="get"> 
     </form>
+    
     <table border="1" id="forma">
             <tr>
                 <td>项目</td><td>状态</td>
             </tr>
             {% for eachitem in formcantans%}
                 <tr>
-                    <td>{{eachitem.itemm}}</td><td>{{eachitem.statuss}}</td>
+                    <td>{{eachitem.itemm}}</td><td>{{eachitem.statuss}}</td> 
                 </tr>
             {% endfor %}
     </table>
     其他档案：
     <table border="1">
             <tr>
-                <td>{{ eachfile}}</td>
+                <td>{{fileaddres}}</td>
             </tr>
     </table>
+    <form action="" method="POST" id="formd">
+        {% for i in fileaddres %}
+    
+            <td><input name='filename' type='submit' value={{i}} onclick="display()"></td>
+            <td><a name='filename'   value={{i}} onclick="display()"></td><br>
+    
+        {% endfor %}
+    </form>
 </body>
 
 </html>

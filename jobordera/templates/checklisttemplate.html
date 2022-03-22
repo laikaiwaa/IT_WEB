@@ -38,6 +38,7 @@
         m=JSON.stringify(l);
         data.append("formlist",m);
         data.append("addtemplte","add");
+        data.append("addtempltereflush","addtempltereflush");
 
 
         x=new XMLHttpRequest;
@@ -65,11 +66,11 @@
         模板名称: <input type="text" name="templtename" id="templtename" /><br>
         模板类型: <select style="width:100px;"  name="templtekind"><option value="admin">usera</option><option value="user">userb</option></select>
         <input type="submit" name='searchtemplte' value="查找模板" >
-
+        <input type="submit" name='addtemplte' value="添加模板" onclick="readrow('tablea','forma')">
         <input type="submit" name='deletetemplte' value="删除模板" >
         <input type="submit" name='back' value="返回" formmethod="get">
     </form>
-    <input type="submit" name='addtemplte' value="添加模板" onclick="readrow('tablea','forma')">
+    
     <table border="1" id="tablea">
             <tr>
                 <td>项目</td><td>状态</td><td>操作</td>
