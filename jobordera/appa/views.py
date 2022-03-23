@@ -118,7 +118,7 @@ def admin(request):
                 elif request.POST.get("add"):
                     data = adminadd(username, usercode, usertype)
                     filepath=settingg()
-                    os.mkdir(filepath + "../" + username)
+                    os.mkdir(filepath + "/" + username)
                 elif request.POST.get("all"):
                     data = adminall()
                 return render(request, 'admin.html', {"list": data, "refrash": username})

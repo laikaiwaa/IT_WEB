@@ -5268,3 +5268,496 @@ Traceback (most recent call last):
   File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 393, in read
     raise UnreadablePostError(*e.args) from e
 django.http.request.UnreadablePostError: timeout during read(65536) on wsgi.input
+2022-03-22 06:33:19,742 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-22 06:36:02,152 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.user didn't return an HttpResponse object. It returned None instead.
+2022-03-22 06:43:30,716 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-22 06:45:08,728 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 391, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: error during read(65536) on wsgi.input
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 130, in user
+    templteselected = request.POST.get('templteselect')
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 362, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 322, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 240, in parse
+    for chunk in field_stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 536, in __next__
+    for bytes in stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 467, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 393, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: error during read(65536) on wsgi.input
+2022-03-22 06:45:19,241 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 391, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: error during read(65536) on wsgi.input
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 130, in user
+    templteselected = request.POST.get('templteselect')
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 362, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 322, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 240, in parse
+    for chunk in field_stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 536, in __next__
+    for bytes in stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 467, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 393, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: error during read(65536) on wsgi.input
+2022-03-22 06:45:19,574 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 391, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: error during read(65536) on wsgi.input
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 130, in user
+    templteselected = request.POST.get('templteselect')
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 362, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 322, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 156, in parse
+    for item_type, meta_data, field_stream in Parser(stream, self._boundary):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 668, in __iter__
+    for sub_stream in boundarystream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 492, in __next__
+    return LazyStream(BoundaryIter(self._stream, self._boundary))
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 519, in __init__
+    unused_char = self._stream.read(1)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 391, in read
+    return b''.join(parts())
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 382, in parts
+    chunk = next(self)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 467, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 393, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: error during read(65536) on wsgi.input
+2022-03-22 06:45:19,630 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 391, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: error during read(65536) on wsgi.input
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 130, in user
+    templteselected = request.POST.get('templteselect')
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 362, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 322, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 156, in parse
+    for item_type, meta_data, field_stream in Parser(stream, self._boundary):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 668, in __iter__
+    for sub_stream in boundarystream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 492, in __next__
+    return LazyStream(BoundaryIter(self._stream, self._boundary))
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 519, in __init__
+    unused_char = self._stream.read(1)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 391, in read
+    return b''.join(parts())
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 382, in parts
+    chunk = next(self)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 467, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 393, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: error during read(65536) on wsgi.input
+2022-03-22 06:50:09,723 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-22 07:36:07,314 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 08:10:08,384 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 08:38:03,952 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 08:44:57,107 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-22 08:45:05,455 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /nice ports,/Trinity.txt.bak
+2022-03-22 08:45:08,786 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-22 08:45:09,203 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /sip:nm
+2022-03-22 12:05:44,783 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 12:21:48,596 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 12:45:05,985 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 12:57:03,390 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-22 12:57:08,770 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /nice ports,/Trinity.txt.bak
+2022-03-22 12:57:09,878 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-22 12:57:10,482 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /sip:nm
+2022-03-22 13:07:48,371 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 14:13:35,574 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-22 14:14:06,791 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 121, in admin
+    os.mkdir(filepath + "../" + username)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/liekiewaa/web/imagefiles../libixian'
+2022-03-22 14:14:31,069 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 121, in admin
+    os.mkdir(filepath + "../" + username)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/liekiewaa/web/imagefiles../o'
+2022-03-22 14:16:34,134 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 391, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: error during read(65536) on wsgi.input
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 130, in user
+    templteselected = request.POST.get('templteselect')
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 362, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 322, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 240, in parse
+    for chunk in field_stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 536, in __next__
+    for bytes in stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 467, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 393, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: error during read(65536) on wsgi.input
+2022-03-22 14:17:20,593 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 391, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: error during read(65536) on wsgi.input
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 130, in user
+    templteselected = request.POST.get('templteselect')
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 362, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 322, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 240, in parse
+    for chunk in field_stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 536, in __next__
+    for bytes in stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 467, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 393, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: error during read(65536) on wsgi.input
+2022-03-22 14:18:14,561 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 391, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: error during read(65536) on wsgi.input
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 130, in user
+    templteselected = request.POST.get('templteselect')
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 362, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 322, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 240, in parse
+    for chunk in field_stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 536, in __next__
+    for bytes in stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 467, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 393, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: error during read(65536) on wsgi.input
+2022-03-22 14:19:48,420 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 391, in read
+    return self._stream.read(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 40, in read
+    result = self.buffer + self._read_limited(size - len(self.buffer))
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 28, in _read_limited
+    result = self.stream.read(size)
+OSError: error during read(29836) on wsgi.input
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 130, in user
+    templteselected = request.POST.get('templteselect')
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 362, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 322, in parse_file_upload
+    return parser.parse()
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 240, in parse
+    for chunk in field_stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 536, in __next__
+    for bytes in stream:
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 404, in __next__
+    output = next(self._producer)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/multipartparser.py", line 467, in __next__
+    data = self.flo.read(self.chunk_size)
+  File "/usr/local/lib64/python3.6/site-packages/django/http/request.py", line 393, in read
+    raise UnreadablePostError(*e.args) from e
+django.http.request.UnreadablePostError: error during read(29836) on wsgi.input
+2022-03-22 14:22:11,147 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-22 14:22:27,309 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 69, in login
+    operationmark(username, "login")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 27, in operationmark
+    uid = userinfo.objects.filter(username=ausername).values()[0]['userid']
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 318, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+2022-03-22 14:28:26,189 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 15:06:19,424 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /http:/fuwu.sogou.com/404/index.html
+2022-03-22 15:06:19,428 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /http:/fuwu.sogou.com/404/index.html
+2022-03-22 17:35:41,701 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 18:04:21,174 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 19:07:11,658 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 19:21:36,557 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 20:16:44,499 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 21:51:53,421 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-22 23:14:43,319 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-22 23:37:17,305 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 00:03:35,270 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-23 00:09:01,331 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 00:48:18,379 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 01:04:13,840 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 02:15:11,302 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-23 02:19:14,941 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: appa_userinfo.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 119, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 44, in adminadd
+    userinfo.objects.create(userid=k + 1, username=ausername, password=busercode, type=cusertype)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 921, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/sql/compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: appa_userinfo.username
+2022-03-23 02:19:33,777 [uWSGIWorker1Core0:140543031703744] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 121, in admin
+    os.mkdir(filepath + "../" + username)
+FileNotFoundError: [Errno 2] No such file or directory: '/root/liekiewaa/web/imagefiles../p'
