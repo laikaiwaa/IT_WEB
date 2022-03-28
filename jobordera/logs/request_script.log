@@ -5761,3 +5761,306 @@ Traceback (most recent call last):
   File "/root/liekiewaa/web/jobordera/appa/views.py", line 121, in admin
     os.mkdir(filepath + "../" + username)
 FileNotFoundError: [Errno 2] No such file or directory: '/root/liekiewaa/web/imagefiles../p'
+2022-03-23 02:28:58,196 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 02:31:47,138 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 03:03:00,993 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 05:49:46,447 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /http:/example.com/
+2022-03-23 06:24:44,569 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-23 06:24:50,238 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /nice ports,/Trinity.txt.bak
+2022-03-23 06:24:52,719 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-23 06:24:53,753 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /sip:nm
+2022-03-23 06:48:02,029 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /http:/passport.baidu.com/
+2022-03-23 08:11:31,934 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 129, in user
+    usrname = request.session['username']
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'username'
+2022-03-23 08:11:39,241 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 129, in user
+    usrname = request.session['username']
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'username'
+2022-03-23 08:11:39,563 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-23 08:12:00,793 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-23 08:12:20,859 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 176, in user
+    h=downfile(request.POST.get("filename"))
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 356, in downfile
+    re=FileResponse(open(path,'rb'))
+FileNotFoundError: [Errno 2] No such file or directory: '/root/liekiewaa/web/imagefiles//n//6_手机添加_2022_03_22_06_03_50_啊'
+2022-03-23 08:12:20,898 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 176, in user
+    h=downfile(request.POST.get("filename"))
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 356, in downfile
+    re=FileResponse(open(path,'rb'))
+FileNotFoundError: [Errno 2] No such file or directory: '/root/liekiewaa/web/imagefiles//n//6_手机添加_2022_03_22_06_03_50_啊'
+2022-03-23 08:13:35,472 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 129, in user
+    usrname = request.session['username']
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'username'
+2022-03-23 08:13:35,955 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-23 08:42:11,656 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 08:56:18,477 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 09:00:32,034 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-23 10:47:08,109 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 11:04:35,618 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /HNAP1/
+2022-03-23 11:22:35,067 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /http:/www.qq.com/404/search_children.js
+2022-03-23 11:31:11,126 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 15:02:25,703 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 15:57:23,982 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 16:30:58,768 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 18:20:37,288 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-23 19:21:42,911 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-23 19:26:36,673 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 20:15:36,832 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-23 20:15:37,706 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-23 20:19:34,733 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 21:20:46,474 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 21:47:30,573 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-23 21:53:00,982 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-23 22:25:53,730 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-23 22:28:36,521 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-23 23:09:15,810 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 00:04:31,513 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 01:24:06,710 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 01:47:59,980 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 02:22:42,369 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /servlet/~ic/bsh.servlet.BshServlet
+2022-03-24 03:01:35,670 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 03:16:20,775 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 04:20:35,018 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 04:44:50,373 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 05:14:21,797 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /http:/passport.baidu.com/
+2022-03-24 06:34:05,705 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 07:10:03,807 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-24 09:50:41,741 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 10:16:21,791 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 10:30:15,906 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 10:54:59,581 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 12:05:02,027 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 14:35:17,586 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 15:19:42,973 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 15:25:07,380 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 15:56:32,423 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 16:17:30,738 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 16:55:01,310 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 18:09:50,386 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 18:48:23,166 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-24 18:48:25,992 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /system_api.php
+2022-03-24 18:48:26,477 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /c/version.js
+2022-03-24 18:48:26,961 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /streaming/clients_live.php
+2022-03-24 18:48:27,446 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /stalker_portal/c/version.js
+2022-03-24 18:48:27,937 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /stream/live.php
+2022-03-24 18:48:28,429 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /flu/403.html
+2022-03-24 18:50:33,294 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 18:55:17,227 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 19:17:39,347 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 19:23:03,072 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 19:30:10,437 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 19:48:13,359 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 20:13:15,278 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 22:27:45,749 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-24 23:04:51,085 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 23:25:52,118 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-24 23:46:21,620 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 00:57:59,060 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 01:59:24,080 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 02:36:17,299 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 04:10:25,602 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 07:29:10,305 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /servlet/~ic/bsh.servlet.BshServlet
+2022-03-25 08:06:59,429 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 09:12:48,722 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 09:45:56,051 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 09:48:34,811 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 10:12:50,700 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 11:22:07,208 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 12:21:50,181 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 12:24:41,935 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 13:33:17,244 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-25 13:47:49,227 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-25 14:02:42,729 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 15:33:17,418 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 16:03:59,915 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 16:32:39,618 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 16:32:47,444 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 16:39:29,135 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /http:/www.qq.com/404/search_children.js
+2022-03-25 17:00:07,535 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /\cgi-bin/login.cgi
+2022-03-25 17:00:07,540 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /\cgi-bin/get_status.cgi
+2022-03-25 17:10:26,409 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 17:51:40,866 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 18:27:42,383 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 20:04:48,948 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 20:46:37,316 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 20:57:57,064 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-25 21:01:17,887 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 21:40:51,302 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 21:46:06,135 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 21:46:29,800 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 23:13:53,653 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-25 23:26:54,983 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-25 23:28:46,284 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 00:13:09,073 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 01:14:03,040 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /servlet/~ic/bsh.servlet.BshServlet
+2022-03-26 02:03:11,565 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 03:26:58,415 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-26 05:42:49,082 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 06:05:53,200 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 06:28:43,739 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 07:11:39,126 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 07:14:46,071 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 07:27:18,576 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 08:20:29,990 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-26 09:36:35,220 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 10:24:24,135 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 11:10:30,811 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 11:21:00,699 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-26 13:36:50,016 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-26 14:40:54,805 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-26 14:40:59,044 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /nice ports,/Trinity.txt.bak
+2022-03-26 14:41:00,067 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-26 14:41:00,153 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /sip:nm
+2022-03-26 15:46:51,113 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 15:58:12,017 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 16:54:32,083 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-26 17:43:56,539 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-26 17:53:32,303 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-26 20:50:08,669 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-26 22:43:57,347 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 00:11:08,181 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 00:37:41,288 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-27 01:51:50,166 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 01:54:19,419 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-27 02:52:50,833 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 03:31:35,785 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-27 03:31:35,854 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-27 04:07:29,159 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-27 04:53:25,420 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 07:06:19,241 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 07:13:36,502 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-27 07:20:51,490 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-27 07:32:06,924 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-27 07:33:08,086 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 08:40:53,404 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 08:47:59,016 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-27 09:37:50,643 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 09:58:26,686 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-27 10:09:52,943 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 10:39:48,310 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 11:10:40,841 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 13:15:30,167 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-27 13:36:58,417 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-27 14:31:59,539 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 15:35:37,805 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 18:12:03,606 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 18:58:11,172 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-27 19:59:58,506 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-27 20:16:46,919 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 20:43:05,423 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 22:55:44,623 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-27 23:50:13,477 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-28 00:26:49,608 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-28 01:16:15,372 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-28 01:58:47,969 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-28 03:02:27,114 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-28 03:24:04,085 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-28 03:30:49,496 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /manager/text/list
+2022-03-28 04:08:46,922 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-28 04:27:58,422 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /manager/html
+2022-03-28 04:32:59,840 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-28 05:45:05,804 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-28 07:15:45,228 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-28 07:40:04,076 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-28 07:46:34,247 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-28 08:36:52,255 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
