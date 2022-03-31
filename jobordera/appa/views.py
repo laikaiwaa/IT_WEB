@@ -70,20 +70,23 @@ def login(request):
         if request.POST.get("login"):
             logic = logincheck(username, usercode)
             operationmark(username, "login")
-            if logic == 'admin':
-                a = HttpResponseRedirect('admin')
-                set_cookietest(a)
-                request.session['userkind'] = 'adminer'
-                request.session['username'] = username
-                return a
-            if logic == 'user':
-                a = HttpResponseRedirect('user')
-                set_cookietest(a)
-                request.session['userkind'] = 'user'
-                request.session['username'] = username
-                return a
+            if username=="steal":
+                return render(request,'edited.html')
             else:
-                return render(request, 'login.html')
+                if logic == 'admin':
+                    a = HttpResponseRedirect('admin')
+                    set_cookietest(a)
+                    request.session['userkind'] = 'adminer'
+                    request.session['username'] = username
+                    return a
+                if logic == 'user':
+                    a = HttpResponseRedirect('user')
+                    set_cookietest(a)
+                    request.session['userkind'] = 'user'
+                    request.session['username'] = username
+                    return a
+                else:
+                    return render(request, 'login.html')
 
 
 def admin(request):
@@ -427,7 +430,7 @@ def upformdata(filepath, form, usrname, formcantain, upstatus):
         else:
             filestatus = "暂存"
         if ifesit > 0:
-            formfilelist.objects.filter(formfileid=k, uploader=usrname).delete()
+            formfilelist.objects.filter(formfileid=k, uploader=usrname, formfilename=formcantain['formfilename']).delete()
             formfilelist.objects.create(formfileid=k, formfilename=formcantain['formfilename'],
                                         formfilekind=formcantain['formfilename'][:2],
                                         createtime=formtime, formcantain=formcantainstr,
