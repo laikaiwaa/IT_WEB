@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+    <script type="text/javascript">
+    function successm(formid,savemode){
+
+        f=document.getElementById(formid)
+
+        data=new FormData(f)
+        if(savemode=="tempsave"){
+        data.append("tempsave","tempsave")}
+        if(savemode=="update"){
+        data.append("update","update")}
+        data.append("updatereflush","updatereflush")
+
+        x=new XMLHttpRequest
+        x.onreadystatechange=backalert
+        x.open("POST","./",true)
+        x.send(data)
+        //监听进度
+        x.upload.addEventListener("progress", uploadProgress(event), false);
+
+
+    }
+    function uploadProgress(event) {
+    a=document.getElementById("formcantain");
+    a.insertBefore(document.createTextNode("上传中"),a.childNodes[10]);
+    }
+    function backalert(){
+         if(x.readyState==4){alert("上传完成")}
+    }
+    </script>
+</head>
+<body>
+<form action="" method="POST" id="formcantain" >
+  用户名：{{ username }}</br>
+  <hr style="border:1px dashed #000">
+  <input type="submit" name="back" formmethod="get" value="返回">
+  {% if readmodel == uploadpermi %}
+  <input type="submit" name="tempsave"   value="暂存表单"  onclick="successm('formcantain','tempsave')">
+  <input type="submit" name="update"  value="上传表单" onclick="successm('formcantain','update')">
+    <hr style="border:1px dashed #000">
+  <tr>
+      <td>
+        <input type="file" id="filebutton" name='chosefiles' multiple="multiple"  />
+      </td>
+  </tr>
+  {% endif %}
+    <hr style="border:1px dashed #000">
+  {% for eachfile in fileaddres %}
+  <tr>
+      <td><input name='filename' type='submit' value={{ eachfile}} onclick="display()"></td></br>
+  </tr>
+  {% endfor %}
+  <hr style="border:1px dashed #000">
+<table border="1" class="dataframe"  style="border-collapse:collapse">
+  <thead>
+    <tr style="text-align: center;" >
+      <th colspan="6"><font size="20" >系统调试点检表</font></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2">文件编号:</td>
+        <td colspan="4"><textarea readonly name="formfilename" style="width:95%;height:100%;border-style:none">{{formfilename}}</textarea> </td>
+    </tr>
+    <tr>
+      <td colspan="2">项目名称</td>
+      <td colspan="2"><textarea name="projectname" style="width:95%;height:100%;border-style:none">{{formcantain.projectname}}</textarea></td>
+      <td>产品型号</td>
+      <td ><textarea  name="producttype" style="width:95%;height:100%;border-style:none">{{formcantain.producttype}}</textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2">项目成员</td>
+      <td colspan="4"><textarea name="projectmember" style="width:95%;height:100%;border-style:none">{{formcantain.projectmember}}</textarea></td>
+    </tr>
+    <tr><td>序号</td><td>项目</td><td>点检事项</td><td>点检内容</td><td>点检状态</td><td>备注</td></tr>
+    <tr>
+      <td>1</td>
+      <td rowspan="4">供应商</td>
+      <td>BMS</td>
+      <td>确认到场时间</td>
+		{% if formcantain.item01mark %}
+          <td ><input type="checkbox" name="item01mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item01mark" ></td>
+		{% endif %} 
+      <td><textarea name="item01remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item01remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>EMS</td>
+      <td>确认到场时间</td>
+      {% if formcantain.item02mark %}
+          <td ><input type="checkbox" name="item02mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item02mark" ></td>
+		{% endif %} 
+      <td><textarea name="item02remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item02remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>PCS</td>
+      <td>确认到场时间</td>
+      {% if formcantain.item03mark %}
+          <td ><input type="checkbox" name="item03mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item03mark" ></td>
+		{% endif %} 
+      <td><textarea name="item03remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item03remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>集装箱</td>
+      <td>确认到场时间</td>
+		{% if formcantain.item04mark %}
+		  <td ><input type="checkbox" name="item04mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item04mark" ></td>
+		{% endif %} 
+      <td><textarea name="item04remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item04remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td rowspan="22">调试前检查</td>
+      <td rowspan="3">外观检查</td>
+      <td>集装箱是否水平，焊接处是否存在虚焊、漏焊</td>
+      {% if formcantain.item05mark %}
+		  <td ><input type="checkbox" name="item05mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item05mark" ></td>
+		{% endif %}
+      <td><textarea name="item05remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item05remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>电池架是否变形、偏移</td>
+      {% if formcantain.item06mark %}
+		  <td ><input type="checkbox" name="item06mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item06mark" ></td>
+		{% endif %}
+      <td><textarea name="item06remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item06remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>汇流柜、PCS柜、空调或水冷机组、消防固定确认</td>
+		{% if formcantain.item07mark %}
+		  <td ><input type="checkbox" name="item07mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item07mark" ></td>
+		{% endif %}
+      <td><textarea name="item07remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item07remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td rowspan="4">开关确认</td>
+      <td>高压箱直流、交流开关确认</td>
+      {% if formcantain.item08mark %}
+		  <td ><input type="checkbox" name="item08mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item08mark" ></td>
+		{% endif %}
+      <td><textarea name="item08remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item08remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>汇流柜开关、断路器全部断开</td>
+      {% if formcantain.item09mark %}
+		  <td ><input type="checkbox" name="item09mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item09mark" ></td>
+		{% endif %}
+      <td><textarea name="item09remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item09remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>PCS开关、断路器全部断开</td>
+      {% if formcantain.item10mark %}
+		  <td ><input type="checkbox" name="item10mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item10mark" ></td>
+		{% endif %}
+      <td><textarea name="item10remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item10remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>消防电磁阀确认</td>
+      {% if formcantain.item11mark %}
+		  <td ><input type="checkbox" name="item11mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item11mark" ></td>
+		{% endif %}
+      <td><textarea name="item11remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item11remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td rowspan="8">电池仓检查</td>
+      <td>电池插箱固定是否牢固</td>
+      {% if formcantain.item12mark %}
+		  <td ><input type="checkbox" name="item12mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item12mark" ></td>
+		{% endif %}
+      <td><textarea name="item12remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item12remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>电池插箱间线束连接是否牢固</td>
+      {% if formcantain.item13mark %}
+		  <td ><input type="checkbox" name="item13mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item13mark" ></td>
+		{% endif %}
+      <td><textarea name="item13remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item13remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>BMS线束连接是否牢固</td>
+      {% if formcantain.item14mark %}
+		  <td ><input type="checkbox" name="item14mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item14mark" ></td>
+		{% endif %}
+      <td><textarea name="item14remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item14remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>空调/水冷机组电源线束连接是否牢固</td>
+      {% if formcantain.item15mark %}
+		  <td ><input type="checkbox" name="item15mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item15mark" ></td>
+		{% endif %}
+      <td><textarea name="item15remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item15remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>液冷管路连接是否正确、牢固</td>
+      {% if formcantain.item16mark %}
+		  <td ><input type="checkbox" name="item16mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item16mark" ></td>
+		{% endif %}
+      <td><textarea name="item16remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item16remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>汇流柜线束连接是否牢固</td>
+      {% if formcantain.item17mark %}
+		  <td ><input type="checkbox" name="item17ark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item17mark" ></td>
+		{% endif %}
+      <td><textarea name="item17remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item17remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>电池仓所有设备是否安全接地</td>
+      {% if formcantain.item18mark %}
+		  <td ><input type="checkbox" name="item18mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item18mark" ></td>
+		{% endif %}
+      <td><textarea name="item18remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item18remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>电池簇、配电柜绝缘是否正常</td>
+      {% if formcantain.item19mark %}
+		  <td ><input type="checkbox" name="item19mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item19mark" ></td>
+		{% endif %}
+      <td><textarea name="item19remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item19remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td  rowspan="5">电气仓检查</td>
+      <td>PCS交流侧线束连接是否正确、牢固</td>
+      {% if formcantain.item20mark %}
+		  <td ><input type="checkbox" name="item20mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item20mark" ></td>
+		{% endif %}
+      <td><textarea name="item20remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item20remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>PCS直流侧线束连接是否正确、牢固</td>
+      {% if formcantain.item21mark %}
+		  <td ><input type="checkbox" name="item21ark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item21mark" ></td>
+		{% endif %}
+      <td><textarea name="item21remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item21remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>PCS内部线束连接是否牢固</td>
+      {% if formcantain.item22mark %}
+		  <td ><input type="checkbox" name="item22mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item22mark" ></td>
+		{% endif %}
+      <td><textarea name="item22remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item22remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>电气柜线束连接是否正确、牢固</td>
+      {% if formcantain.item23mark %}
+		  <td ><input type="checkbox" name="item23mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item23mark" ></td>
+		{% endif %}
+      <td><textarea name="item23remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item23remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>电气仓所有设备是否安全接地</td>
+      {% if formcantain.item24mark %}
+		  <td ><input type="checkbox" name="item24mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item24mark" ></td>
+		{% endif %}
+      <td><textarea name="item24remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item24remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td rowspan="2">外部接线检查</td>
+      <td>220V交流供电线接线检查</td>
+      {% if formcantain.item25mark %}
+		  <td ><input type="checkbox" name="item25mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item25ark" ></td>
+		{% endif %}
+      <td><textarea name="item25remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item25remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>380V交流动力线接线检查</td>
+      {% if formcantain.item26mark %}
+		  <td ><input type="checkbox" name="item26mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item26mark" ></td>
+		{% endif %}
+      <td><textarea name="item26remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item26remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td rowspan="18">上电及调试</td>
+      <td rowspan="6">配电箱辅助电源上电</td>
+      <td>照明系统上电，检查日光灯照明是否正常</td>
+      {% if formcantain.item27mark %}
+		  <td ><input type="checkbox" name="item27mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item27mark" ></td>
+		{% endif %}
+      <td><textarea name="item27remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item27remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>消防系统上电，检查消防系统是否存在异常告警</td>
+      {% if formcantain.item28mark %}
+		  <td ><input type="checkbox" name="item28mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item28mark" ></td>
+		{% endif %}
+      <td><textarea name="item28remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item28remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>空调系统上电，检查空调是否正常（风冷系统）</td>
+      {% if formcantain.item29mark %}
+		  <td ><input type="checkbox" name="item29mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item29mark" ></td>
+		{% endif %}
+      <td>针对风冷系统或液冷系统选择其一</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>液冷系统上电，检查水冷机组是否正常、</br>水路是否存在漏液（液冷系统）</td>
+      {% if formcantain.item30mark %}
+		  <td ><input type="checkbox" name="item30mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item30mark" ></td>
+		{% endif %}
+      <td><textarea name="item30remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item30remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>汇流柜上电，检查汇流柜是否正常</td>
+      {% if formcantain.item31mark %}
+		  <td ><input type="checkbox" name="item31mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item31mark" ></td>
+		{% endif %}
+      <td><textarea name="item31remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item31remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>BMS上电，检查BMS是否有异常告警</td>
+      {% if formcantain.item32mark %}
+		  <td ><input type="checkbox" name="item32mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item32mark" ></td>
+		{% endif %}
+      <td><textarea name="item32remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item32remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td rowspan="4">PCS柜上电</td>
+      <td>合上PCS柜交流断路器开关，检查是否有异常告警</td>
+      {% if formcantain.item33mark %}
+		  <td ><input type="checkbox" name="item33mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item33mark" ></td>
+		{% endif %}
+      <td><textarea name="item33remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item33remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>合上PCS柜直流断路器开关，检查是否有异常告警</td>
+      {% if formcantain.item34mark %}
+		  <td ><input type="checkbox" name="item34mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item34mark" ></td>
+		{% endif %}
+      <td><textarea name="item34remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item34remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>软件版本是否需要升级</td>
+      {% if formcantain.item35mark %}
+		  <td ><input type="checkbox" name="item35mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item35mark" ></td>
+		{% endif %}
+      <td><textarea name="item35remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item35remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>PCS参数设置</td>
+      {% if formcantain.item36mark %}
+		  <td ><input type="checkbox" name="item36mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item36mark" ></td>
+		{% endif %}
+      <td><textarea name="item36remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item36remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td rowspan="4">电气柜上电</td>
+      <td>开启UPS备用电，检查是否正常</td>
+      {% if formcantain.item37mark %}
+		  <td ><input type="checkbox" name="item37mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item37mark" ></td>
+		{% endif %}
+      <td><textarea name="item37remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item37remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>闭合交流电，检查是否正常</td>
+      {% if formcantain.item38mark %}
+		  <td ><input type="checkbox" name="item38mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item38mark" ></td>
+		{% endif %}
+      <td><textarea name="item38remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item38remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>软件版本是否需要升级（BMU、BCMU、BMS）</td>
+      {% if formcantain.item39mark %}
+		  <td ><input type="checkbox" name="item39mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item39mark" ></td>
+		{% endif %}
+      <td><textarea name="item39remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item39remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>BMS参数设置（按照FAT文件）</td>
+      {% if formcantain.item40mark %}
+		  <td ><input type="checkbox" name="item40ark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item40mark" ></td>
+		{% endif %}
+      <td><textarea name="item40remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item40remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td rowspan="4">调试</td>
+      <td>BMU、BMS通讯调试，U盘调试存储数据</td>
+      {% if formcantain.item41mark %}
+		  <td ><input type="checkbox" name="item41mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item41mark" ></td>
+		{% endif %}
+      <td>调试过程中收集图片、数据、问题点，</br>并形成测试报告和问题点清单</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>PCS通讯调试</td>
+      {% if formcantain.item42mark %}
+		  <td ><input type="checkbox" name="item42mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item42mark" ></td>
+		{% endif %}
+      <td><textarea name="item42remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item42remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>EMS通讯调试</td>
+      {% if formcantain.item43mark %}
+		  <td ><input type="checkbox" name="item43mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item43mark" ></td>
+		{% endif %}
+      <td><textarea name="item43remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item43remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>功能性测试</td>
+      {% if formcantain.item44mark %}
+		  <td ><input type="checkbox" name="item44mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item44mark" ></td>
+		{% endif %}
+      <td><textarea name="item44remarks"  style="width:95%;height:100%;border-style:none">{{formcantain.item44remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td rowspan="13">整站联调</td>
+      <td rowspan="1">各设备通讯联调</td>
+      <td>联调问题点记录</td>
+      {% if formcantain.item45mark %}
+		  <td ><input type="checkbox" name="item45mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item45mark" ></td>
+		{% endif %}
+      <td>确认问题责任方，推动协调整改（储能系统、</br>施工方、设备商）</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td rowspan="7">设备功能测试</td>
+      <td>PCS功能测试</td>
+      {% if formcantain.item46mark %}
+		  <td ><input type="checkbox" name="item46mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item46mark" ></td>
+		{% endif %}
+      <td><textarea name="item46remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item46remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>BMS功能测试</td>
+      {% if formcantain.item47mark %}
+		  <td ><input type="checkbox" name="item47mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item47mark" ></td>
+		{% endif %}
+      <td><textarea name="item47remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item47remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>消防功能测试</td>
+      {% if formcantain.item48mark %}
+		  <td ><input type="checkbox" name="item48mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item48mark" ></td>
+		{% endif %}
+      <td><textarea name="item48remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item48remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>空调功能测试</td>
+      {% if formcantain.item49mark %}
+		  <td ><input type="checkbox" name="item49mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item49mark" ></td>
+		{% endif %}
+      <td>针对风冷系统或液冷系统选择其一</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>水冷机组功能测试</td>
+      {% if formcantain.item50mark %}
+		  <td ><input type="checkbox" name="item50mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item50mark" ></td>
+		{% endif %}
+      <td><textarea name="item50remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item50remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>EMS功能测试</td>
+      {% if formcantain.item51mark %}
+		  <td ><input type="checkbox" name="item51mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item51mark" ></td>
+		{% endif %}
+      <td><textarea name="item51remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item51remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>监控功能测试</td>
+      {% if formcantain.item52mark %}
+		  <td ><input type="checkbox" name="item52mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item52mark" ></td>
+		{% endif %}
+      <td><textarea name="item52remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item52remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td rowspan="2">试运行</td>
+      <td>充放电数据获取</td>
+      {% if formcantain.item53mark %}
+		  <td ><input type="checkbox" name="item53mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item53ark" ></td>
+		{% endif %}
+      <td><textarea name="item53remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item53remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>各设备运行状态跟进</td>
+      {% if formcantain.item54mark %}
+		  <td ><input type="checkbox" name="item54mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item54mark" ></td>
+		{% endif %}
+      <td><textarea name="item54remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item54remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td rowspan="3">联调结束</td>
+      <td>现场培训记录</td>
+      {% if formcantain.item55mark %}
+		  <td ><input type="checkbox" name="item55mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item55mark" ></td>
+		{% endif %}
+      <td>《安装使用说明》、《保养维护手册》</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>输出问题点清单和FAT报告</td>
+      {% if formcantain.item56mark %}
+		  <td ><input type="checkbox" name="item56mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item56mark" ></td>
+		{% endif %}
+      <td><textarea name="item56remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item56remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>申请离场</td>
+      {% if formcantain.item57mark %}
+		  <td ><input type="checkbox" name="item57mark" checked="checked"></td>
+		{% else %}
+		  <td ><input type="checkbox" name="item57mark" ></td>
+		{% endif %}
+      <td><textarea name="item57remarks" style="width:95%;height:100%;border-style:none">{{formcantain.item57remarks}}</textarea></td>
+    </tr>
+    <tr>
+      <td colspan="6">
+        <span>
+          注：</br>
+          1.调试工作需要严格按照指导文件执行，禁止未经培训人员进行操作；</br>
+          2.调试前需与现场工作人员沟通，得到肯定答复后方可开始上电调试，并通知现场工作人员；</br>
+          3.调试过程中出现的问题点需记录在案，明确责任方，并形成经验库；</br>
+          4.现场调试工作需要每天汇报进度及计划。
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="6">亿纬锂能保密信息，未经允许不得扩散</td>
+    </tr>
+  </tbody>
+</table>
+</form>
+</body>

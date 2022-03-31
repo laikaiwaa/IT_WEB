@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+    <script type="text/javascript">
+    function getform2(){
+        a=document.getElementById("formselect")
+        a.submit();
+    }
+    function getform(){
+        //fa=document.getElementById("formb")
+
+        tb=document.getElementById('userformist').tBodies[0];
+        elm=event.srcElement.parentElement.parentElement.rowIndex;
+        tam=tb.rows[elm].cells[0].innerText
+        alert(tam)
+
+        data=new FormData()
+        data.append("displayform","display")
+        data.append("templteselect",tam)
+
+        x=new XMLHttpRequest
+        x.onreadystatechange=function(){
+        if(x.readyState==4 ){
+
+        alert(x.response)
+        //alert(x.responseText)
+        x.responseText
+        }
+        }
+        x.open("POST","./",true)
+        x.send(data)
+
+
+        //elm.style.color='red'
+    }
+    function uploadProgress(event) {
+    a=document.getElementById("formb");
+    a.insertBefore(document.createTextNode("上传中"),a.childNodes[10]);
+    }
+
+    </script>
+</head>
+<body>
+
+    <form action="" method="POST" enctype="multipart/form-data" id="formb"   >
+        用户名：{{ username }}
+        <input type="submit" name='usehistory' value="使用记录" > <input type="submit" name='quit' value="退出" ></br>
+        <hr style="border:1px dashed #000">
+        新增表单：
+        <input type="submit" name='form_fileslist' value="前期准备文件清单" >
+        <input type="submit" name='form_syschecklist' value="系统调试点检表" ></br>
+    </form>
+    <hr style="border:1px dashed #000">
+    <form action="" method="POST" id="formselect" >
+    <table border="1"  name="userformist" style="border-collapse:collapse">
+        <tr><td>序号</td><td>表名</td><td>状态</td></tr>
+        {% for i in formnamelist %}
+        <tr><td>{{i.0}}</td>
+            <td>{{i.1}}</td>
+            <td><a href="./?formid={{i.0}}">{{i.2}}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    </form>
+
+</body>
+</html>
