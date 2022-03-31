@@ -6100,3 +6100,30 @@ Traceback (most recent call last):
   File "/usr/local/lib64/python3.6/site-packages/django/template/loader.py", line 19, in get_template
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: edited.html
+2022-03-31 06:38:28,545 [uWSGIWorker1Core0:140277771000000] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-31 06:38:44,733 [uWSGIWorker1Core0:140277771000000] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.
+2022-03-31 06:38:44,773 [uWSGIWorker1Core0:140277771000000] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 188, in _get_response
+    self.check_response(response, callback)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 311, in check_response
+    "instead." % name
+ValueError: The view appa.views.login didn't return an HttpResponse object. It returned None instead.

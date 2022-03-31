@@ -70,23 +70,20 @@ def login(request):
         if request.POST.get("login"):
             logic = logincheck(username, usercode)
             operationmark(username, "login")
-            if username=="steal":
-                return render(request,'edited.html')
+            if logic == 'admin':
+                a = HttpResponseRedirect('admin')
+                set_cookietest(a)
+                request.session['userkind'] = 'adminer'
+                request.session['username'] = username
+                return a
+            if logic == 'user':
+                a = HttpResponseRedirect('user')
+                set_cookietest(a)
+                request.session['userkind'] = 'user'
+                request.session['username'] = username
+                return a
             else:
-                if logic == 'admin':
-                    a = HttpResponseRedirect('admin')
-                    set_cookietest(a)
-                    request.session['userkind'] = 'adminer'
-                    request.session['username'] = username
-                    return a
-                if logic == 'user':
-                    a = HttpResponseRedirect('user')
-                    set_cookietest(a)
-                    request.session['userkind'] = 'user'
-                    request.session['username'] = username
-                    return a
-                else:
-                    return render(request, 'login.html')
+                return render(request, 'login.html')
 
 
 def admin(request):
