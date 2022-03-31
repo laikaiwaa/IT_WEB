@@ -5784,3 +5784,276 @@ Traceback (most recent call last):
   File "/root/liekiewaa/web/jobordera/appa/views.py", line 403, in upformdata
     filelist = os.listdir(filepath + "/" + usrname + "/")
 FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:28:20,606 [uWSGIWorker1Core0:140086592219328] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 403, in upformdata
+    filelist = os.listdir(filepath + "/" + usrname + "/")
+FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:29:58,800 [uWSGIWorker1Core0:139670351280320] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 240, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 404, in upformdata
+    filelist = os.listdir(filepath + "/" + usrname + "/")
+FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:30:57,432 [uWSGIWorker1Core0:140380037626048] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 403, in upformdata
+    filelist = os.listdir(filepath + "/" + usrname + "/")
+FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:33:30,536 [uWSGIWorker1Core0:139885647341760] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 403, in upformdata
+    filelist = os.listdir(filepath + "/" + usrname + "/")
+FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:35:01,026 [uWSGIWorker1Core0:140075694270656] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 404, in upformdata
+    filelist = os.listdir(filepath + "/" + usrname + "/")
+FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:35:31,415 [uWSGIWorker1Core0:140329412036800] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 404, in upformdata
+    filelist = os.listdir(filepath + "/" + usrname + "/")
+FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:35:51,392 [uWSGIWorker1Core0:140651076585664] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 404, in upformdata
+    filelist = os.listdir(filepath + "/" + usrname + "/")
+FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:36:34,083 [uWSGIWorker1Core0:140355289876672] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 404, in upformdata
+    filelist = os.listdir(filepath + "/" + usrname + "/")
+FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:37:19,332 [uWSGIWorker1Core0:139956233652416] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 404, in upformdata
+    filelist = os.listdir(filepath + "/" + usrname + "/")
+FileNotFoundError: [Errno 2] No such file or directory: '../imagefiles/n/'
+2022-03-31 03:41:30,902 [uWSGIWorker1Core0:140611831179456] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 405, in upformdata
+    print("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",filelist)
+OSError: [Errno 5] Input/output error
+2022-03-31 03:41:46,125 [uWSGIWorker1Core0:140611831179456] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 239, in user
+    upformdata(filepath, files, usrname, request.POST, "update")
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 405, in upformdata
+    print("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",filelist)
+OSError: [Errno 5] Input/output error
+2022-03-31 03:57:48,431 [uWSGIWorker1Core0:140611831179456] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-31 04:19:50,788 [uWSGIWorker1Core0:139687903332544] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-03-31 04:56:47,341 [uWSGIWorker1Core0:140309058119872] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 171, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+2022-03-31 04:58:56,322 [uWSGIWorker1Core0:140309058119872] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 171, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+2022-03-31 05:01:06,165 [uWSGIWorker1Core0:140333719144640] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 171, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+2022-03-31 05:01:07,604 [uWSGIWorker1Core0:140333719144640] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 171, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+2022-03-31 05:02:32,955 [uWSGIWorker1Core0:140392367147200] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 171, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+2022-03-31 05:02:39,895 [uWSGIWorker1Core0:140392367147200] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 171, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+2022-03-31 05:03:55,416 [uWSGIWorker1Core0:139634682898624] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 173, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+2022-03-31 05:03:57,114 [uWSGIWorker1Core0:139634682898624] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 173, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+2022-03-31 05:07:29,219 [uWSGIWorker1Core0:140067377563840] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 173, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)
+2022-03-31 05:10:14,301 [uWSGIWorker1Core0:140067377563840] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /user/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 173, in user
+    'fileaddres': json.loads(formbase['fileaddress']),
+  File "/usr/lib64/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 2 (char 1)

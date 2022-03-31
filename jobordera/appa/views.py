@@ -14,7 +14,7 @@ mylog = logging.getLogger('myproject.custom')
 
 
 def settingg():
-    filepath = "../imagefiles"
+    filepath = "/root/liekiewaa/web/imagefiles"
     return filepath
 
 
@@ -164,8 +164,8 @@ def user(request):
                     "selectnow": "", "username": request.session['username'], "formnamelist": ["", ""]}
 
         if request.method == "GET":
-            if request.GET.get('formid'):
-                formbase = myform(request, usrname, request.GET.get('formid'))
+            if request.GET.get('checkform'):
+                formbase = myform(request, usrname, request.GET.get('checkform'))
                 userdata = {
                     'formfilename': formbase['formfilename'],
                     'fileaddres': json.loads(formbase['fileaddress']),
@@ -213,7 +213,7 @@ def user(request):
                     # 处理查看
                     else:
                         userdata2['selectednow'] = int(request.POST.get("templteselect"))
-                        formbase = myform(request, usrname, str(userdata2['selectednow']))
+                        formbase = myform(request, usrname, str(userdata2['selectednow'])) 
                         userdata2['fileaddres'] = json.loads(formbase[0][1].replace("'", "\""))
                         userdata2['formcantans'] = json.loads(formbase[0][0])
                         userdata2['formnamelist'] = request.session['formnamelist']
@@ -235,7 +235,7 @@ def user(request):
                 if request.POST.get("update"):
                     files = request.FILES.getlist('chosefiles')
                     filepath = settingg()
-                    if request.POST.get("updatereflush"):
+                    if request.POST.get("updatereflush"): 
                         upformdata(filepath, files, usrname, request.POST, "update")
                         operationmark(usrname, "updata")
                         userdata = {"formfilename": "", "username": usrname,
@@ -391,19 +391,20 @@ def usehistory(request):
 
 
 def upformdata(filepath, form, usrname, formcantain, upstatus):
+    
     formcantainstr = json.dumps(formcantain)
     # 读取基础信息
     k = int(formcantain['formfilename'][2:formcantain['formfilename'].find("_")])
     # 读取文档
     fileaddress = list()
     # 标记是否有记录
-    ifesit = len(formfilelist.objects.filter(formfileid=k, uploader=usrname).values())
+    ifesit = len(formfilelist.objects.filter(formfileid=k, uploader=usrname,formfilekind=formcantain['formfilename'][:2]).values())
 
     # 查看文件是否存在
-    filelist = os.listdir(filepath + "/" + usrname + "/")
+    filelist = os.listdir(filepath + "/" + usrname + "/") 
     for i in filelist:
         if i[:i.find('_')] == formcantain['formfilename'][:formcantain['formfilename'].find("_")]:
-            fileaddress.append(usrname + "/" + i)
+            fileaddress.append(usrname + "/" + i) 
     # 写入档案
     for eachfile in form:
         name = usrname + "/" + formcantain['formfilename'] + "_" + eachfile.name.replace(" ", "_")
@@ -417,9 +418,8 @@ def upformdata(filepath, form, usrname, formcantain, upstatus):
         except Exception as dd:
             print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", dd, name.encode(encoding="utf-8"))
 
-    # 信息写库
+    # 信息写库 
     formtime = datetime.datetime.strftime(datetime.datetime.now(), "%Y_%m_%d_%H_%M_%S")
-
     try:
         if upstatus == "update":
             filestatus = "已上传"
@@ -434,6 +434,7 @@ def upformdata(filepath, form, usrname, formcantain, upstatus):
                                         fileaddress=json.dumps(fileaddress),
                                         uploader=usrname, filestatus=filestatus)
         else:
+            
             formfilelist.objects.create(formfileid=k, formfilename=formcantain['formfilename'],
                                         formfilekind=formcantain['formfilename'][:2],
                                         createtime=formtime, formcantain=formcantainstr,
@@ -517,14 +518,14 @@ def strtolistfrombase(str):
     la = list()
 
 
-def myform(request, name, formfileid=None):
+def myform(request, name, formfilename=None):
     cursor = connection.cursor()
-    if formfileid is None:
+    if formfilename is None:
         formnamelist = cursor.execute(
             "select formfileid,formfilename,filestatus from appa_formfilelist where uploader='" + name + "'").fetchall()
         return formnamelist
     else:
-        formmessage = md.formfilelist.objects.filter(uploader=name, formfileid=formfileid).values()[0]
+        formmessage = md.formfilelist.objects.filter(uploader=name, formfilename=formfilename).values()[0]
         return formmessage
 
 
