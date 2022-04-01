@@ -4,7 +4,7 @@ from django.db import models
 class userinfo(models.Model):
     userid = models.IntegerField(primary_key=True)
     username = models.CharField(max_length=30, unique=True, null=False)
-    password = models.CharField(max_length=30)
+    password = models.CharField(max_length=50)
     type = models.CharField(max_length=5)
 
 class loginhistory(models.Model):
