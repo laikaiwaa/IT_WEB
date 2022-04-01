@@ -56,10 +56,10 @@
     <form action="" method="POST" id="forma">
         选择模板: <select style="width:100px;"  name="templteselect" >
                     {% for i in  namelist %}
-                    {% if i.0 == selectnow %}
-                    <option value={{i.0}} selected="selected" >{{i.0}}</option>
+                    {% if i.templtename == selectnow %}
+                    <option value={{i.templtename}} selected="selected" >{{i.templtename}}</option>
                     {% else %}
-                    <option value={{i.0}} >{{i.0}}</option>
+                    <option value={{i.templtename}} >{{i.templtename}}</option>
                     {% endif %}
                     {% endfor %}
                 </select><br>
