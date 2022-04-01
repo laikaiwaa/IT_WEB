@@ -5,23 +5,23 @@
     <title>admin</title>
 </head>
 <body>
+<div  style="text-align:center;margin:100px;font-size:20px">
     <form action="" method="POST">
-    用戶: <input type="text" name="username" value={{ refrash }}
-            {% for each in refrash %}
-           {{ each }}
-            {% endfor %}
-    ><br>
+        用户名：{{ username }}</br>
+        <input type="submit" name='usehistory' value="操作历史" >
+        <input type="submit" name='checklisttemplate' value="模板列表" >
+        <input type="submit" name='quit' value="退出" >
+        <hr style="border:1px dashed #000">
+        用戶: <input type="text" name="username" value={{ refrash }}><br>
         密碼: <input type="text" name="usercode"><br>
         类型: <select style="width:100px;"  name="usertype"><option value="admin">admin</option><option value="user">user</option></select><br>
         <input type="submit" name='check' value="查找用户" >
         <input type="submit" name='add' value="添加用户" >
         <input type="submit" name='all' value="所有用户" >
-        <input type="submit" name='usehistory' value="操作历史" >
-        <input type="submit" name='checklisttemplate' value="模板列表" >
-        <input type="submit" name='quit' value="退出" >
+        <input type="submit" name='delete' value="删除用户" >
+
     </form>
-    {#<textarea rows="10" cols="100">#}
-        <table border="1">
+    <table border="1" style="align:center;border-collapse:collapse">
         <tr>
         <td>userid</td><td>username</td><td>password</td><td>type</td>
         </tr>
@@ -30,9 +30,7 @@
             <td>{{ each.userid}}</td><td> {{ each.username}}</td><td>  {{ each.password}}</td><td> {{ each.type}}</td>
             </tr>
         {% endfor %}
-
-        </table>
-    {#</textarea>#}
-
+    </table>
+</div>
 </body>
 </html>
