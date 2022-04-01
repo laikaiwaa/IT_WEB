@@ -43,7 +43,7 @@
     </script>
 </head>
 <body>
-
+<div  style="text-align:center;margin:100px;font-size:20px">
     <form action="" method="POST" enctype="multipart/form-data" id="formb"   >
         用户名：{{ username }}
         <input type="submit" name='usehistory' value="使用记录" > <input type="submit" name='quit' value="退出" ></br>
@@ -57,14 +57,14 @@
     <table border="1"  name="userformist" style="border-collapse:collapse">
         <tr><td>序号</td><td>表名</td><td>状态</td></tr>
         {% for i in formnamelist %}
-        <tr><td>{{i.0}}</td>
-            <td>{{i.1}}</td>
-            <td><a href="./?checkform={{i.1}}">{{i.2}}</a></td>
+        <tr><td>{{i.formfileid}}</td>
+            <td>{{i.formfilename}}</td>
+            <td><a href="./?checkform={{i.formfilename}}">{{i.filestatus}}</a></td>
         </tr>
         {% endfor %}
     </table>
 
     </form>
-
+</div>
 </body>
 </html>
