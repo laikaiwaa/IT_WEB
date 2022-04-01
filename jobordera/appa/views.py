@@ -9,8 +9,13 @@ import logging
 import datetime
 import os
 import json
+from django.contrib.auth.hashers import make_password, check_password
+import random
+import hashlib
 
 mylog = logging.getLogger('myproject.custom')
+keyinserver = None
+salt = b'liekiewaa'
 
 
 def settingg():
@@ -18,35 +23,43 @@ def settingg():
     return filepath
 
 
+def codesha(code):
+    h = hashlib.sha1(salt)
+    h.update(code.encode('utf-8'))
+    return h.hexdigest()
+
+
+# 登录验证
 def logincheck(ausername, busercode):
-    result = userinfo.objects.filter(username=ausername, password=busercode).values()
+    result = userinfo.objects.filter(username=ausername, password=codesha(busercode)).values()
     if result:
         return result[0]['type']
     else:
         return []
 
 
+# 操作记录
 def operationmark(ausername, aactionkind):
     uid = userinfo.objects.filter(username=ausername).values()[0]['userid']
     loginhistory.objects.create(userid=uid, username=ausername, actionkind=aactionkind)
 
 
-def adminall():
-    result = userinfo.objects.all().values()
-    return result
+# 用户管理
+class adminuser():
+    def adminall(self):
+        return userinfo.objects.all().values()
 
+    def admincheck(self, username):
+        return userinfo.objects.filter(username=username).values()
 
-def admincheck(ausername):
-    result = userinfo.objects.filter(username=ausername).values()
-    return result
+    def adminadd(self, username, busercode, cusertype):
+        k = userinfo.objects.aggregate(models.Max('userid'))['userid__max']
+        userinfo.objects.create(userid=k + 1, username=username, password=codesha(busercode), type=cusertype)
+        return userinfo.objects.all().values()
 
-
-def adminadd(ausername, busercode, cusertype):
-    cursor = connection.cursor()
-    k = cursor.execute("select count(*) from appa_userinfo").fetchall()[0][0]
-    userinfo.objects.create(userid=k + 1, username=ausername, password=busercode, type=cusertype)
-    select = userinfo.objects.all().values()
-    return select
+    def admindelete(self, username):
+        userinfo.objects.filter(username=username).delete()
+        return userinfo.objects.all().values()
 
 
 def serch(b, e):
@@ -61,6 +74,16 @@ def serch(b, e):
         return result
 
 
+def check_decorate(fun):
+    def wrapper(request, *args, **kwargs):
+        if check_password(keyinserver, request.session['code']):
+            return fun(request, *args, **kwargs)
+        else:
+            return HttpResponseRedirect("../")
+
+    return wrapper
+
+
 def login(request):
     username = request.POST.get('username')
     usercode = request.POST.get('usercode')
@@ -70,6 +93,11 @@ def login(request):
         if request.POST.get("login"):
             logic = logincheck(username, usercode)
             operationmark(username, "login")
+
+            global keyinserver
+            keyinserver = make_password(usercode, str(random.randint(0, 9)), "pbkdf2_sha1")
+            request.session['code'] = make_password(keyinserver, str(random.randint(0, 9)), "pbkdf2_sha1")
+
             if logic == 'admin':
                 a = HttpResponseRedirect('admin')
                 set_cookietest(a)
@@ -86,32 +114,31 @@ def login(request):
                 return render(request, 'login.html')
 
 
+@check_decorate
 def admin(request):
     status = request.COOKIES.get("name")
     username = request.POST.get('username')
     usercode = request.POST.get('usercode')
     usertype = request.POST.get('usertype')
-    try:
-        btime = request.POST.get('btime')
-        etime = request.POST.get('etime')
-    except:
-        pass
+
     if (status is None) | (request.session['userkind'] != 'adminer'):
         return HttpResponseRedirect('../')
     else:
+        sendata = dict(list=[], refrash="", username=request.session['username'])
         if request.method == "GET":
             if request.GET.get('back'):
                 return HttpResponseRedirect("../admin/")
             else:
                 request.session['htmlname'] = "admin.html"
-                return render(request, 'admin.html', {"list": [], "refrash": ""})
+                return render(request, 'admin.html', sendata)
         elif request.method == "POST":
-            data = ""
+            # 处理报表模板
             if (request.POST.get("checklisttemplate") is not None) | (
                     request.session['htmlname'] == "checklisttemplate.html"):
                 request.session['htmlname'] = "checklisttemplate.html"
                 retrundata = checklisttemplate(request)
                 return render(request, 'checklisttemplate.html', retrundata)
+            # 处理用户历史
             elif (request.POST.get("usehistory") is not None) | (
                     request.session['htmlname'] == "usehistory.html"):
                 request.session['htmlname'] = "usehistory.html"
@@ -120,30 +147,32 @@ def admin(request):
             # 处理退出
             elif request.POST.get("quit"):
                 return HttpResponseRedirect("../")
+            # 用户处理
             else:
                 request.session['htmlname'] = "admin.html"
                 if request.POST.get("check"):
-                    data = admincheck(username)
+                    data = adminuser().admincheck(username)
                 elif request.POST.get("add"):
-                    data = adminadd(username, usercode, usertype)
-                    filepath = settingg()
-                    os.mkdir(filepath + "/" + username)
+                    if username.strip() != "":
+                        data = adminuser().adminadd(username, usercode, usertype)
+                        filepath = settingg()
+                        os.mkdir(filepath + "/" + username)
                 elif request.POST.get("all"):
-                    data = adminall()
-                return render(request, 'admin.html', {"list": data, "refrash": username})
+                    data = adminuser().adminall()
+                elif request.POST.get("delete"):
+                    data = adminuser().admindelete(username)
+                # ---sendata
+                sendata['list'] = data
+                sendata['refrash'] = username
+                return render(request, 'admin.html', sendata)
 
 
+@check_decorate
 def user(request):
     status = request.COOKIES.get("name")
     usrname = request.session['username']
     templteselected = request.POST.get('templteselect')
-    try:
-        btime = request.POST.get('btime')
-        etime = request.POST.get('etime')
-    except:
-        pass
 
-    formfilekind = ""
     formlist = [""]
 
     if (status is None) | (request.session['userkind'] != 'user'):
@@ -164,6 +193,7 @@ def user(request):
                     "selectnow": "", "username": request.session['username'], "formnamelist": ["", ""]}
 
         if request.method == "GET":
+            # 查看表单明细
             if request.GET.get('checkform'):
                 formbase = myform(request, usrname, request.GET.get('checkform'))
                 userdata = {
@@ -184,8 +214,10 @@ def user(request):
                     userdata['formcantain'] = htmlitemname("CL", json.loads(formbase['formcantain']))
                     request.session['htmlname'] = "job_systemchecklist.html"
                     return render(request, 'job_systemchecklist.html', userdata)
+            # 返回
             elif request.GET.get('back'):
                 return HttpResponseRedirect("../user/")
+            # 查看用户表单列表
             else:
                 userdata['formnamelist'] = myform(request, usrname)
                 request.session['htmlname'] = "user.html"
@@ -194,11 +226,13 @@ def user(request):
             formfileid = 1
             userdata2 = {"formnamelist": ["", ""], "formcantans": [{"itemm": "", "statuss": ""}], "selectednow": 0,
                          "fileaddres": "", "username": request.session['username']}
+            # 处理历史记录查看
             if (request.POST.get("usehistory") is not None) | (
                     request.session['htmlname'] == "usehistory.html"):
                 request.session['htmlname'] = "usehistory.html"
                 retrundata = usehistory(request)
                 return render(request, 'usehistory.html', retrundata)
+            # 处理表单列表查看
             elif (request.POST.get("myform") is not None) | (
                     request.session['htmlname'] == "myform.html"):
                 request.session['htmlname'] = "myform.html"
@@ -213,7 +247,7 @@ def user(request):
                     # 处理查看
                     else:
                         userdata2['selectednow'] = int(request.POST.get("templteselect"))
-                        formbase = myform(request, usrname, str(userdata2['selectednow'])) 
+                        formbase = myform(request, usrname, str(userdata2['selectednow']))
                         userdata2['fileaddres'] = json.loads(formbase[0][1].replace("'", "\""))
                         userdata2['formcantans'] = json.loads(formbase[0][0])
                         userdata2['formnamelist'] = request.session['formnamelist']
@@ -232,10 +266,11 @@ def user(request):
                 return h
             # 处理上传
             else:
+                # 文档上传
                 if request.POST.get("update"):
                     files = request.FILES.getlist('chosefiles')
                     filepath = settingg()
-                    if request.POST.get("updatereflush"): 
+                    if request.POST.get("updatereflush"):
                         upformdata(filepath, files, usrname, request.POST, "update")
                         operationmark(usrname, "updata")
                         userdata = {"formfilename": "", "username": usrname,
@@ -245,7 +280,7 @@ def user(request):
                     else:
                         h2 = addnewform(request)
                         return h2
-
+                # 文档暂存
                 elif request.POST.get("tempsave"):
                     files = request.FILES.getlist('chosefiles')
                     filepath = settingg()
@@ -378,6 +413,7 @@ def set_cookietest(HttpResponseRedirect):
     return co
 
 
+# 用户历史记录
 def usehistory(request):
     btime = request.POST.get('btime')
     etime = request.POST.get('etime')
@@ -391,21 +427,21 @@ def usehistory(request):
 
 
 def upformdata(filepath, form, usrname, formcantain, upstatus):
-    
     formcantainstr = json.dumps(formcantain)
     # 读取基础信息
     k = int(formcantain['formfilename'][2:formcantain['formfilename'].find("_")])
     # 读取文档
     fileaddress = list()
     # 标记是否有记录
-    ifesit = len(formfilelist.objects.filter(formfileid=k, uploader=usrname,formfilekind=formcantain['formfilename'][:2]).values())
+    ifesit = len(formfilelist.objects.filter(formfileid=k, uploader=usrname,
+                                             formfilekind=formcantain['formfilename'][:2]).values())
 
     # 查看文件是否存在
-    filelist = os.listdir(filepath + "/" + usrname + "/") 
+    filelist = os.listdir(filepath + "/" + usrname + "/")
     for i in filelist:
         if i[:i.find('_')] == formcantain['formfilename'][:formcantain['formfilename'].find("_")]:
-            fileaddress.append(usrname + "/" + i) 
-    # 写入档案
+            fileaddress.append(usrname + "/" + i)
+            # 写入档案
     for eachfile in form:
         name = usrname + "/" + formcantain['formfilename'] + "_" + eachfile.name.replace(" ", "_")
         tempfilepath = filepath + "/" + name
@@ -427,14 +463,15 @@ def upformdata(filepath, form, usrname, formcantain, upstatus):
         else:
             filestatus = "暂存"
         if ifesit > 0:
-            formfilelist.objects.filter(formfileid=k, uploader=usrname, formfilename=formcantain['formfilename']).delete()
+            formfilelist.objects.filter(formfileid=k, uploader=usrname,
+                                        formfilename=formcantain['formfilename']).delete()
             formfilelist.objects.create(formfileid=k, formfilename=formcantain['formfilename'],
                                         formfilekind=formcantain['formfilename'][:2],
                                         createtime=formtime, formcantain=formcantainstr,
                                         fileaddress=json.dumps(fileaddress),
                                         uploader=usrname, filestatus=filestatus)
         else:
-            
+
             formfilelist.objects.create(formfileid=k, formfilename=formcantain['formfilename'],
                                         formfilekind=formcantain['formfilename'][:2],
                                         createtime=formtime, formcantain=formcantainstr,
@@ -446,16 +483,13 @@ def upformdata(filepath, form, usrname, formcantain, upstatus):
     return fileaddress
 
 
+# 处理模板
 def checklisttemplate(request):
+    request.session['templtenamelist'] = list(checklisttemplte.objects.values('templtename').iterator())
     retrundata = {"httempltename": "", 'resultlist': [["", "", ""]], 'file': "", "othinfo": ["", "", ""],
-                  "namelist": [""], "selectnow": ""}
-    cursor = connection.cursor()
-    request.session['templtenamelist'] = cursor.execute(
-        "select templtename from appa_checklisttemplte").fetchall()
-    # 返回值
-    retrundata['namelist'] = request.session['templtenamelist']
-    retrundata['selectnow'] = request.POST.get("templtename")
+                  "namelist": request.session['templtenamelist'], "selectnow": request.POST.get("templtename")}
 
+    # 处理查找模板
     if request.POST.get("searchtemplte"):
         templtename = request.POST.get("templteselect")
         tform = checklisttemplte.objects.filter(templtename=templtename).values()[0]
@@ -463,44 +497,41 @@ def checklisttemplate(request):
         retrundata['httempltename'] = tform['templtename']
         retrundata['resultlist'] = json.loads(tform['formlist'])
         retrundata['othinfo'] = [tform['templteid'], tform['templtekind'], tform['createtime']]
-        retrundata['namelist'] = request.session['templtenamelist']
         retrundata['selectnow'] = templtename
         retrundata['file'] = tform['fileaddress']
+    # 处理添加模板
     elif request.POST.get("addtemplte"):
         if request.POST.get("addtempltereflush"):
             retrundata['selectnow'] = request.POST.get("templtename")
             retrundata['namelist'] = addtemplate(templtename=request.POST.get("templtename"),
                                                  templtekind=request.POST.get("templtekind"),
                                                  formlist=request.POST.get("formlist"))
+
         else:
-            request.session['templtenamelist'] = cursor.execute(
-                "select templtename from appa_checklisttemplte").fetchall()
-            retrundata['namelist'] = request.session['templtenamelist']
-            retrundata['selectnow'] = request.POST.get("templtename")
+            retrundata['namelist'] = list(checklisttemplte.objects.values('templtename').iterator())
+
+    # 处理删除模板
     elif request.POST.get("deletetemplte"):
-        deletetemplate(request.POST.get("templteselect"))
-        cursor = connection.cursor()
-        request.session['templtenamelist'] = cursor.execute(
-            "select templtename from appa_checklisttemplte").fetchall()
-        # 返回值
-        retrundata['namelist'] = request.session['templtenamelist']
+        checklisttemplte.objects.filter(templtename=request.POST.get("templteselect")).delete()
+        # 更新模板名单
+        retrundata['namelist'] = list(checklisttemplte.objects.values('templtename').iterator())
     return retrundata
 
 
+# 处理模板-添加模板
 def addtemplate(templtename, templtekind, formlist):
-    cursor = connection.cursor()
-    k = cursor.execute("select max(templteid) from appa_checklisttemplte").fetchall()[0][0]
+    k = checklisttemplte.objects.aggregate(models.Max('templteid'))['templteid__max']
     if k is None:
         k = 0
     checklisttemplte.objects.create(templteid=k + 1, templtename=templtename, templtekind=templtekind,
                                     formlist=formlist)
-    templtenamelist = cursor.execute("select templtename from appa_checklisttemplte").fetchall()
+    templtenamelist = list(checklisttemplte.objects.values('templtename').iterator())
     return templtenamelist
 
 
+# 处理模板-删除模板
 def deletetemplate(templtename):
-    cursor = connection.cursor()
-    k = cursor.execute("delete  from appa_checklisttemplte where templtename='" + templtename + "'").fetchall()
+    k = checklisttemplte.objects.filter(templtename=templtename).delete()
     return None
 
 
@@ -518,11 +549,10 @@ def strtolistfrombase(str):
     la = list()
 
 
+# 读取表单列
 def myform(request, name, formfilename=None):
-    cursor = connection.cursor()
     if formfilename is None:
-        formnamelist = cursor.execute(
-            "select formfileid,formfilename,filestatus from appa_formfilelist where uploader='" + name + "'").fetchall()
+        formnamelist = list(formfilelist.objects.values('formfileid', 'formfilename', 'filestatus').iterator())
         return formnamelist
     else:
         formmessage = md.formfilelist.objects.filter(uploader=name, formfilename=formfilename).values()[0]
