@@ -14,7 +14,6 @@ import random
 import hashlib
 
 mylog = logging.getLogger('myproject.custom')
-keyinserver = None
 salt = b'liekiewaa'
 
 
@@ -76,7 +75,7 @@ def serch(b, e):
 
 def check_decorate(fun):
     def wrapper(request, *args, **kwargs):
-        if check_password(keyinserver, request.session['code']):
+        if check_password(request.session['code'], request.session['key']):
             return fun(request, *args, **kwargs)
         else:
             return HttpResponseRedirect("../")
@@ -93,10 +92,9 @@ def login(request):
         if request.POST.get("login"):
             logic = logincheck(username, usercode)
             operationmark(username, "login")
-
-            global keyinserver
-            keyinserver = make_password(usercode, str(random.randint(0, 9)), "pbkdf2_sha1")
-            request.session['code'] = make_password(keyinserver, str(random.randint(0, 9)), "pbkdf2_sha1")
+ 
+            request.session['code'] = make_password(usercode, str(random.randint(0, 9)), "pbkdf2_sha1")
+            request.session['key'] = make_password(request.session['code'], str(random.randint(0, 9)), "pbkdf2_sha1")
 
             if logic == 'admin':
                 a = HttpResponseRedirect('admin')
@@ -552,7 +550,7 @@ def strtolistfrombase(str):
 # 读取表单列
 def myform(request, name, formfilename=None):
     if formfilename is None:
-        formnamelist = list(formfilelist.objects.values('formfileid', 'formfilename', 'filestatus').iterator())
+        formnamelist = list(formfilelist.objects.filter(uploader=name).values('formfileid', 'formfilename', 'filestatus').iterator())
         return formnamelist
     else:
         formmessage = md.formfilelist.objects.filter(uploader=name, formfilename=formfilename).values()[0]

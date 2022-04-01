@@ -6182,3 +6182,70 @@ ValueError: The view appa.views.login didn't return an HttpResponse object. It r
 2022-04-01 03:34:51,640 [uWSGIWorker1Core0:139788231477440] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
 2022-04-01 04:18:08,880 [uWSGIWorker1Core0:139788231477440] [django.request:230] [log:log_response] [WARNING]- Not Found: /ftptest.cgi
 2022-04-01 04:46:15,043 [uWSGIWorker1Core0:139788231477440] [django.request:230] [log:log_response] [WARNING]- Not Found: /login.cgi
+2022-04-01 06:36:32,828 [uWSGIWorker1Core0:139768606349504] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 79, in wrapper
+    if check_password(keyinserver, request.session['code']):
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'code'
+2022-04-01 06:36:36,215 [uWSGIWorker1Core0:139768606349504] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 79, in wrapper
+    if check_password(keyinserver, request.session['code']):
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'code'
+2022-04-01 06:37:31,974 [uWSGIWorker1Core0:140030649637056] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 80, in wrapper
+    return fun(request, *args, **kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 159, in admin
+    os.mkdir(filepath + "/" + username)
+FileExistsError: [Errno 17] File exists: '/root/liekiewaa/web/imagefiles/x'
+2022-04-01 06:39:23,262 [uWSGIWorker1Core0:140015147980992] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 80, in wrapper
+    return fun(request, *args, **kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 159, in admin
+    os.mkdir(filepath + "/" + username)
+FileExistsError: [Errno 17] File exists: '/root/liekiewaa/web/imagefiles/steal'
+2022-04-01 06:39:35,765 [uWSGIWorker1Core0:140015147980992] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 80, in wrapper
+    return fun(request, *args, **kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 159, in admin
+    os.mkdir(filepath + "/" + username)
+FileExistsError: [Errno 17] File exists: '/root/liekiewaa/web/imagefiles/n'
+2022-04-01 06:43:31,094 [uWSGIWorker1Core0:140015147980992] [django.request:230] [log:log_response] [WARNING]- Not Found: /favicon.ico
+2022-04-01 06:51:38,166 [uWSGIWorker1Core0:139855505012928] [django.request:230] [log:log_response] [ERROR]- Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/root/liekiewaa/web/jobordera/appa/views.py", line 78, in wrapper
+    if check_password(request.session['code'], request.session['key']):
+  File "/usr/local/lib64/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 65, in __getitem__
+    return self._session[key]
+KeyError: 'key'
