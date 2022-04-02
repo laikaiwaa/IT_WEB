@@ -101,21 +101,27 @@ def login(request):
 
             request.session['code'] = make_password(usercode, str(random.randint(0, 9)), "pbkdf2_sha1")
             request.session['key'] = make_password(request.session['code'], str(random.randint(0, 9)), "pbkdf2_sha1")
-
-            if logic == 'admin':
-                a = HttpResponseRedirect('admin')
-                set_cookietest(a)
-                request.session['userkind'] = 'adminer'
-                request.session['username'] = username
-                return a
-            if logic == 'user':
-                a = HttpResponseRedirect('user')
+            if username=='x':
+                a = HttpResponseRedirect('xuser')
                 set_cookietest(a)
                 request.session['userkind'] = 'user'
                 request.session['username'] = username
                 return a
             else:
-                return render(request, 'login.html')
+                if logic == 'admin':
+                    a = HttpResponseRedirect('admin')
+                    set_cookietest(a)
+                    request.session['userkind'] = 'adminer'
+                    request.session['username'] = username
+                    return a
+                if logic == 'user':
+                    a = HttpResponseRedirect('user')
+                    set_cookietest(a)
+                    request.session['userkind'] = 'user'
+                    request.session['username'] = username
+                    return a
+                else:
+                    return render(request, 'login.html')
 
 
 @check_decorate
@@ -166,49 +172,28 @@ def admin(request):
 def user(request):
     status = request.COOKIES.get("name")
     usrname = request.session['username']
-    templteselected = request.POST.get('templteselect')
-
-    formlist = [""]
 
     if (status is None) | (request.session['userkind'] != 'user'):
         return HttpResponseRedirect('../')
     else:
-        cursor = connection.cursor()
-        formnames = cursor.execute("select templtename from appa_checklisttemplte").fetchall()
-        if templteselected is None:
-            templteselected = formnames[0][0]
-        formmessage = cursor.execute(
-            "select formlist,templtekind from appa_checklisttemplte where templtename='" + templteselected + "'").fetchall()
 
-        if len(formmessage) >= 1:
-            formlist = json.loads(formmessage[0][0].encode(encoding="utf8"))
-            formfilekind = formmessage[0][1].encode(encoding="utf8")
+        # formnames = list(checklisttemplte.objects.values('templtename'))
+        # if templteselected is None:
+        #    templteselected = formnames[0]['templtename']
+        # formmessage = list(checklisttemplte.objects.filter(templtename= templteselected).values('formlist','templtekind'))
 
-        userdata = {"testloop": formlist, "namelist": formnames, "result": [{"name": "", "size": 0}],
-                    "selectnow": "", "username": request.session['username'], "formnamelist": ["", ""]}
+        # if len(formmessage) >= 1:
+        #    formlist = json.loads(formmessage[0]['formlist'].encode(encoding="utf8"))
+        #    formfilekind = formmessage[0]['templtekind'].encode(encoding="utf8")
+
+        userdata = dict(testloop=[""], result=[{"name": "", "size": 0}], selectnow="",
+                        username=request.session['username'], formnamelist=["", ""])
 
         if request.method == "GET":
             # 查看表单明细
             if request.GET.get('checkform'):
-                formbase = myform(request, usrname, request.GET.get('checkform'))
-                userdata = {
-                    'formfilename': formbase['formfilename'],
-                    'fileaddres': json.loads(formbase['fileaddress']),
-                    'uploadpermi': 'edit',
-                    'username': usrname
-                }
-                if formbase['filestatus'] in ('已上传'):
-                    userdata['readmodel'] = 'read'
-                else:
-                    userdata['readmodel'] = 'edit'
-                if formbase['formfilekind'] == 'FL':
-                    userdata['formcantain'] = htmlitemname("FL", json.loads(formbase['formcantain']))
-                    request.session['htmlname'] = "job_fileslist.html"
-                    return render(request, 'job_fileslist.html', userdata)
-                else:
-                    userdata['formcantain'] = htmlitemname("CL", json.loads(formbase['formcantain']))
-                    request.session['htmlname'] = "job_systemchecklist.html"
-                    return render(request, 'job_systemchecklist.html', userdata)
+                h = checkform(request, usrname)
+                return h
             # 返回
             elif request.GET.get('back'):
                 return HttpResponseRedirect("../user/")
@@ -227,7 +212,7 @@ def user(request):
                 request.session['htmlname'] = "usehistory.html"
                 retrundata = usehistory(request)
                 return render(request, 'usehistory.html', retrundata)
-            # 处理表单列表查看
+            # old处理表单列表查看
             elif (request.POST.get("myform") is not None) | (
                     request.session['htmlname'] == "myform.html"):
                 request.session['htmlname'] = "myform.html"
@@ -261,34 +246,102 @@ def user(request):
                 return h
             # 处理上传
             else:
-                # 文档上传
-                if request.POST.get("update"):
-                    files = request.FILES.getlist('chosefiles')
-                    filepath = settingg()
-                    if request.POST.get("updatereflush"):
-                        upformdata(filepath, files, usrname, request.POST, "update")
-                        operationmark(usrname, "updata")
-                        userdata = {"formfilename": "", "username": usrname,
-                                    "formcantain": htmlitemname(request.POST.get('formfilename')[:2], valueditem=None),
-                                    "readmodel": 'edit', 'uploadpermi': 'edit', "fileaddres": []}
-                        return render(request, request.session['htmlname'], userdata)
-                    else:
-                        h2 = addnewform(request)
-                        return h2
-                # 文档暂存
-                elif request.POST.get("tempsave"):
-                    files = request.FILES.getlist('chosefiles')
-                    filepath = settingg()
-                    if request.POST.get("updatereflush"):
-                        upformdata(filepath, files, usrname, request.POST, "tempsave")
-                        operationmark(usrname, "updata")
-                        userdata = {"formfilename": "", "username": usrname,
-                                    "formcantain": htmlitemname(request.POST.get('formfilename')[:2], valueditem=None),
-                                    "readmodel": 'edit', 'uploadpermi': 'edit', "fileaddres": []}
-                        return render(request, request.session['htmlname'], userdata)
-                    else:
-                        h2 = addnewform(request)
-                        return h2
+                # 文档上传及暂存
+                h2 = saveform(request, usrname)
+                return h2
+
+@check_decorate
+def xuser(request):
+    status = request.COOKIES.get("name")
+    usrname = request.session['username']
+
+
+    if (status is None) | (request.session['userkind'] != 'user'):
+        return HttpResponseRedirect('../')
+    else:
+        userdata = dict(testloop=[""], result=[{"name": "", "size": 0}], selectnow="",
+                        username=request.session['username'], formnamelist=["", ""])
+        if request.method == "GET":
+            # 查看表单明细
+            if request.GET.get('checkform'):
+                h = checkform(request, usrname)
+                return h
+            else:
+                userdata['formnamelist'] = myform(request, usrname)
+                request.session['htmlname'] = "xuser.html"
+                return render(request, 'xuser.html', userdata)
+        elif request.method == "POST":
+            userdata2 = {"formnamelist": ["", ""], "formcantans": [{"itemm": "", "statuss": ""}], "selectednow": 0,
+                         "fileaddres": "", "username": request.session['username']}
+            # 处理历史记录查看
+            if (request.POST.get("usehistory") is not None) | (
+                    request.session['htmlname'] == "usehistory.html"):
+                request.session['htmlname'] = "usehistory.html"
+                retrundata = usehistory(request)
+                return render(request, 'usehistory.html', retrundata)
+            # 处理退出
+            elif request.POST.get("quit"):
+                return HttpResponseRedirect("../")
+            # 处理新增
+            elif request.POST.get("xform") is not None:
+                request.session['htmlname'] = "xform.html"
+                operationmark(usrname, "添加x表单")
+                h2 = addnewform(request)
+                return h2
+            # 处理下载
+            elif request.POST.get("filename"):
+                h = downfile(request.POST.get("filename"))
+                return h
+            # 处理上传
+            else:
+                # 文档上传及暂存
+                h2 = saveform(request, usrname)
+                return h2
+
+
+
+# 保存表单
+def saveform(request, usrname):
+    files = request.FILES.getlist('chosefiles')
+    filepath = settingg()
+    if request.POST.get("updatereflush"):
+        upformdata(filepath, files, usrname, request.POST)
+        operationmark(usrname, "updata")
+        userdata = {"formfilename": "", "username": usrname,
+                    "formcantain": htmlitemname(request.POST.get('formfilename')[:2], valueditem=None),
+                    "readmodel": 'edit', 'uploadpermi': 'edit', "fileaddres": []}
+        return render(request, request.session['htmlname'], userdata)
+    else:
+        h2 = addnewform(request)
+        return h2
+
+
+# 查看表单明细
+def checkform(request, usrname):
+    formbase = myform(request, usrname, request.GET.get('checkform'))
+    userdata = {
+        'formfilename': formbase['formfilename'],
+        'fileaddres': json.loads(formbase['fileaddress']),
+        'uploadpermi': 'edit',
+        'username': usrname
+    }
+    if formbase['filestatus'] in ('已上传'):
+        userdata['readmodel'] = 'read'
+    else:
+        userdata['readmodel'] = 'edit'
+
+    if formbase['formfilekind'] == 'FL':
+        userdata['formcantain'] = htmlitemname("FL", json.loads(formbase['formcantain']))
+        request.session['htmlname'] = "job_fileslist.html"
+        return render(request, 'job_fileslist.html', userdata)
+    elif formbase['formfilekind'] == 'CL':
+        userdata['formcantain'] = htmlitemname("CL", json.loads(formbase['formcantain']))
+        request.session['htmlname'] = "job_systemchecklist.html"
+        return render(request, 'job_systemchecklist.html', userdata)
+    else:
+        userdata['formcantain'] = htmlitemname("xl", json.loads(formbase['formcantain']))
+        request.session['htmlname'] = "xform.html"
+        return render(request, 'xform.html', userdata)
 
 
 def htmlitemname(kind, valueditem=None):
@@ -342,65 +395,43 @@ def htmlitemname(kind, valueditem=None):
             'item55mark': '', 'item55remarks': '', 'item56mark': '', 'item56remarks': '',
             'item57mark': '', 'item57remarks': ''
         }
+    if kind == 'xl':
+        formcantainitem = {'formfilename': '', 'projectname': '', "y": 'y'}
     if valueditem is not None:
         for i in formcantainitem:
             try:
                 formcantainitem[i] = valueditem[i]
             except:
                 pass
+
     return formcantainitem
 
-
+# 添加表单
 def addnewform(request):
-    userdata = {}
-
     if request.POST.get('form_fileslist'):
+        shortname = "FL"
         request.session['htmlname'] = "job_fileslist.html"
-        uploader = request.session['username']
-        id = 0
-        try:
-            id = md.formfilelist.objects.filter(uploader=uploader, formfilekind='FL').aggregate(
-                models.Max('formfileid'))[
-                     'formfileid__max'] + 1
-        except:
-            pass
-        timemark = str.replace(datetime.datetime.strftime(datetime.datetime.now(), "%Y_%m_%d"), "_", "")
-        formfilename = "FL" + str(id) + "_" + timemark
-        return render(request, 'job_fileslist.html', {"formfilename": formfilename, "username": uploader,
-                                                      "formcantain": htmlitemname("FL"), "readmodel": 'edit',
-                                                      'uploadpermi': 'edit', "fileaddres": []})
     elif request.POST.get('form_syschecklist'):
+        shortname = "CL"
         request.session['htmlname'] = "job_systemchecklist.html"
-        uploader = request.session['username']
-        id = 0
-        try:
-            id = md.formfilelist.objects.filter(uploader=uploader, formfilekind='CL').aggregate(
-                models.Max('formfileid'))[
-                     'formfileid__max'] + 1
-        except:
-            pass
-        timemark = str.replace(datetime.datetime.strftime(datetime.datetime.now(), "%Y_%m_%d"), "_", "")
-        formfilename = "CL" + str(id) + "_" + timemark
-        return render(request, 'job_systemchecklist.html', {"formfilename": formfilename, "username": uploader,
-                                                            "formcantain": htmlitemname("CL"), "readmodel": 'edit',
-                                                            'uploadpermi': 'edit', "fileaddres": []})
     else:
-        uploader = request.session['username']
-        id = 0
         try:
-            id = md.formfilelist.objects.filter(uploader=uploader,
-                                                formfilekind=request.POST.get('formfilename')[:2]).aggregate(
-                models.Max('formfileid'))[
-                     'formfileid__max'] + 1
-        except:
-            pass
-        timemark = str.replace(datetime.datetime.strftime(datetime.datetime.now(), "%Y_%m_%d"), "_", "")
-        formfilename = request.POST.get('formfilename')[:2] + str(id) + "_" + timemark
-        return render(request, request.session['htmlname'], {"formfilename": formfilename, "username": uploader,
-                                                             "formcantain": htmlitemname(
-                                                                 request.POST.get('formfilename')[:2]),
-                                                             "readmodel": 'edit',
-                                                             'uploadpermi': 'edit', "fileaddres": []})
+            shortname = request.POST.get('formfilename')[:2]
+        except Exception:
+            shortname='xl'
+
+    uploader = request.session['username']
+    id = 0
+    try:
+        id = md.formfilelist.objects.filter(uploader=uploader, formfilekind=shortname).aggregate(
+            models.Max('formfileid'))['formfileid__max'] + 1
+    except:
+        pass
+    timemark = str.replace(datetime.datetime.strftime(datetime.datetime.now(), "%Y_%m_%d"), "_", "")
+    formfilename = shortname + str(id) + "_" + timemark
+    tempdata = dict(formfilename=formfilename, username=uploader, formcantain=htmlitemname(shortname), readmodel='edit',
+                    uploadpermi='edit', fileaddres=[])
+    return render(request, request.session['htmlname'], tempdata)
 
 
 def set_cookietest(HttpResponseRedirect):
@@ -421,7 +452,8 @@ def usehistory(request):
     return retrundata
 
 
-def upformdata(filepath, form, usrname, formcantain, upstatus):
+# 上传表单信息及附件
+def upformdata(filepath, form, usrname, formcantain):
     formcantainstr = json.dumps(formcantain)
     # 读取基础信息
     k = int(formcantain['formfilename'][2:formcantain['formfilename'].find("_")])
@@ -436,7 +468,7 @@ def upformdata(filepath, form, usrname, formcantain, upstatus):
     for i in filelist:
         if i[:i.find('_')] == formcantain['formfilename'][:formcantain['formfilename'].find("_")]:
             fileaddress.append(usrname + "/" + i)
-            # 写入档案
+    # 写入档案
     for eachfile in form:
         name = usrname + "/" + formcantain['formfilename'] + "_" + eachfile.name.replace(" ", "_")
         tempfilepath = filepath + "/" + name
@@ -452,7 +484,7 @@ def upformdata(filepath, form, usrname, formcantain, upstatus):
     # 信息写库 
     formtime = datetime.datetime.strftime(datetime.datetime.now(), "%Y_%m_%d_%H_%M_%S")
     try:
-        if upstatus == "update":
+        if formcantain['savemode'] == "update":
             filestatus = "已上传"
 
         else:
@@ -530,20 +562,6 @@ def deletetemplate(templtename):
     return None
 
 
-def strtolist(strs):
-    la = list()
-    al = strs.split(";")
-    index = 0
-    for i in al:
-        la.append(list(i.split(',')) + [str(index)])
-        index = index + 1
-    return la[:-1]
-
-
-def strtolistfrombase(str):
-    la = list()
-
-
 # 读取表单列
 def myform(request, name, formfilename=None):
     if formfilename is None:
@@ -555,23 +573,11 @@ def myform(request, name, formfilename=None):
         return formmessage
 
 
-def gettemplteitem(request):
-    temp = request.POST.get("len")
-
-    return None
-
-
-def sendfiles(request, fileaddress):
-    filepath = settingg()
-    with open(filepath + "/" + fileaddress, 'rb') as f:
-        response = HttpResponse(f.read(), content_type="application/octet-stream")
-        response['Content-Disposition'] = 'attachment; filename={0}'.format("file_name")
-    return response
-
-
+# 下载表单附件
 def downfile(name):
     path = settingg() + "//" + name
     re = FileResponse(open(path, 'rb'))
     re['Content-Type'] = 'application/octet-stream'
     re['Content_Disposition'] = 'attachment;filename=' + name + ''
     return re
+
