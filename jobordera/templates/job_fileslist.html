@@ -13,9 +13,9 @@
 
         data=new FormData(f)
         if(savemode=="tempsave"){
-        data.append("tempsave","tempsave")}
+        data.append("savemode","tempsave")}
         if(savemode=="update"){
-        data.append("update","update")}
+        data.append("savemode","update")}
         data.append("updatereflush","updatereflush")
 
         x=new XMLHttpRequest
