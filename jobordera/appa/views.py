@@ -44,19 +44,25 @@ def operationmark(ausername, aactionkind):
 
 
 # 用户管理
-class adminuser():
-    def adminall(self):
+def adminuser(adminuserkind, username, busercode, cusertype):
+    # 查全
+    if adminuserkind == "all":
         return userinfo.objects.all().values()
-
-    def admincheck(self, username):
+    # 查
+    if adminuserkind == "check":
         return userinfo.objects.filter(username=username).values()
-
-    def adminadd(self, username, busercode, cusertype):
-        k = userinfo.objects.aggregate(models.Max('userid'))['userid__max']
-        userinfo.objects.create(userid=k + 1, username=username, password=codesha(busercode), type=cusertype)
-        return userinfo.objects.all().values()
-
-    def admindelete(self, username):
+    # 增
+    if adminuserkind == "add":
+        if username.strip() != "":
+            filepath = settingg()
+            os.mkdir(filepath + "/" + username)
+            k = userinfo.objects.aggregate(models.Max('userid'))['userid__max']
+            userinfo.objects.create(userid=k + 1, username=username, password=codesha(busercode), type=cusertype)
+            return userinfo.objects.all().values()
+        else:
+            return ["用户名空白"]
+    # 删
+    if adminuserkind == "delete":
         userinfo.objects.filter(username=username).delete()
         return userinfo.objects.all().values()
 
@@ -92,7 +98,7 @@ def login(request):
         if request.POST.get("login"):
             logic = logincheck(username, usercode)
             operationmark(username, "login")
- 
+
             request.session['code'] = make_password(usercode, str(random.randint(0, 9)), "pbkdf2_sha1")
             request.session['key'] = make_password(request.session['code'], str(random.randint(0, 9)), "pbkdf2_sha1")
 
@@ -115,14 +121,14 @@ def login(request):
 @check_decorate
 def admin(request):
     status = request.COOKIES.get("name")
-    username = request.POST.get('username')
+    searchusername = request.POST.get('username')
     usercode = request.POST.get('usercode')
     usertype = request.POST.get('usertype')
 
     if (status is None) | (request.session['userkind'] != 'adminer'):
         return HttpResponseRedirect('../')
     else:
-        sendata = dict(list=[], refrash="", username=request.session['username'])
+        sendata = dict(list=[], searchusername="", loginusername=request.session['username'])
         if request.method == "GET":
             if request.GET.get('back'):
                 return HttpResponseRedirect("../admin/")
@@ -148,21 +154,12 @@ def admin(request):
             # 用户处理
             else:
                 request.session['htmlname'] = "admin.html"
-                if request.POST.get("check"):
-                    data = adminuser().admincheck(username)
-                elif request.POST.get("add"):
-                    if username.strip() != "":
-                        data = adminuser().adminadd(username, usercode, usertype)
-                        filepath = settingg()
-                        os.mkdir(filepath + "/" + username)
-                elif request.POST.get("all"):
-                    data = adminuser().adminall()
-                elif request.POST.get("delete"):
-                    data = adminuser().admindelete(username)
-                # ---sendata
-                sendata['list'] = data
-                sendata['refrash'] = username
-                return render(request, 'admin.html', sendata)
+                if request.POST.get("adminuserkind"):
+                    data = adminuser(request.POST.get("adminuserkind"), searchusername, usercode, usertype)
+                sendata['list'] = list(data)
+                sendata['searchusername'] = searchusername
+
+                return JsonResponse(sendata)
 
 
 @check_decorate
@@ -550,7 +547,8 @@ def strtolistfrombase(str):
 # 读取表单列
 def myform(request, name, formfilename=None):
     if formfilename is None:
-        formnamelist = list(formfilelist.objects.filter(uploader=name).values('formfileid', 'formfilename', 'filestatus').iterator())
+        formnamelist = list(
+            formfilelist.objects.filter(uploader=name).values('formfileid', 'formfilename', 'filestatus').iterator())
         return formnamelist
     else:
         formmessage = md.formfilelist.objects.filter(uploader=name, formfilename=formfilename).values()[0]
