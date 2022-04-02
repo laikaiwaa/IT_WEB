@@ -1,5 +1,5 @@
 # coding=utf-8
-from django.http import HttpResponse, FileResponse
+from django.http import HttpResponse, FileResponse, JsonResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 import appa.model as md
