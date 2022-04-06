@@ -104,7 +104,7 @@ def login(request):
 
             request.session['code'] = make_password(usercode, str(random.randint(0, 9)), "pbkdf2_sha1")
             request.session['key'] = make_password(request.session['code'], str(random.randint(0, 9)), "pbkdf2_sha1")
-            if username=='x':
+            if username == 'x':
                 a = HttpResponseRedirect('xuser')
                 set_cookietest(a)
                 request.session['userkind'] = 'user'
@@ -139,14 +139,29 @@ def admin(request):
     else:
         sendata = dict(list=[], searchusername="", loginusername=request.session['username'])
         if request.method == "GET":
-            if request.GET.get('back'):
-                return HttpResponseRedirect("../admin/")
+            # 查看表单明细
+            if request.GET.get('checkform'):
+                h = checkform(request, request.GET.get('usersname'))
+                return h
+            elif request.GET.get('back'):
+                if request.session['htmlname'] != "user.html":
+                    request.session['htmlname'] = "user.html"
+                    usernamlist = list(userinfo.objects.values('username').iterator())
+                    sendata = dict(username=request.session['username'], usertype="admin",
+                                   formnamelist=myform(request, request.session['checkuserhold']),
+                                   usernamlist=usernamlist, userselected=request.session['checkuserhold'])
+                    return render(request, 'user.html', sendata)
+                else:
+                    return HttpResponseRedirect("../admin/")
             else:
                 request.session['htmlname'] = "admin.html"
                 return render(request, 'admin.html', sendata)
         elif request.method == "POST":
+            # 处理退出
+            if request.POST.get("quit"):
+                return HttpResponseRedirect("../")
             # 处理报表模板
-            if (request.POST.get("checklisttemplate") is not None) | (
+            elif (request.POST.get("checklisttemplate") is not None) | (
                     request.session['htmlname'] == "checklisttemplate.html"):
                 request.session['htmlname'] = "checklisttemplate.html"
                 retrundata = checklisttemplate(request)
@@ -157,9 +172,19 @@ def admin(request):
                 request.session['htmlname'] = "usehistory.html"
                 retrundata = usehistory(request)
                 return render(request, 'usehistory.html', retrundata)
-            # 处理退出
-            elif request.POST.get("quit"):
-                return HttpResponseRedirect("../")
+            # 处理用户表单
+            elif request.POST.get("checkuserform") is not None:
+                request.session['htmlname'] = "user.html"
+                usernamlist = list(userinfo.objects.values('username').iterator())
+                sendata = dict(username=request.session['username'], usertype=usertype,
+                               formnamelist=list([dict(formfileid="", formfilename="", filestatus="")]),
+                               usernamlist=usernamlist, userselected="")
+                return render(request, 'user.html', sendata)
+            # 查询用户表单列表
+            elif request.POST.get("checkuserformondo"):
+                request.session['checkuserhold'] = request.POST.get("checkuserformondo")
+                userdata = dict(formnamelist=myform(request, request.POST.get("checkuserformondo")))
+                return JsonResponse(userdata)
             # 用户处理
             else:
                 request.session['htmlname'] = "admin.html"
@@ -179,18 +204,8 @@ def user(request):
     if (status is None) | (request.session['userkind'] != 'user'):
         return HttpResponseRedirect('../')
     else:
-
-        # formnames = list(checklisttemplte.objects.values('templtename'))
-        # if templteselected is None:
-        #    templteselected = formnames[0]['templtename']
-        # formmessage = list(checklisttemplte.objects.filter(templtename= templteselected).values('formlist','templtekind'))
-
-        # if len(formmessage) >= 1:
-        #    formlist = json.loads(formmessage[0]['formlist'].encode(encoding="utf8"))
-        #    formfilekind = formmessage[0]['templtekind'].encode(encoding="utf8")
-
         userdata = dict(testloop=[""], result=[{"name": "", "size": 0}], selectnow="",
-                        username=request.session['username'], formnamelist=["", ""])
+                        username=request.session['username'], formnamelist=["", ""],userselected="",usertype="")
 
         if request.method == "GET":
             # 查看表单明细
@@ -253,11 +268,11 @@ def user(request):
                 h2 = saveform(request, usrname)
                 return h2
 
+
 @check_decorate
 def xuser(request):
     status = request.COOKIES.get("name")
     usrname = request.session['username']
-
 
     if (status is None) | (request.session['userkind'] != 'user'):
         return HttpResponseRedirect('../')
@@ -302,7 +317,6 @@ def xuser(request):
                 return h2
 
 
-
 # 保存表单
 def saveform(request, usrname):
     files = request.FILES.getlist('chosefiles')
@@ -332,6 +346,8 @@ def checkform(request, usrname):
         userdata['readmodel'] = 'read'
     else:
         userdata['readmodel'] = 'edit'
+    if request.session['userkind'] == 'adminer':
+        userdata['readmodel'] = 'read'
 
     if formbase['formfilekind'] == 'FL':
         userdata['formcantain'] = htmlitemname("FL", json.loads(formbase['formcantain']))
@@ -409,6 +425,7 @@ def htmlitemname(kind, valueditem=None):
 
     return formcantainitem
 
+
 # 添加表单
 def addnewform(request):
     if request.POST.get('form_fileslist'):
@@ -421,7 +438,7 @@ def addnewform(request):
         try:
             shortname = request.POST.get('formfilename')[:2]
         except Exception:
-            shortname='xl'
+            shortname = 'xl'
 
     uploader = request.session['username']
     id = 0
@@ -583,5 +600,7 @@ def downfile(name):
     re['Content-Type'] = 'application/octet-stream'
     re['Content_Disposition'] = 'attachment;filename=' + name + ''
     return re
+
+
 def jb(request):
-    return render(request,'cv.html')
+    return render(request, 'cv.html')
