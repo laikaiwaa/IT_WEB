@@ -38,13 +38,12 @@
         用户名：{{ loginusername }}</br>
         <input type="submit" name='usehistory' value="操作历史" >
         <input type="submit" name='checklisttemplate' value="模板列表" >
+        <input type="submit" name='checkuserform' value="用户表单" >
         <input type="submit" name='quit' value="退出" >
         <hr style="border:1px dashed #000">
         用戶: <input type="text" name="username" value={{ searchusername }}><br>
         密碼: <input type="text" name="usercode"><br>
         类型: <select style="width:100px;"  name="usertype"><option value="admin">admin</option><option value="user">user</option></select><br>
-
-
     </form>
     <input type="submit" name='check' value="查找用户" onclick="adminuser('check')" >
     <input type="submit" name='add' value="添加用户" onclick="adminuser('add')" >
