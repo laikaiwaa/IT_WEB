@@ -55,7 +55,10 @@ def adminuser(adminuserkind, username, busercode, cusertype):
     if adminuserkind == "add":
         if username.strip() != "":
             filepath = settingg()
-            os.mkdir(filepath + "/" + username)
+            try:
+                os.mkdir(filepath + "/" + username)
+            except Exception as m:
+                pass
             k = userinfo.objects.aggregate(models.Max('userid'))['userid__max']
             userinfo.objects.create(userid=k + 1, username=username, password=codesha(busercode), type=cusertype)
             return userinfo.objects.all().values()
@@ -580,4 +583,5 @@ def downfile(name):
     re['Content-Type'] = 'application/octet-stream'
     re['Content_Disposition'] = 'attachment;filename=' + name + ''
     return re
-
+def jb(request):
+    return render(request,'cv.html')

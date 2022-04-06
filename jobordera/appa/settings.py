@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            
         },
     },
 ]
@@ -134,6 +135,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'imagefiles/static')
+# 设置图片等静态文件的路径
+STATICFILES_DIRS = [os.path.join(os.path.dirname(BASE_DIR), 'imagefiles/static')]
+
+
+
+
+
 import logging
 import django.utils.log
 import logging.handlers

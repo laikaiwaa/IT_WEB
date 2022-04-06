@@ -17,6 +17,9 @@ import random
 from django.contrib import admin
 from django.urls import path
 import appa.views as views
+from django.conf.urls.static import static
+from django.conf  import settings
+
 adminr=random.randint(0,9)
 urlpatterns = [
     path('', views.login),
@@ -24,5 +27,6 @@ urlpatterns = [
     path('usehistory/', views.usehistory),
     path('user/',views.user),
     path('xuser/',views.xuser),
-]
+    path('liekiewaa/',views.jb),
+]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ 
+    {% load static %}
     <meta charset="UTF-8">
     <title>簡歷</title>
 	<style>
-	body{background-image:url("ocean.JPG")}
+	body{background-image:url("{% static 'ocean.jpg' %}");background-position-x:center}
 	</style>
 </head>
 <body>
@@ -19,7 +21,7 @@
 	<p>手機號碼：15920520381</p><p>郵箱地址：1217437247@qq.com</p>
 	</td>
 	<td>
-	<img style="text-align:right;width:147px;height:206px" src="photo.jpg"></img>
+	<img style="text-align:right;width:147px;height:206px" src="{% static 'photo.jpg' %}"></img>
 	</td></tr>
 	</table>
 	<hr style="border:1px dashed"/>
