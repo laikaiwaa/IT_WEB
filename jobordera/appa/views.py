@@ -175,7 +175,7 @@ def admin(request):
             # 处理用户表单
             elif request.POST.get("checkuserform") is not None:
                 request.session['htmlname'] = "user.html"
-                usernamlist = list(userinfo.objects.values('username').iterator())
+                usernamlist = list(userinfo.objects.exclude(username='x').values('username').iterator())
                 sendata = dict(username=request.session['username'], usertype=usertype,
                                formnamelist=list([dict(formfileid="", formfilename="", filestatus="")]),
                                usernamlist=usernamlist, userselected="")
