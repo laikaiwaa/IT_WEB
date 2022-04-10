@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+    <script type="text/javascript">
+    function checkuserform(){
+        usersnameselected=document.getElementsByName('userselect')[0].value
+
+        data=new FormData()
+        data.append("checkuserformondo",usersnameselected)
+
+
+        x=new XMLHttpRequest
+        x.onreadystatechange=function(){
+            if(x.readyState==4 ){
+            r=JSON.parse(x.response).formnamelist
+            y=document.getElementById('userformist').tBodies[0]
+
+            y.innerHTML="<tr><td>序号</td><td>表名</td><td>状态</td></tr>"
+            for (i in r){
+            y.innerHTML=y.innerHTML+"<tr><td>"+r[i].formfileid+"</td><td>"+r[i].formfilename+"</td><td><a href=./?checkform="+r[i].formfilename+"&usersname="+usersnameselected+">"+r[i].filestatus+"</a></td></tr>"
+            }
+            }
+        }
+        x.open("POST","./",true)
+        x.send(data)
+
+    }
+    function getform2(){
+        a=document.getElementById("formselect")
+        a.submit();
+    }
+    function getform(){
+        //fa=document.getElementById("formb")
+
+        tb=document.getElementById('userformist').tBodies[0];
+        elm=event.srcElement.parentElement.parentElement.rowIndex;
+        tam=tb.rows[elm].cells[0].innerText
+        alert(tam)
+
+        data=new FormData()
+        data.append("displayform","display")
+        data.append("templteselect",tam)
+
+        x=new XMLHttpRequest
+        x.onreadystatechange=function(){
+        if(x.readyState==4 ){
+
+        alert(x.response)
+        //alert(x.responseText)
+        x.responseText
+        }
+        }
+        x.open("POST","./",true)
+        x.send(data)
+
+
+        //elm.style.color='red'
+    }
+    function uploadProgress(event) {
+    a=document.getElementById("formb");
+    a.insertBefore(document.createTextNode("上传中"),a.childNodes[10]);
+    }
+
+    </script>
+</head>
+<body>
+<div  style="text-align:center;margin:100px;font-size:20px">
+    <form action="" method="POST" enctype="multipart/form-data" id="formb"   >
+        用户名：{{ username }}
+        <input type="submit" name='usehistory' value="使用记录" >
+        {% if usertype == 'admin' %}
+        <input type="submit" name='back' value="返回" formmethod="get">
+        {% else %}
+        <input type="submit" name='quit' value="退出" >
+        {% endif %}
+        </br>
+        <hr style="border:1px dashed #000">
+        {% if usertype == 'admin' %}
+        选择用户：
+        <select style="width:100px;"  name="userselect" >
+                    {% for i in  usernamlist %}
+                    {% if i.username == userselected %}
+                    <option value={{i.username}} selected="selected" >{{i.username}}</option>
+                    {% else %}
+                    <option value={{i.username}} >{{i.username}}</option>
+                    {% endif %}
+                    {% endfor %}
+        </select>
+        {% else %}
+        新增表单：
+        <input type="submit" name='form_fileslist' value="前期准备文件清单" >
+        <input type="submit" name='form_syschecklist' value="系统调试点检表" >
+        {% endif %}
+        </br>
+    </form>
+    {% if usertype == 'admin' %}
+    <input type="submit" name='getuserform' value="查看用户表单" onclick="checkuserform()" >
+    {% endif %}
+    <hr style="border:1px dashed #000">
+    <form action="" method="POST" id="formselect" >
+    <table border="1"  id="userformist" style="border-collapse:collapse">
+        <tr><td>序号</td><td>表名</td><td>状态</td></tr>
+        {% for i in formnamelist %}
+        <tr><td>{{i.formfileid}}</td>
+            <td>{{i.formfilename}}</td>
+            <td><a href="./?checkform={{i.formfilename}}&usersname={{userselected}}" >{{i.filestatus}}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <script type="text/javascript">
+        function adminuser(adminuserkind){
+            a=document.getElementById("formadmin")
+
+            data=new FormData( a);
+            data.append("adminuserkind",adminuserkind);
+
+            x=new XMLHttpRequest;
+            x.onreadystatechange=backalert;
+            x.open("POST","./",true);
+            x.send(data);
+        }
+        function backalert(){
+            if(x.readyState==4){
+                a=JSON.parse(x.response).list
+                // 名称提示
+                if(a[0]=="用户名空白"){alert(a[0])}
+                else{
+                    b=document.getElementById("tableadmin")
+                    b.innerHTML="<tr><td>userid</td><td>username</td><td>password</td><td>type</td></tr>"
+                    for (i in a){
+                        b.innerHTML=b.innerHTML+
+                        "<tr><td>"+a[i].userid+"</td><td>"+a[i].username+"</td><td>"+a[i].password+"</td><td>"+a[i].type+"</td></tr>"
+                    }
+                }
+            }
+         }
+    </script>
+</head>
+<body>
+<div  style="text-align:center;margin:100px;font-size:20px">
+    <form id="formadmin" action="" method="POST">
+        用户名：{{ loginusername }}</br>
+        <input type="submit" name='usehistory' value="操作历史" >
+        <input type="submit" name='checklisttemplate' value="模板列表" >
+        <input type="submit" name='checkuserform' value="用户表单" >
+        <input type="submit" name='quit' value="退出" >
+        <hr style="border:1px dashed #000">
+        用戶: <input type="text" name="username" value={{ searchusername }}><br>
+        密碼: <input type="text" name="usercode"><br>
+        类型: <select style="width:100px;"  name="usertype"><option value="admin">admin</option><option value="user">user</option></select><br>
+    </form>
+    <input type="submit" name='check' value="查找用户" onclick="adminuser('check')" >
+    <input type="submit" name='add' value="添加用户" onclick="adminuser('add')" >
+    <input type="submit" name='all' value="所有用户" onclick="adminuser('all')" >
+    <input type="submit" name='delete' value="删除用户" onclick="adminuser('delete')" >
+
+    <table id="tableadmin" border="1" style="align:center;border-collapse:collapse">
+    </table>
+</div>
+</body>
+</html>
