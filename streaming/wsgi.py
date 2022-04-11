@@ -13,6 +13,6 @@ bdir=os.path.dirname(os.path.abspath(__file__))
 sys.path.append(bdir)
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "appa.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "testapp.settings")
 
 application = get_wsgi_application()

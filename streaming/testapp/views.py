@@ -24,10 +24,19 @@ import numpy as np
 
 
 def makepicture():
+    r=0
     while (True):
+        r=r+0.01
         time.sleep(0)
         im = ImageGrab.grab()
-        frame = cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)
+        #frame = cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)
+	frame=cv2.imread("/root/liekiewaa/web/imagefiles/static/ocean.jpg")
+	sp=frame.shape	
+
+        if (r<=0.001) | (r>1):
+		r=0.01
+	frame=frame[:int(sp[0]*r),:int(sp[1]*r),:]
+
         _, g = cv2.imencode('.jpg', frame)
 
         yield (b'--frame\r\n'
