@@ -28,7 +28,7 @@ def makepicture():
     while (True):
         r=r+0.01
         time.sleep(0)
-        im = ImageGrab.grab()
+        #im = ImageGrab.grab()
         #frame = cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)
         frame=cv2.imread("/root/liekiewaa/web/imagefiles/static/ocean.jpg")
         sp=frame.shape	
