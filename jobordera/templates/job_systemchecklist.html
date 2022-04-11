@@ -35,10 +35,12 @@
     </script>
 </head>
 <body>
-<form action="" method="POST" id="formcantain" >
+<form action="" method="POST" >
   用户名：{{ username }}</br>
   <hr style="border:1px dashed #000">
   <input type="submit" name="back" formmethod="get" value="返回">
+</form>
+<form action="" method="POST" id="formcantain">
   {% if readmodel == uploadpermi %}
   <input type="submit" name="tempsave"   value="暂存表单"  onclick="successm('formcantain','tempsave')">
   <input type="submit" name="update"  value="上传表单" onclick="successm('formcantain','update')">
