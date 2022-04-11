@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频</title>
+    <script type="text/javascript">
+        function watch(){
+            a=document.getElementById("workarea")
+            a.innerHTML="<img src='watch/' width='1000px'>"
+        }
+        function clo(){
+            a=document.getElementById("workarea")
+            a.innerHTML=" "
+        }
+    </script>
+</head>
+<body>
+    <div  style="text-align:center;margin:100px;font-size:20px">
+        <input type="submit" name="gowatch" value="gowatch" onclick="watch()" >
+        <input type="submit" name="close" value="close" onclick="clo()" >
+        <hr style="border:1px dashed #000">
+        <form action="" id="workarea" method="get">
+        </form>
+    </div>
+</body>
+</html>
