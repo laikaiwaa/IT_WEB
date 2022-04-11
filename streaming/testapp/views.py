@@ -34,7 +34,7 @@ def makepicture():
         sp=frame.shape	
 
         if (r<=0.001) | (r>1):
-	    r=0.01
+	       r=0.01
         frame=frame[:int(sp[0]*r),:int(sp[1]*r),:]
 
         _, g = cv2.imencode('.jpg', frame)
