@@ -593,7 +593,7 @@ def myform(request, name, formfilename=None):
         formnamelist = list(
             formfilelist.objects.filter(uploader=name).values('formfileid', 'formfilename','formcantain', 'filestatus').iterator())
         for i in formnamelist:
-            i['formcantain']=json.loads(i['formcantain']
+            i['formcantain']=json.loads(i['formcantain'])
         return formnamelist
     else:
         formmessage = md.formfilelist.objects.filter(uploader=name, formfilename=formfilename).values()[0]
