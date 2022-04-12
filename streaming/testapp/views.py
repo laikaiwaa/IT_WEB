@@ -30,7 +30,7 @@ def makepicture():
         time.sleep(0)
         #im = ImageGrab.grab()
         #frame = cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)
-        frame=cv2.imread("/root/liekiewaa/web/imagefiles/static/ocean.jpg")
+        frame=cv2.imread("/root/liekiewaa/web/imagefiles/static/k.png")
         sp=frame.shape	
 
         if (r<=0.001) | (r>1):
