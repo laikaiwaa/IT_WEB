@@ -17,9 +17,9 @@
             r=JSON.parse(x.response).formnamelist
             y=document.getElementById('userformist').tBodies[0]
 
-            y.innerHTML="<tr><td>序号</td><td>表名</td><td>状态</td></tr>"
+            y.innerHTML="<tr><td>序号</td><td>表名</td><td>项目名称</td><td>状态</td></tr>"
             for (i in r){
-            y.innerHTML=y.innerHTML+"<tr><td>"+r[i].formfileid+"</td><td>"+r[i].formfilename+"</td><td><a href=./?checkform="+r[i].formfilename+"&usersname="+usersnameselected+">"+r[i].filestatus+"</a></td></tr>"
+            y.innerHTML=y.innerHTML+"<tr><td>"+r[i].formfileid+"</td><td>"+r[i].formfilename+"</td><td>"+r[i].formcantain.projectname+"</td><td><a href=./?checkform="+r[i].formfilename+"&usersname="+usersnameselected+">"+r[i].filestatus+"</a></td></tr>"
             }
             }
         }
