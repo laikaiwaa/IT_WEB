@@ -101,10 +101,11 @@
     <hr style="border:1px dashed #000">
     <form action="" method="POST" id="formselect" >
     <table border="1"  id="userformist" style="border-collapse:collapse">
-        <tr><td>序号</td><td>表名</td><td>状态</td></tr>
+        <tr><td>序号</td><td>表名</td><td>项目名称</td><td>状态</td></tr>
         {% for i in formnamelist %}
         <tr><td>{{i.formfileid}}</td>
             <td>{{i.formfilename}}</td>
+            <td>{{i.formcantain.projectname}}</td>
             <td><a href="./?checkform={{i.formfilename}}&usersname={{userselected}}" >{{i.filestatus}}</a></td>
         </tr>
         {% endfor %}
