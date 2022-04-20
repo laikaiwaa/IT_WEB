@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>user</title>
-	<script src='qrcode.js' > </script>
-	<script src='jquery.min.js' > </script>
-	<script src='jsQR.js' > </script>
+	<script src="{% static 'js/qrcode.js' %}" > </script>
+    
+	
+	<script src="{% static 'js/jsQR.js' %}" > </script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js" > </script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script>
 	$(document).ready(function(){
 	$("#cqrcode").click(function(){
@@ -53,13 +57,21 @@
 		function showCode(code){
 		alert(code)
 		}
+        
 	})
+    </script>
+    <script>
+        var v=document.getElementById('vid'); 
+        var err=function(){alert("error");};
+        navigator.getUserMedia;
+        navigator.MediaDevices.getUserMedia({"video":true},function(stream){v.src=stream;v.play();} ,err);
     </script>
 </head>
 <body>
+<video id='vid' autoplay=""></video>
 <input class="inputu" type="text"></input>
 <input type="button" id="cqrcode" value="cq"></input><br>
 <div id="qrc"></div>
 <canvas id="qrcanvas"></canvas>
-<input type="file" id="pp"/> 
+<input type="file" accept="video/*" capture="user" id="pp"/> 
 </body>
