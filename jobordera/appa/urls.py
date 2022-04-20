@@ -28,5 +28,6 @@ urlpatterns = [
     path('user/',views.user),
     path('xuser/',views.xuser),
     path('liekiewaa/',views.jb),
+    path('qr/',views.qr),
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

@@ -92,6 +92,8 @@ def check_decorate(fun):
 
     return wrapper
 
+def qr(request):
+    return render(request,'QRcode.html') 
 
 def login(request):
     username = request.POST.get('username')
