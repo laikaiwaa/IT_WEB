@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+	<script src='qrcode.js' > </script>
+	<script src='jquery.min.js' > </script>
+	<script src='jsQR.js' > </script>
+    <script>
+	$(document).ready(function(){
+	$("#cqrcode").click(function(){
+			var sp=document.getElementById("qrc");
+			sp.innerHTML="";
+			var qrc=new QRCode(sp,{
+				width:100,
+				height:100
+			} ); 
+			qrc.makeCode($(".inputu").val());
+		});
+	
+	$("#pp").change(function(e){
+		var file=e.target.files[0];
+		var fr=new FileReader();
+		fr.readAsDataURL(file);
+		fr.onloadend=function(e){
+		var base64data=e.target.result;
+		
+		base64ToqR(base64data);
+		}
+		})
+	function base64ToqR(data) {
+	
+			var c = document.getElementById("qrcanvas");
+			var ctx = c.getContext("2d");
+	
+			var img = new Image();
+			img.src = data;
+			img.onload = function() {
+				$("#qrcanvas").attr("width",img.width)
+				$("#qrcanvas").attr("height",img.height)
+				ctx.drawImage(img, 0, 0, img.width, img.height);
+				var imageData = ctx.getImageData(0, 0, img.width, img.height);
+				const code = jsQR(imageData.data, imageData.width, imageData.height, {
+					inversionAttempts: "dontInvert",
+				});
+				if(code){
+					showCode(code.data)
+				}else{
+					alert("识别错误")
+				}
+			};
+		}
+		function showCode(code){
+		alert(code)
+		}
+	})
+    </script>
+</head>
+<body>
+<input class="inputu" type="text"></input>
+<input type="button" id="cqrcode" value="cq"></input><br>
+<div id="qrc"></div>
+<canvas id="qrcanvas"></canvas>
+<input type="file" id="pp"/> 
+</body>
