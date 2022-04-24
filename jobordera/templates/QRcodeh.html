@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load static %}
+
     <meta charset="UTF-8">
-    <title>user</title> 
-    <!--<script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"> </script>-->
-    <script src="{% static 'js/html5-qrcode.min.js' %}"> </script>
+    <title>user</title>
 </head>
 <body>
 用户名：{{ username }}
@@ -13,54 +11,28 @@
   <input type="submit" name="back" formmethod="get" value="返回">
 </form>
 <hr style="border:1px dashed #000">
-<h1>Scan from WebCam:</h1>
-<div id="qrc" style="width:500px"></div>
-<div>
-<b>Preferred camera:</b>
-<select id="cam-list">
-    <option value="environment" selected>Environment Facing (default)</option>
-    <option value="user">User Facing</option>
-</select>
-</div>
-
-<b>Detected QR code: </b>
-<span id="cam-qr-result">None</span>
-<br>
-<button id="start-button">Start</button>
-<button id="stop-button">Stop</button>
-<br>
-<hr>
-
-<h1>Scan from File:</h1>
-<input type="file" id="tfile" ></inpu>
-<span id="file-qr-result">None</span>
-
-<hr>
-
 <h1>Result History</h1>
 
 <form action="" method="post" id="formcantain">
-    {% if readmodel == uploadpermi %}
-    <input type="submit" name="tempsave"   value="暂存表单" onclick="successm('formcantain','tempsave')">
-    <input type="submit" name="update"  value="上传表单" onclick="successm('formcantain','update')"></br>
+
     <tr>
-        <td>文件编号:</td>
-        <td><textarea readonly name="formfilename" style="width:95%;height:100%;border-style:none">{{formfilename}}</textarea> </td>
-        <br>
+        <td  >文件编号:</td>
+        <td  ><textarea readonly name="formfilename" style="width:95%;height:100%;border-style:none">{{formfilename}}</textarea> </td>
         <td>项目名称</td>
         <td><textarea name="projectname" style="width:95%;height:100%;border-style:none">{{formcantain.projectname}}</textarea></td>
     </tr>
     <hr style="border:1px dashed #000">
-    {% endif %}
+
     <table id="decode">
-        {% for i in formcantain.codelist  %}
+        {% for i in formcantain.codelist %}
         <tr><td>{{i.0}}</td><td>{{i.1}}</td></tr>
         {% endfor %}
     </table>
 </form>
 
-<!--var vConsole = new VConsole();-->
-<script  > 
+
+<script  >
+      
 const scanner=new Html5Qrcode("qrc")
 const video = document.getElementById('qr-video');
 const camList = document.getElementById('cam-list');
@@ -179,19 +151,15 @@ Html5Qrcode.getCameras().then(devices=>{devices.forEach(
         option.value = device.id;
         option.text = device.label;
         camList.add(option);
-        cameraid=option.value;
-    }); 
-    start();
-    }
-)
-.catch(err=>{
+    });cameraid = devices[0].id;}
+).catch(err=>{
         camQrResult.textContent = err;
         camQrResult.style.color = 'inherit';
 });
-  
+        
 camList.addEventListener('change', event => {
-    cameraid=event.target.value;  
-    scanner.stop() ;
+    cameraid=event.target.value;
+    scanner.stop();
     start();
 }); 
 

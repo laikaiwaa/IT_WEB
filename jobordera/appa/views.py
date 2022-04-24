@@ -93,7 +93,7 @@ def check_decorate(fun):
     return wrapper
 
 def qr(request):
-    return render(request,'QRcode.html') 
+    return render(request,'QRcodesingle.html') 
 
 def login(request):
     username = request.POST.get('username')
@@ -255,7 +255,7 @@ def user(request):
                         userdata2['formnamelist'] = request.session['formnamelist']
                         return render(request, 'myform.html', userdata2)
             # 处理新增
-            elif request.POST.get('form_fileslist') or request.POST.get('form_syschecklist'):
+            elif request.POST.get('form_fileslist') or request.POST.get('form_syschecklist') or request.POST.get('form_qrcodelist'):
                 operationmark(usrname, "添加表单")
                 h2 = addnewform(request)
                 return h2
@@ -361,6 +361,14 @@ def checkform(request, usrname):
         userdata['formcantain'] = htmlitemname("CL", json.loads(formbase['formcantain']))
         request.session['htmlname'] = "job_systemchecklist.html"
         return render(request, 'job_systemchecklist.html', userdata)
+    elif formbase['formfilekind'] == 'QR':
+        userdata['formcantain'] = htmlitemname("QR", json.loads(formbase['formcantain']))
+        if userdata['readmodel'] == 'read':
+            request.session['htmlname'] = "QRcodeh.html"
+            return render(request, 'QRcodeh.html', userdata)
+        else:
+            request.session['htmlname'] = "QRcode.html"
+            return render(request, 'QRcode.html', userdata)
     else:
         userdata['formcantain'] = htmlitemname("xl", json.loads(formbase['formcantain']))
         request.session['htmlname'] = "xform.html"
@@ -418,12 +426,15 @@ def htmlitemname(kind, valueditem=None):
             'item55mark': '', 'item55remarks': '', 'item56mark': '', 'item56remarks': '',
             'item57mark': '', 'item57remarks': ''
         }
-    if kind == 'xl':
-        formcantainitem = {'formfilename': '', 'projectname': '', "y": 'y'}
+    if kind == 'xl' or kind == 'QR':
+        formcantainitem = {'formfilename': '', 'projectname': '', "codelist": []}
     if valueditem is not None:
         for i in formcantainitem:
             try:
-                formcantainitem[i] = valueditem[i]
+                if i == 'codelist':
+                    formcantainitem[i] = json.loads(valueditem['codelist'])
+                else:
+                    formcantainitem[i] = valueditem[i]
             except:
                 pass
 
@@ -438,6 +449,9 @@ def addnewform(request):
     elif request.POST.get('form_syschecklist'):
         shortname = "CL"
         request.session['htmlname'] = "job_systemchecklist.html"
+    elif request.POST.get('form_qrcodelist'):
+        shortname = "QR"
+        request.session['htmlname'] = "QRcode.html"
     else:
         try:
             shortname = request.POST.get('formfilename')[:2]
