@@ -1,0 +1,27 @@
+<!--usehistory.wxml-->
+<form clase="page_usehistory"  >
+  <view class="date-picker"> 
+    <picker mode="date" id="btime" start="2022-01-01" end="2025-12-31" fields="day" value="{{ btime }}" bindchange="changebtime"><view>开始时间:{{ btime }}</view></picker>
+    <picker mode="date" id="etime" start="2022-01-01" end="2025-12-31" fields="day" value="{{ etime }}" bindchange="changeetime"><view>结束时间:{{ etime }}</view></picker>
+  </view>
+    <button form-type="submit" data-src='serch' bindtap="usehistryop" >查找</button>
+    <button form-type="submit" data-src='back' bindtap="usehistryop" >返回</button>
+</form>
+    {{ inipagedata.btime }}    {{ inipagedata.etime }}
+      <view class="table">
+          <view class="tr">
+            <view class="td td1">序號</view>
+            <view class="td td2">用戶ID</view>
+            <view class="td td3">用戶名</view>
+            <view class="td td4">用戶類型</view>
+            <view class="td td5">操作类型</view>
+          </view>
+          <view class="tr" wx:for="{{inipagedata.list}}">
+            <view class="td">{{item}}</view>
+            <view class="td">{{item}}</view>
+            <view class="td">{{item}}</view>
+            <view class="td">{{item}}</view>
+            <view class="td">{{item}}</view>
+          </view>
+      </view>
+

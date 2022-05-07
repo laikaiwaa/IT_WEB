@@ -1,0 +1,4 @@
+<!--login.wxml-->
+用戶: <input type="text" name="username" /> 
+密碼: <input type="text" name="usercode" /> 
+<button form-type="submit" bindtap="login" name='login'>確定</button>

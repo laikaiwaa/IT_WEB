@@ -1,0 +1,56 @@
+<!--pages/test/form_qrcodelist.wxml-->
+用户名：{{ username }}
+<button form-type="submit" data-src='back'  bindtap="findway" >返回</button>
+ 
+<h1>Scan from WebCam:</h1>
+<div id="qrc" style="width:500px"></div>
+<div>
+Preferred camera:
+<select id="cam-list">
+    <option value="environment" selected>Environment Facing (default)</option>
+    <option value="user">User Facing</option>
+</select>
+</div>
+
+Detected QR code: 
+<span id="cam-qr-result">None</span>
+<button id="start-button">Start</button>
+<button id="stop-button">Stop</button>
+ 
+
+<h1>Scan from File:</h1>
+<button  bindtap="selectfile" >选择文档</button>
+<span id="file-qr-result">None</span>
+ 
+<h1>Result History</h1>
+
+<form action="" method="post" id="formcantain">
+  <view wx:if="{{inipagedata.readmodel == inipagedata.uploadpermi}}">  
+    <button form-type="submit" data-src="tempsave" data-src1="formcantain" data-src2="tempsave"    bindtap="successm">暂存表单</button>
+    <button form-type="submit" data-src="update"  data-src1="formcantain" data-src2="update"  
+    bindtap="successm">上传表单</button>
+    <view class="tr">
+      <view class="td">
+        <input type="file" id="filebutton" name='chosefiles' multiple="multiple"  />
+      </view>
+    </view>
+  </view>
+  <view class='tr'>
+        <view class='td'>文件编号:</view>
+        <view class='td'>{{inipagedata.formfilename}}</view>
+  </view>
+  <view class='tr'>
+    <view class='td'>项目名称:</view>
+    <view class='content'>
+    <textarea  id="projectname" auto-height bindblur="settxt">{{inipagedata.formcantain.projectname}}</textarea> 
+    </view>
+  </view> 
+  <view class="table"  id="decode">
+    <view wx:for="{{inipagedata.codelist}}">  
+      <view class='tr' auto-height>
+        <view class='td' >{{item}}</view>
+        <view class='td' >{{item}}</view>
+      </view>
+    </view>
+  </view>
+  </form>

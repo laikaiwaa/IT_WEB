@@ -1,0 +1,46 @@
+<!--user.wxml-->
+      <form  class="page_user" id="formb"   >
+        用户名：{{ iniuserdata.username }}
+        <button form-type="submit" data-src='usehistory' bindtap="findway" >使用记录</button>
+        <view wx:if="{{inipagedata.usertype == 'admin'}}">
+          <button form-type="submit" data-src='back'  bindtap="findway" >返回</button>
+        </view>
+        <view wx:else>
+          <button form-type="submit" data-src='quit' bindtap="findway" >退出</button>
+        </view>
+        <view wx:if="{{inipagedata.usertype == 'admin'}}"> 
+        选择用户：
+          <view class="view-options"    name="userselect" >
+            <cover-view class='option-item' wx:for="{{inipagedata.usernamlist}}">
+              {{item[username]}}
+            </cover-view>
+          </view>
+        </view>
+        <view wx:else> 
+          新增表单：
+          <button form-type="submit" data-src='form_fileslist' bindtap="buildform">前期准备文件清单</button>
+          <button form-type="submit" data-src='form_syschecklist' bindtap="buildform">系统调试点检表</button>
+          <button form-type="submit" data-src='form_qrcodelist' bindtap="buildform">二维码记录表</button>
+        </view>
+      </form>
+        <view wx:if="{{inipagedata.usertype == 'admin'}}">
+          <button form-type="submit" name='getuserform' bindtap="checkuserform" >查看用户表单</button>
+        </view>
+      <form clase="page_user_b" id="formselect" >
+        <view class='history-table-wrap'>
+          <view class="table" id="userformist">
+            <view class="tr">
+              <view class="td">序号</view>
+              <view class="td">表名</view>
+              <view class="td">项目名称</view>
+              <view class="td">状态</view>
+            </view>
+            <view class="tr" wx:for="{{inipagedata.formnamelist}}">
+              <view class="td td1">{{item.formfileid}}</view>
+              <view class="td td2">{{item.formfilename}}</view>
+              <view class="td td3">{{item.formcantain.projectname}}</view>
+              <view class="td td4"><button bindtap="checkform" form-type="submit" data-src='{{item.formfilename}}'>{{item.filestatus}}</button></view>
+            </view>
+          </view>
+        </view>
+      </form>

@@ -1,0 +1,37 @@
+/* pages/test/form_syschecklist.wxss */
+.table{
+  border:0px solid darkgray;
+}
+.tr{
+  display:flex;
+  align-items: center;
+}
+.td{
+  width:40%; 
+  justify-content: left;
+  text-align:left;
+}
+.content{
+  border:1px black solid;
+  width:40%; 
+}
+.th{
+  width:100%;
+}
+.tittle{ 
+  font-weight:bold;
+  font-size:20px;
+}
+.tittlel2{ 
+  font-weight:bold;
+  font-size:17px;
+}
+.tittlel3{ 
+  font-weight:bold;
+  font-size:15px;
+}
+.line{
+  margin: auto;
+  height: 1px;
+  border-bottom: 1px solid black;
+}

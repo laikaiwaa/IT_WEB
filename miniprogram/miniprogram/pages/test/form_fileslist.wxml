@@ -1,0 +1,455 @@
+<!--pages/test/form_fileslist.wxml-->
+用户名：{{ iniuserdata.username }}
+<form action="" method="POST">
+  <button form-type="submit" data-src='back'  bindtap="findway" >返回</button>
+</form>
+<form action="" method="POST" id="formcantain">
+  <view wx:if="{{inipagedata.readmodel == inipagedata.uploadpermi}}">  
+    <button form-type="submit" data-src="tempsave" data-src1="formcantain" data-src2="tempsave"    bindtap="successm">暂存表单</button>
+    <button form-type="submit" data-src="update"  data-src1="formcantain" data-src2="update"  
+    bindtap="successm">上传表单</button>
+    <view class="tr">
+      <view class="td">
+        <input type="file" id="filebutton" name='chosefiles' multiple="multiple"  />
+      </view>
+    </view>
+  </view>
+<!--table-->
+  <view class="table"  >
+    <!--<view class="tr" wx:for="{{inipagedata.fileaddres}}">-->
+    <!--<view class="td">-->
+    <!--<image mode="aspectFill" src="https://127.0.0.1:81/imagefiles/{{item}}"  />-->
+    <!--</view>-->
+    <!--</view>-->
+    <view class="tr" wx:for="{{inipagedata.fileaddres}}">
+      <view class="td">
+        <button form-type='submit' data-src='filename' bindtap="display">{{item}}</button>
+      </view>
+    </view>
+  </view>
+  <button  bindtap="selectfile" >选择文档</button>
+  <view class="tr" wx:for="{{filenamelist}}" >
+      <view class="td" auto-height>
+        {{item.name}}
+      </view>
+    </view>
+  <view class="table" >
+      <view class='tr'> 
+        <view class='tittle'>前期准备文件清单</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>文件编号:</view>
+        <view class='td'>{{inipagedata.formfilename}}</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>项目名称:</view>
+        <view class='content'>
+        <textarea  id="projectname" auto-height bindblur="settxt">{{inipagedata.formcantain.projectname}}</textarea> 
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>产品型号:</view>
+        <view class='content'>
+        <textarea  id="producttype" auto-height bindblur="settxt">{{inipagedata.formcantain.producttype}}</textarea> 
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期:</view>
+        <view class='content'>
+        <textarea  id="data" auto-height  bindblur="settxt">{{inipagedata.formcantain.data}}</textarea> 
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>版本:</view>
+        <view class='td'>A</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>项目成员:</view> 
+        <view class='content'>
+          <textarea  id="projectmember" auto-height bindblur="settxt">{{inipagedata.formcantain.projectmember}}</textarea> 
+        </view>
+      </view>
+      <view class='tittlel2'>1-项目信息</view>
+      <!--电气原理图-->
+      <view class='line'></view>
+      <view class='tittlel3'>电气原理图</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item11mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item11mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item11date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item11date}}</picker> 
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person11" auto-height bindblur="settxt">{{inipagedata.formcantain.person11}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks11" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks11}}</textarea>
+        </view>
+      </view>
+      <!--软件信息-->
+      <view class='line'></view>
+      <view class='tittlel3'>软件信息</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item12mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item12mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item12date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item12date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person12" auto-height bindblur="settxt">{{inipagedata.formcantain.person12}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks12" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks12}}</textarea>
+        </view>
+      </view>
+      <!--硬件信息-->
+      <view class='line'></view>
+      <view class='tittlel3'>硬件信息</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item13mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item13mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item13date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item13date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person13" auto-height bindblur="settxt">{{inipagedata.formcantain.person13}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks13" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks13}}</textarea>
+        </view>
+      </view>
+      <!--技术协议、通讯协议-->
+      <view class='line'></view>
+      <view class='tittlel3'>技术协议、通讯协议</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item14mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item14mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item14date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item14date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person14" auto-height bindblur="settxt">{{inipagedata.formcantain.person14}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks14" auto-height  bindblur="settxt">{{inipagedata.formcantain.remarks14}}</textarea>
+        </view>
+      </view>
+      <!--基础功能-->
+      <view class='line'></view>
+      <view class='tittlel3'>基础功能</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item15mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item15mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'> 
+          <picker mode="date" id="item15date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item15date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person15" auto-height bindblur="settxt">{{inipagedata.formcantain.person15}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks15" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks15}}</textarea>
+        </view>
+      </view> 
+      <!--新增功能-->
+      <view class='line'></view>
+      <view class='tittlel3'>新增功能</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item16mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item16mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item16date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item16date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person16" auto-height bindblur="settxt">{{inipagedata.formcantain.person16}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks16" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks16}}</textarea>
+        </view>
+      </view>
+      <!--供货界面-->
+      <view class='line'></view>
+      <view class='tittlel3'>供货界面</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <checkbox-group bindchange='setmark' data-id="item17mark1"  >
+            <checkbox  checked="{{inipagedata.formcantain.item17mark1 }}" ></checkbox>
+          </checkbox-group>
+          直流侧
+          <checkbox-group bindchange='setmark' data-id="item17mark2"  >
+            <checkbox  checked="{{inipagedata.formcantain.item17mark2 }}" ></checkbox>
+          </checkbox-group>
+          交流侧
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'><picker mode="date" id="item17date" start="2022-01-01" end="2025-12-31" fields="day" bindchange="chosedate">'{{inipagedata.formcantain.item17date}}</picker></view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'><textarea id="person17" auto-height bindblur="settxt">{{inipagedata.formcantain.person17}}</textarea></view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'><textarea id="remarks17" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks17}}</textarea></view>
+      </view> 
+      <view class='tittlel2'>2-设备工具</view>
+      <!--笔记本（不加密）-->
+      <view class='line'></view>
+      <view class='tittlel3'>笔记本（不加密）</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item21mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item21mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item21date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item21date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person21" auto-height bindblur="settxt">{{inipagedata.formcantain.person21}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks21" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks21}}</textarea>
+        </view>
+      </view>
+      <!--PCAN-->
+      <view class='line'></view>
+      <view class='tittlel3'>PCAN</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item22mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item22mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item22date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item22date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person22" auto-height bindblur="settxt">{{inipagedata.formcantain.person22}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks22" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks22}}</textarea>
+        </view>
+      </view>
+      <!--绝缘手套-->
+      <view class='line'></view>
+      <view class='tittlel3'>绝缘手套</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item23mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item23mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item23date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item23date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person23" auto-height bindblur="settxt">{{inipagedata.formcantain.person23}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks23" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks23}}</textarea>
+        </view>
+      </view> 
+      <!--调试用通讯线束-->
+      <view class='line'></view>
+      <view class='tittlel3'>调试用通讯线束</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item24mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item24mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item24date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item24date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person24" auto-height bindblur="settxt">{{inipagedata.formcantain.person24}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks24" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks24}}</textarea>
+        </view>
+      </view>
+      <!--绝缘测试仪-->
+      <view class='line'></view>
+      <view class='tittlel3'>绝缘测试仪</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item25mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item25mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item25date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item25date}}</picker>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person25" auto-height bindblur="settxt">{{inipagedata.formcantain.person25}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks25" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks25}}</textarea>
+        </view>
+      </view> 
+      <!--便携式工具箱（包含绝缘电工胶带、剥线钳、斜口钳、退针器）-->
+      <view class='line'></view>
+      <view class='tittlel3'>便携式工具箱（包含绝缘电工胶带、剥线钳、斜口钳、退针器）</view>
+      <view class='tr'>
+        <view class='td'>状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item26mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item26mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期</view>
+        <view class='td'>
+          <picker mode="date" id="item26date" start="2022-01-01" end="2025-12-31" fields="day"  bindchange="chosedate" >'{{inipagedata.formcantain.item26date}}</picker>
+        </view>
+      </view>
+      <view class='line'></view>
+      <view class='tr'>
+        <view class='td'>责任人</view>
+        <view class='content'>
+          <textarea id="person26" auto-height bindblur="settxt">{{inipagedata.formcantain.person26}}</textarea>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="remarks26" auto-height bindblur="settxt">{{inipagedata.formcantain.remarks26}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view>
+            <view >注：</view>
+            <view >1.在出发前往目标地点时必须完成项目信息收集工作；</view>
+            <view >2.根据项目实际情况确认所需携带的工具；</view>
+            <view >3.资料不全的情况下，原则上不允许开展调试工作。</view>
+  </view>
+</form>

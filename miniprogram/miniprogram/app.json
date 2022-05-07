@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/test/login",
+    "pages/test/user",
+    "pages/test/usehistory",
+    "pages/test/form_fileslist",
+    "pages/test/form_syschecklist",
+    "pages/test/form_qrcodelist"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+   
+}

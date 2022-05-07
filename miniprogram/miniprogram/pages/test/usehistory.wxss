@@ -1,0 +1,13 @@
+/* pages/test/usehistory.wxss */
+.table{
+  border:0px solid darkgray;
+}
+.tr{
+  display:flex;
+  align-items: center;
+}
+.td{
+  width:40%;
+  justify-content: center;
+  text-align:center;
+}

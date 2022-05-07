@@ -1,0 +1,1198 @@
+<!--pages/test/form_syschecklist.wxml-->
+用户名：{{ iniuserdata.username }}
+<form action="" method="POST">
+  <button form-type="submit" data-src='back'  bindtap="findway" >返回</button>
+</form>
+<form action="" method="POST" id="formcantain">
+  <view wx:if="{{inipagedata.readmodel == inipagedata.uploadpermi}}">  
+    <button form-type="submit" data-src="tempsave" data-src1="formcantain" data-src2="tempsave"    bindtap="successm">暂存表单</button>
+    <button form-type="submit" data-src="update"  data-src1="formcantain" data-src2="update"  
+    bindtap="successm">上传表单</button>
+    <view class="tr">
+      <view class="td">
+        <input type="file" id="filebutton" name='chosefiles' multiple="multiple"  />
+      </view>
+    </view>
+  </view>
+<!--table-->
+  <view class="table"  >
+    <view class="tr" wx:for="{{inipagedata.fileaddres}}">
+      <view class="td">
+        <button form-type='submit' data-src='filename' bindtap="display">{{item}}</button>
+      </view>
+    </view>
+  </view>
+  <button  bindtap="selectfile" >选择文档</button>
+  <view class="tr" wx:for="{{filenamelist}}" >
+      <view class="td" auto-height>
+        {{item.name}}
+      </view>
+    </view>
+  <view class="table" >
+      <view class='tr'> 
+        <view class='tittle'>系统调试点检表</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>文件编号:</view>
+        <view class='td'>{{inipagedata.formfilename}}</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>项目名称:</view>
+        <view class='content'>
+        <textarea  id="projectname" auto-height bindblur="settxt">{{inipagedata.formcantain.projectname}}</textarea> 
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>产品型号:</view>
+        <view class='content'>
+        <textarea  id="producttype" auto-height bindblur="settxt">{{inipagedata.formcantain.producttype}}</textarea> 
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>日期:</view>
+        <view class='content'>
+        <textarea  id="data" auto-height  bindblur="settxt">{{inipagedata.formcantain.data}}</textarea> 
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>版本:</view>
+        <view class='td'>A</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>项目成员:</view> 
+        <view class='content'>
+          <textarea  id="projectmember" auto-height bindblur="settxt">{{inipagedata.formcantain.projectmember}}</textarea> 
+        </view>
+      </view>
+      <view class='tittlel2'>1-供应商</view>
+      <!--BMS-->
+      <view class='line'></view>
+      <view class='tittlel3'>BMS</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>1,确认到场时间</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item01mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item01mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item01remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item01remarks}}</textarea>
+        </view>
+      </view>
+      <!--EMS-->
+      <view class='line'></view>
+      <view class='tittlel3'>EMS</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>2,确认到场时间</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item02mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item02mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item02remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item02remarks}}</textarea>
+        </view>
+      </view>
+      <!--PCS-->
+      <view class='line'></view>
+      <view class='tittlel3'>PCS</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>3,确认到场时间</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item03mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item03mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item03remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item03remarks}}</textarea>
+        </view>
+      </view>
+      <!--集装箱-->
+      <view class='line'></view>
+      <view class='tittlel3'>集装箱</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>4,确认到场时间</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item04mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item04mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item04remarks" auto-height  bindblur="settxt">{{inipagedata.formcantain.item04remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='tittlel2'> 
+      2-调试前检查</view>
+      <!--外观检查-->
+      <view class='line'></view>
+      <view class='tittlel3'>外观检查</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>5,集装箱是否水平，焊接处是否存在虚焊、漏焊</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item05mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item05mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item05remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item05remarks}}</textarea>
+        </view>
+      </view> 
+      <view class='line'></view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>6,电池架是否变形、偏移</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item06mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item06mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item06remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item06remarks}}</textarea>
+        </view>
+      </view> 
+      <view class='line'></view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>7,汇流柜、PCS柜、空调或水冷机组、消防固定确认</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item07mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item07mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item07remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item07remarks}}</textarea>
+        </view>
+      </view> 
+      <!--开关确认-->
+      <view class='line'></view>
+      <view class='tittlel3'>开关确认</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>8,高压箱直流、交流开关确认</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item08mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item08mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item08remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item08remarks}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>9,汇流柜开关、断路器全部断开</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item09mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item09mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item09remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item09remarks}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>10,PCS开关、断路器全部断开</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item10mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item10mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item10remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item10remarks}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>11,消防电磁阀确认</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item11mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item11mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item11remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item11remarks}}</textarea>
+        </view>
+      </view>
+      <!--电池仓检查-->
+      <view class='line'></view>
+      <view class='tittlel3'>电池仓检查</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>12,电池插箱固定是否牢固</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <checkbox-group bindchange='setmark' data-id="item12mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item12mark }}" ></checkbox>
+          </checkbox-group>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'><textarea id="item12remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item12remarks}}</textarea></view>
+      </view> 
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>13,电池插箱间线束连接是否牢固</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <checkbox-group bindchange='setmark' data-id="item13mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item13mark }}" ></checkbox>
+          </checkbox-group>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'><textarea id="item13remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item13remarks}}</textarea></view>
+      </view> 
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>14,BMS线束连接是否牢固</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <checkbox-group bindchange='setmark' data-id="item14mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item14mark }}" ></checkbox>
+          </checkbox-group>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'><textarea id="item14remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item14remarks}}</textarea></view>
+      </view> 
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>15,空调/水冷机组电源线束连接是否牢固</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <checkbox-group bindchange='setmark' data-id="item15mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item15mark }}" ></checkbox>
+          </checkbox-group>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'><textarea id="item15remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item15remarks}}</textarea></view>
+      </view> 
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>16,液冷管路连接是否正确、牢固</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <checkbox-group bindchange='setmark' data-id="item16mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item16mark }}" ></checkbox>
+          </checkbox-group>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'><textarea id="item16remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item16remarks}}</textarea></view>
+      </view> 
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>17,汇流柜线束连接是否牢固</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <checkbox-group bindchange='setmark' data-id="item17mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item17mark }}" ></checkbox>
+          </checkbox-group>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'><textarea id="item17remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item17remarks}}</textarea></view>
+      </view> 
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>18,电池仓所有设备是否安全接地</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <checkbox-group bindchange='setmark' data-id="item18mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item18mark }}" ></checkbox>
+          </checkbox-group>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'><textarea id="item18remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item18remarks}}</textarea></view>
+      </view> 
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>19,电池簇、配电柜绝缘是否正常</view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <checkbox-group bindchange='setmark' data-id="item19mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item19mark }}" ></checkbox>
+          </checkbox-group>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'><textarea id="item19remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item19remarks}}</textarea></view>
+      </view>  
+      <!--电气仓检查）-->
+      <view class='line'></view>
+      <view class='tittlel3'>电气仓检查</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>20,PCS交流侧线束连接是否正确、牢固</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item20mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item20mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item20remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item20remarks}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>21,PCS直流侧线束连接是否正确、牢固</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item21mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item21mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item21remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item21remarks}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>22,PCS内部线束连接是否牢固</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item22mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item22mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item22remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item22remarks}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>23,电气柜线束连接是否正确、牢固</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item23mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item23mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item23remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item23remarks}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>24,电气仓所有设备是否安全接地</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item24mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item24mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view> 
+        <view class='content'>
+          <textarea id="item24remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item24remarks}}</textarea>
+        </view>
+      </view>
+      <!--外部接线检查-->
+      <view class='line'></view>
+      <view class='tittlel3'>外部接线检查</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>25,220V交流供电线接线检查</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item25mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item25mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item25remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item25remarks}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>26,380V交流动力线接线检查</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item26mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item26mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item26remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item26remarks}}</textarea>
+        </view>
+      </view>
+      <view class='tittlel2'> 
+      3-上电及调试</view>
+      <!--配电箱辅助电源上电-->
+      <view class='line'></view>
+      <view class='tittlel3'>配电箱辅助电源上电</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>27,照明系统上电，检查日光灯照明是否正常</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item27mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item27mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item27remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item27remarks}}</textarea>
+        </view>
+      </view> 
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>28,消防系统上电，检查消防系统是否存在异常告警</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item28mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item28mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item28remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item28remarks}}</textarea>
+        </view>
+      </view> 
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>29,空调系统上电，检查空调是否正常（风冷系统）</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item29mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item29mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea   auto-height bindblur="settxt">针对风冷系统或液冷系统选择其一</textarea>
+        </view>
+      </view> 
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>30,液冷系统上电，检查水冷机组是否正常、水路是否存在漏液（液冷系统）</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item30mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item30mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item30remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item30remarks}}</textarea>
+        </view>
+      </view> 
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>31,汇流柜上电，检查汇流柜是否正常</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item31mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item31mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item31remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item31remarks}}</textarea>
+        </view>
+      </view> 
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>32,BMS上电，检查BMS是否有异常告警</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item32mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item32mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item32remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item32remarks}}</textarea>
+        </view>
+      </view> 
+
+      <!--PCS柜上电-->
+      <view class='line'></view>
+      <view class='tittlel3'>PCS柜上电</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>33,合上PCS柜交流断路器开关，检查是否有异常告警</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item33mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item33mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item33remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item33remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>34,合上PCS柜直流断路器开关，检查是否有异常告警</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item34mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item34mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item34remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item34remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>35,软件版本是否需要升级</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item35mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item35mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item35remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item35remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>36,PCS参数设置</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item36mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item36mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view> 
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item36remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item36remarks}}</textarea>
+        </view>
+      </view>
+
+      <!--电气柜上电-->
+      <view class='line'></view>
+      <view class='tittlel3'>电气柜上电</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>37,开启UPS备用电，检查是否正常</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item37mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item37mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item37remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item37remarks}}</textarea>
+        </view>
+      </view> 
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>38,闭合交流电，检查是否正常</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item38mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item38mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item38remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item38remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>39,软件版本是否需要升级（BMU、BCMU、BMS）</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item39mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item39mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item39remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item39remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>40,BMS参数设置（按照FAT文件）</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item40mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item40mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item40remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item40remarks}}</textarea>
+        </view>
+      </view>
+
+      <!--调试）-->
+      <view class='line'></view>
+      <view class='tittlel3'>调试</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>41,BMU、BMS通讯调试，U盘调试存储数据</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item41mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item41mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+           调试过程中收集图片、数据、问题点，并形成测试报告和问题点清单 
+        </view>
+      </view>
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>42,PCS通讯调试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item42mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item42mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item42remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item42remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>43,EMS通讯调试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item43mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item43mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item43remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item43remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view> 
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>44,功能性测试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item44mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item44mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item44remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item44remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='tittlel2'> 
+      4-整站联调</view>
+      <!--各设备通讯联调-->
+      <view class='line'></view>
+      <view class='tittlel3'>各设备通讯联调</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>45,联调问题点记录</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item45mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item45mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          确认问题责任方，推动协调整改（储能系统、施工方、设备商）
+        </view>
+      </view>
+
+      <!--设备功能测试-->
+      <view class='line'></view> 
+      <view class='tittlel3'>设备功能测试</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>46,PCS功能测试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item46mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item46mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item46remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item46remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view>  
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>47,BMS功能测试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item47mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item47mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item47remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item47remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view>  
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>48,消防功能测试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item48mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item48mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item48remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item48remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view>  
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>49,空调功能测试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item49mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item49mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          针对风冷系统或液冷系统选择其一
+        </view>
+      </view>
+
+      <view class='line'></view>  
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>50,水冷机组功能测试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item50mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item50mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item50remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item50remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view>  
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>51,EMS功能测试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item51mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item51mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item51remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item51remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view>  
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>52,监控功能测试</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item52mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item52mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item52remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item52remarks}}</textarea>
+        </view>
+      </view>
+
+      <!--试运行-->
+      <view class='line'></view> 
+      <view class='tittlel3'>试运行</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>53,充放电数据获取</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item53mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item53mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item53remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item53remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view>  
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>54,各设备运行状态跟进</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item54mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item54mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item54remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item54remarks}}</textarea>
+        </view>
+      </view>
+
+      <!--联调结束-->
+      <view class='line'></view> 
+      <view class='tittlel3'>联调结束</view>
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>55,现场培训记录</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item55mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item55mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          《安装使用说明》、《保养维护手册》
+        </view>
+      </view>
+
+      <view class='line'></view>  
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>56,输出问题点清单和FAT报告</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item56mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item56mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item56remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item56remarks}}</textarea>
+        </view>
+      </view>
+
+      <view class='line'></view>  
+      <view class='tr'>
+        <view class='td'>点检内容</view>
+        <view class='td'>57,申请离场</view>
+      </view>
+      <view class='tr'>
+        <view class='td'>点检状态</view>
+        <view class='td'>
+          <checkbox-group bindchange='setmark' data-id="item57mark"  >
+            <checkbox  checked="{{inipagedata.formcantain.item57mark }}" ></checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>备注</view>
+        <view class='content'>
+          <textarea id="item57remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item57remarks}}</textarea>
+        </view>
+      </view>
+      <view class='line'></view>
+      <view >注：</view>
+      <view >1.调试工作需要严格按照指导文件执行，禁止未经培训人员进行操作；</view>
+      <view >2.调试前需与现场工作人员沟通，得到肯定答复后方可开始上电调试，并通知现场工作人员；</view>
+      <view >3.调试过程中出现的问题点需记录在案，明确责任方，并形成经验库；</view>
+      <view >4.现场调试工作需要每天汇报进度及计划。</view>
+       
+  </view>
+</form>
