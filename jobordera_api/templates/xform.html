@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+    <script type="text/javascript">
+    function update(){
+      formcantain
+    }
+    function successm(formid,savemode){
+
+        f=document.getElementById(formid)
+
+        data=new FormData(f)
+        if(savemode=="tempsave"){
+        data.append("savemode","tempsave")}
+        if(savemode=="update"){
+        data.append("savemode","update")}
+        data.append("updatereflush","updatereflush")
+
+        x=new XMLHttpRequest
+        x.onreadystatechange=backalert
+        x.open("POST","./",true)
+        x.send(data)
+        //监听进度
+        x.upload.addEventListener("progress", uploadProgress(event), false);
+
+
+    }
+    function uploadProgress(event) {
+    a=document.getElementById("formcantain");
+    a.insertBefore(document.createTextNode("上传中"),a.childNodes[10]);
+    }
+    function backalert(){
+         if(x.readyState==4){alert("上传完成")}
+    }
+    </script>
+</head>
+<body>
+
+<form action="" method="POST" id="formcantain" >
+  用户名：{{ username }}</br>
+  <hr style="border:1px dashed #000">
+  <input type="submit" name="back" formmethod="get" value="返回">
+  {% if readmodel == uploadpermi %}
+  <input type="submit" name="tempsave"   value="暂存表单" onclick="successm('formcantain','tempsave')">
+  <input type="submit" name="update"  value="上传表单" onclick="successm('formcantain','update')"></br>
+  <hr style="border:1px dashed #000">
+  <tr>
+      <td>
+        <input type="file" id="filebutton" name='chosefiles' multiple="multiple"  />
+      </td>
+  </tr>
+  {% endif %}
+  <hr style="border:1px dashed #000">
+  {% for eachfile in fileaddres %}
+  <tr>
+      <td><input name='filename' type='submit' value={{ eachfile}} onclick="display()"></td></br>
+  </tr>
+  {% endfor %}
+  <table>
+  <tr>
+        <td colspan="2">文件编号:</td>
+        <td colspan="7"><textarea readonly name="formfilename" style="width:95%;height:100%;border-style:none">{{formfilename}}</textarea> </td>
+      </tr>
+      <tr>
+        <td colspan="2">项目名称</td>
+        <td><textarea name="projectname" style="width:95%;height:100%;border-style:none">{{formcantain.projectname}}</textarea></td>
+      </tr>
+    </table>
+</form>
+
+</body>

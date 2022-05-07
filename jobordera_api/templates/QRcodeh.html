@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>user</title>
+</head>
+<body>
+用户名：{{ username }}
+<form action="" method="POST">
+  <input type="submit" name="back" formmethod="get" value="返回">
+</form>
+<hr style="border:1px dashed #000">
+<h1>Result History</h1>
+
+<form action="" method="post" id="formcantain">
+
+    <tr>
+        <td>文件编号:</td>
+        <td><textarea readonly name="formfilename" style="width:95%;height:100%;border-style:none">{{formfilename}}</textarea> </td><br>
+        <td>项目名称</td>
+        <td><textarea name="projectname" style="width:95%;height:100%;border-style:none">{{formcantain.projectname}}</textarea></td>
+    </tr>
+    <hr style="border:1px dashed #000">
+
+    <table id="decode">
+        {% for i in formcantain.codelist %}
+        <tr><td>{{i.0}}</td><td>{{i.1}}</td></tr>
+        {% endfor %}
+    </table>
+</form>
+</body>

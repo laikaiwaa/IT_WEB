@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>user</title> 
+    <!--<script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"> </script>-->
+    <script src="{% static 'js/html5-qrcode.min.js' %}"> </script>
+</head>
+<body> 
+    <h1>Scan from WebCam:</h1>
+<div id="video-container">
+<video id="qr-video"></video>
+</div>
+<div>
+<b>Preferred camera:</b>
+<select id="cam-list">
+    <option value="environment" selected>Environment Facing (default)</option>
+    <option value="user">User Facing</option>
+</select>
+</div>
+<div id="qrc" style="width:500px"></div>
+<b>Detected QR code: </b>
+<span id="cam-qr-result">None</span>
+<br>
+<button id="start-button">Start</button>
+<button id="stop-button">Stop</button>
+<br>
+<hr>
+
+<h1>Scan from File:</h1>
+<input type="file" id="tfile" ></inpu>
+<span id="file-qr-result">None</span>
+<!--var vConsole = new VConsole();-->
+<hr>
+
+<h1>Result History</h1>
+<table id="decode">
+</table>
+
+<script  >
+      
+const scanner=new Html5Qrcode("qrc")
+const video = document.getElementById('qr-video');
+const camList = document.getElementById('cam-list');
+const camQrResult = document.getElementById('cam-qr-result');
+const fileSelector = document.getElementById('tfile');
+const fileQrResult = document.getElementById('file-qr-result');
+const mytable = document.getElementById('decode');
+var cameraid=1;
+
+function judfe(id,res){
+var data = getTableContent(id)
+var index = -1;
+for (var j = 0; j < data.length; ++j) {
+    if (data[j][1] == res) {
+           index = j;
+     }
+ }
+if (index == -1) {
+         data.push([data.length+1,res]);
+         inserr(id,res)
+    } 
+}
+
+function inserr(mytable,res){ 
+    g=mytable.insertRow();
+    p=g.insertCell();
+    p.innerHTML=mytable.rows.length;
+    p=g.insertCell();
+    p.innerHTML=res; 
+}
+
+function getTableContent(mytable){ 
+  var data = [];
+  for(var i=0,rows=mytable.rows.length; i<rows; i++){
+    for(var j=0,cells=mytable.rows[i].cells.length; j<cells; j++){
+      if(!data[i]){
+        data[i] = new Array();
+      }
+      data[i][j] = mytable.rows[i].cells[j].innerHTML;
+    }
+  }
+  return data;
+}
+
+
+
+function setResult(label, result) {
+    console.log(result);  
+    label.textContent = result; 
+    label.style.color = 'teal'; 
+    label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+}
+function start(){
+    scanner.start(
+        cameraid,
+        {
+            fps:10,
+            qrbox:250
+        },
+        qrCodeMessage=>{  
+            setResult(camQrResult, qrCodeMessage);
+            judfe(mytable,qrCodeMessage);
+            },
+        errorMessage=>{
+            
+            console.log('QR Code no longer in front of camera.');
+            }
+    )
+    .catch(
+        err=>{
+             setResult(camQrResult, 'Unable to start scanning,error:${err}');
+            console.log('Unable to start scanning,error:${err}');
+        }
+    );
+}
+// ####### Web Cam Scanning #######
+
+Html5Qrcode.getCameras().then(devices=>{devices.forEach(
+        
+        device => {
+        const option = document.createElement('option');
+        option.value = device.id;
+        option.text = device.label;
+        camList.add(option);
+    });cameraid = devices[0].id;}
+).catch(err=>{
+        camQrResult.textContent = err;
+        camQrResult.style.color = 'inherit';
+});
+        
+camList.addEventListener('change', event => {
+    cameraid=event.target.value;
+    scanner.stop();
+    start();
+}); 
+
+        
+document.getElementById('start-button').addEventListener('click', () => {
+    start()
+});
+document.getElementById('stop-button').addEventListener('click', () => {
+    scanner.stop();
+});
+
+
+// ####### File Scanning #######
+fileSelector.addEventListener('change', event => {
+    const file = fileSelector.files[0];
+    if (!file) {
+        return;
+    }
+    const imagef=event.target.files[0];
+    scanner.scanFile(imagef,true)
+    .then(result=>{setResult(fileQrResult, result)})
+    .catch(e=>setResult(fileQrResult, { data: e || 'No QR code found.' }));
+});
+</script  >
+</body>
