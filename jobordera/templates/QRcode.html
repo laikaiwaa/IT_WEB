@@ -54,7 +54,7 @@
     {% endif %}
     <table id="decode">
         {% for i in formcantain.codelist  %}
-        <tr><td>{{i.0}}</td><td>{{i.1}}</td></tr>
+        <tr><td>{{i.id}}</td><td>{{i.name}}</td></tr>
         {% endfor %}
     </table>
 </form>
@@ -73,9 +73,8 @@ var cameraid=1;
 // ####### Form Add #######
 function successm(formid,savemode){
 
-        f=document.getElementById(formid)
-        var codelist=getTableContent(document.getElementById("decode"))
-
+        f=document.getElementById(formid);
+        var codelist=getTableContent(document.getElementById("decode"));
         var data=new FormData(f)
         if(savemode=="tempsave"){
         data.append("savemode","tempsave")}
@@ -105,7 +104,7 @@ function judfe(id,res){
 var data = getTableContent(id)
 var index = -1;
 for (var j = 0; j < data.length; ++j) {
-    if (data[j][1] == res) {
+    if (data[j]['name'] == res) {
            index = j;
      }
  }
@@ -126,13 +125,11 @@ function inserr(mytable,res){
 function getTableContent(mytable){ 
   var data = [];
   for(var i=0,rows=mytable.rows.length; i<rows; i++){
-    for(var j=0,cells=mytable.rows[i].cells.length; j<cells; j++){
-      if(!data[i]){
-        data[i] = new Array();
-      }
-      data[i][j] = mytable.rows[i].cells[j].innerHTML;
-    }
-  }
+    if(!data[i]){
+        data[i] = {};
+      } 
+      data[i]={'id':mytable.rows[i].cells[0].innerHTML,'name': mytable.rows[i].cells[1].innerHTML} 
+  } 
   return data;
 }
 

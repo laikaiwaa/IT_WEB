@@ -149,7 +149,7 @@ def admin(request):
                 h = checkform(request, request.GET.get('usersname'))
                 return h
             elif request.GET.get('back'):
-                if request.session['htmlname'].find('_')>0:
+                if request.session['htmlname'].find('_')>0 or request.session['htmlname'].find('QR')>-1:
                     request.session['htmlname'] = "user.html"
                     usernamlist = list(userinfo.objects.exclude(username='x').values('username').iterator())
                     sendata = dict(username=request.session['username'], usertype="admin",
