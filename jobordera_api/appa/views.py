@@ -23,6 +23,7 @@ def settingg():
 
 
 
+
 def logincheck(ausername, busercode):
     result = userinfo.objects.filter(username=ausername, password=codesha(busercode)).values()
     if result:
@@ -140,70 +141,55 @@ def login(request):
 
 @check_decorate
 def admin(request):
-    # status = request.COOKIES.get("name")
-    searchusername = request.POST.get('username')
-    usercode = request.POST.get('usercode')
-    usertype = request.POST.get('usertype')
+    if request.method == "GET":
+        sendata = dict(list=[], searchusername="", loginusername=request.GET.get('username'))
+        # 查看表单明细
+        if request.GET.get('checkform'):
+            h = checkform(request, request.GET.get('username'))
+            return h
+        elif request.GET.get('back'):
+            if request.GET.get('htmlname').find('_') > 0 or request.GET.get('htmlname').find('QR') > -1:
 
-    if (request.POST.get('userkind') != 'adminer'):
-        return JsonResponse(dict(status="failed"))
-    else:
-        sendata = dict(list=[], searchusername="", loginusername=request.session['username'])
-        if request.method == "GET":
-            # 查看表单明细
-            if request.GET.get('checkform'):
-                h = checkform(request, request.GET.get('usersname'))
-                return h
-            elif request.GET.get('back'):
-                if request.session['htmlname'].find('_') > 0 or request.session['htmlname'].find('QR') > -1:
-                    request.session['htmlname'] = "user.html"
-                    usernamlist = list(userinfo.objects.exclude(username='x').values('username').iterator())
-                    sendata = dict(username=request.session['username'], usertype="admin",
-                                   formnamelist=myform(request, request.session['checkuserhold']),
-                                   usernamlist=usernamlist, userselected=request.session['checkuserhold'])
-                    return render(request, 'user.html', sendata)
-                else:
-                    return HttpResponseRedirect("../admin/")
-            else:
-                request.session['htmlname'] = "admin.html"
-                return render(request, 'admin.html', sendata)
-        elif request.method == "POST":
-            # 处理退出
-            if request.POST.get("quit"):
-                return HttpResponseRedirect("../")
-            # 处理报表模板
-            elif (request.POST.get("checklisttemplate") is not None) | (
-                    request.session['htmlname'] == "checklisttemplate.html"):
-                request.session['htmlname'] = "checklisttemplate.html"
-                retrundata = checklisttemplate(request)
-                return render(request, 'checklisttemplate.html', retrundata)
-            # 处理用户历史
-            elif (request.POST.get("usehistory") is not None) | (
-                    request.session['htmlname'] == "usehistory.html"):
-                request.session['htmlname'] = "usehistory.html"
-                retrundata = usehistory(request)
-                return render(request, 'usehistory.html', retrundata)
-            # 处理用户表单
-            elif request.POST.get("checkuserform") is not None:
-                request.session['htmlname'] = "user.html"
                 usernamlist = list(userinfo.objects.exclude(username='x').values('username').iterator())
-                sendata = dict(username=request.session['username'], usertype=usertype,
-                               formnamelist=list([dict(formfileid="", formfilename="", filestatus="")]),
-                               usernamlist=usernamlist, userselected="")
+                sendata = dict(username=request.session['username'], usertype="admin",
+                               formnamelist=myform(request, request.session['checkuserhold']),
+                               usernamlist=usernamlist, userselected=request.session['checkuserhold'])
+                sendata['htmlname'] = "user.html"
                 return render(request, 'user.html', sendata)
-            # 查询用户表单列表
-            elif request.POST.get("checkuserformondo"):
-                request.session['checkuserhold'] = request.POST.get("checkuserformondo")
-                userdata = dict(formnamelist=myform(request, request.POST.get("checkuserformondo")))
-                return JsonResponse(userdata)
-            # 用户处理
             else:
-                request.session['htmlname'] = "admin.html"
-                if request.POST.get("adminuserkind"):
-                    data = adminuser(request.POST.get("adminuserkind"), searchusername, usercode, usertype)
-                sendata['list'] = list(data)
-                sendata['searchusername'] = searchusername
-                return JsonResponse(sendata)
+                return JsonResponse("admin")
+        else:
+            sendata['htmlname'] = "admin.html"
+            return JsonResponse(sendata)
+    elif request.method == "POST":
+        sendata = dict(list=[], searchusername="", loginusername=request.GET.get('username'))
+        # 处理用户历史
+        if request.POST.get("usehistory") is not None:
+            request.session['htmlname'] = "usehistory.html"
+            retrundata = usehistory(request)
+            return render(request, 'usehistory.html', retrundata)
+        # 处理用户表单
+        elif request.POST.get("checkuserform") is not None:
+            usernamelist = list(userinfo.objects.exclude(username='x').values('username').iterator())
+            sendata = dict(username=request.POST.get('username'),
+                           formnamelist=list([dict(formfileid="", formfilename="", filestatus="")]),
+                           usernamelist=usernamelist, userselected="", htmlname="user.html")
+            return JsonResponse(sendata)
+        # 查询用户表单列表
+        elif request.POST.get("checkuserformondo"):
+            request.session['checkuserhold'] = request.POST.get("checkuserformondo")
+            userdata = dict(formnamelist=myform(request, request.POST.get("checkuserformondo")))
+            return JsonResponse(userdata)
+        # 用户处理
+        else:
+            sendata["htmlname"] = "admin.html"
+            if request.POST.get("adminuserkind"):
+                data = adminuser(request.POST.get("adminuserkind"), json.loads(request.POST.get('userop'))['username'],
+                                 json.loads(request.POST.get('userop'))['usercode'],
+                                 json.loads(request.POST.get('userop'))['userkind'])
+            sendata['list'] = list(data)
+            sendata['searchusername'] = request.POST.get('username')
+            return JsonResponse(sendata)
 
 
 @check_decorate
@@ -223,10 +209,7 @@ def user(request):
             userdata['htmlname'] = "user.html"
             return JsonResponse(userdata)
     elif (request.method == "POST"):
-        # userdata = dict(testloop=[""], result=[{"name": "", "size": 0}], selectnow="",
-        #                username=request.POST.get('username'), formnamelist=["", ""], userselected="", usertype="")
         usrname = request.POST.get('username')
-        formfileid = 1
         userdata = dict(formcantans=[{"itemm": "", "statuss": ""}], selectednow=0, fileaddres="",
                         username=request.POST.get('username'), htmlname="")
         # 处理历史记录查看
@@ -487,10 +470,10 @@ def usehistory(request):
 
 # 上传表附件
 def upfiledata(filepath, form, usrname, formcantain, upfilename, fileaddress):
-    if fileaddress=='':
-        fileaddress=list()
+    if fileaddress == '':
+        fileaddress = list()
     else:
-        fileaddress=json.loads(fileaddress)['fileaddress']
+        fileaddress = json.loads(fileaddress)['fileaddress']
     # 查看文件是否存在
     filelist = os.listdir(filepath + "/" + usrname + "/")
     for i in filelist:
@@ -523,14 +506,14 @@ def upformdata(filepath, form, usrname, formcantain, upfilename, fileaddress):
 
     # 查看文件是否存在
     if fileaddress is None:
-        fileaddress=list()
+        fileaddress = list()
     filelist = os.listdir(filepath + "/" + usrname + "/")
     for i in filelist:
         if i[:i.find('_')] == formcantain['formfilename'][:formcantain['formfilename'].find("_")]:
             fileaddress.append(usrname + "/" + i)
 
     # 写入档案
-    #for eachfile in form:
+    # for eachfile in form:
     #    name = usrname + "/" + formcantain['formfilename'] + "_" + upfilename
     #        fileaddress.append(name)
     #    except Exception as dd:
@@ -642,3 +625,4 @@ def downfile(name):
 
 def jb(request):
     return render(request, 'cv.html')
+
