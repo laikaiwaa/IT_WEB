@@ -1,0 +1,53 @@
+<!--pages/test/admin.wxml-->
+<form id="formadmin" action="" method="POST">
+    用户名：{{ inipagedata.loginusername }}
+    <button form-type="submit" data-src='usehistory' bindtap="findway" >操作历史</button>
+    <button form-type="submit" data-src='checkuserform' bindtap="findway" >用户表单</button>
+    <button form-type="submit" data-src='quit' bindtap="findway" >退出</button>
+    <view class='line'></view>
+    <view class='tr'>
+      <view class='td'>用戶: </view>
+      <view class='content'>
+        <textarea id="username" auto-height bindinput="settxt">{{inipagedata.searchusername}}</textarea>
+      </view>
+    </view>
+    <view class='tr'>
+      <view class='td'>密碼: </view>
+      <view class='content'>
+        <textarea id="usercode" auto-height bindinput="settxt">{{inipagedata.searchusername}}</textarea>
+      </view>
+    </view>
+    <view class='tr'> 
+      <view class='td'>类型: </view>
+      <view class='td'>admin: </view>
+      <view class='td'>
+        <checkbox-group bindchange='setmark' data-userkindd="admin"  >
+          <checkbox  checked="{{admincheckboxmark}}" ></checkbox>
+        </checkbox-group></view>
+      <view class='td'>user: </view>
+      <view class='td'>
+        <checkbox-group bindchange='setmark' data-userkindd="user"   >
+          <checkbox  checked="{{usercheckboxmark}}" ></checkbox>
+        </checkbox-group>
+      </view>
+    </view> 
+</form>
+
+<button form-type="submit"   bindtap="adminuser" data-src='check'>查找用户</button>
+<button form-type="submit"   bindtap="adminuser" data-src='add'>添加用户</button>
+<button form-type="submit"   bindtap="adminuser" data-src='all'>所有用户</button>
+<button form-type="submit"   bindtap="adminuser" data-src='delete'>删除用户</button>
+
+<table id="tableadmin"  >
+  <view class='tr'>
+    <view class='td'> userid </view><view class='td'> username </view>
+     <view class='td'> type </view>
+  </view>
+<view wx:for="{{inipagedata.list}}">
+  
+  <view class='tr'>
+    <view class='td'> {{item.userid}} </view><view class='td'> {{item.username}} </view>
+     <view class='td'> {{item.type}} </view>
+  </view>
+</view>
+</table>

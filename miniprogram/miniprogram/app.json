@@ -7,7 +7,9 @@
     "pages/test/usehistory",
     "pages/test/form_fileslist",
     "pages/test/form_syschecklist",
-    "pages/test/form_qrcodelist"
+    "pages/test/form_qrcodelist",
+    "pages/test/admin",
+    "pages/test/checklisttemplate"
   ],
   "window": {
     "backgroundTextStyle": "light",

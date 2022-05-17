@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    username:'',
+    password:''
   },
 //登录处理
   login(){
@@ -14,11 +15,11 @@ Page({
       data:'\r\n--XXX' +
       '\r\nContent-Disposition: form-data; name="username"' +
       '\r\n' +
-      '\r\nn' +
+      '\r\n' + this.data.username+
       '\r\n--XXX' +
       '\r\nContent-Disposition: form-data; name="usercode"' +
       '\r\n' +
-      '\r\n' +
+      '\r\n' + this.data.password +
       '\r\n--XXX--'+
       '\r\nContent-Disposition: form-data; name="login"' +
       '\r\n' +
@@ -35,9 +36,22 @@ Page({
           wx.redirectTo({
             url: '../test/user',
           })
+        }else if (jd['userkind']=='adminer'){ 
+          wx.redirectTo({
+            url: '../test/admin',
+          })
         }
-        
       }
+    })
+  },
+  username(e:any){
+    this.setData({
+      username:e.detail.value,
+    })
+  },
+  password(e:any){
+    this.setData({
+      password:e.detail.value,
     })
   },
   /**

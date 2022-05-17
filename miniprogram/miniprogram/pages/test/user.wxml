@@ -1,20 +1,27 @@
 <!--user.wxml-->
       <form  class="page_user" id="formb"   >
         用户名：{{ iniuserdata.username }}
-        <button form-type="submit" data-src='usehistory' bindtap="findway" >使用记录</button>
-        <view wx:if="{{inipagedata.usertype == 'admin'}}">
+        
+        <view wx:if="{{iniuserdata.userkind == 'adminer'}}">
           <button form-type="submit" data-src='back'  bindtap="findway" >返回</button>
         </view>
         <view wx:else>
+          <button form-type="submit" data-src='usehistory' bindtap="findway" >使用记录</button>
           <button form-type="submit" data-src='quit' bindtap="findway" >退出</button>
         </view>
-        <view wx:if="{{inipagedata.usertype == 'admin'}}"> 
-        选择用户：
-          <view class="view-options"    name="userselect" >
-            <cover-view class='option-item' wx:for="{{inipagedata.usernamlist}}">
-              {{item[username]}}
-            </cover-view>
+        <view wx:if="{{iniuserdata.userkind == 'adminer'}}"> 
+        <view class='tr'>
+          <view class='td'>选择用户：</view>
+          <view class='content'>
+            <textarea id="username" auto-height bindinput="settxt">{{inipagedata.searchusername}}</textarea>
           </view>
+        </view>
+        <view class="view-options"    name="userselect" >
+          <view class='option-item' wx:for="{{namelist}}">
+            {{item.username}}
+          </view>
+          <button form-type="submit" data-src='checkform' bindtap="findway" >查看用户表单</button>
+        </view>
         </view>
         <view wx:else> 
           新增表单：

@@ -11,3 +11,7 @@
   justify-content: center;
   text-align:center;
 }
+.content{
+  border:1px black solid;
+  width:40%; 
+}

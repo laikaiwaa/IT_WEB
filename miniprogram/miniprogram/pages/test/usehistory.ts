@@ -9,7 +9,8 @@ Page({
     inipagedata:"",
     btime:"",
     etime:"",
-    serch:""
+    serch:"",
+    used:""
   },
   changebtime(e: { detail: { value: any; }; }){
     this.setData({btime:e.detail.value});
@@ -19,13 +20,14 @@ Page({
     serch:"yes"});
   },
   usehistryop:function(event: { currentTarget: { dataset: { src: any; }; }; }){
+    var checkdata=wx.getStorageSync('userdata');
     var op=event.currentTarget.dataset.src;
     if(op=='serch'){
       console.log(this.data.btime);
       this.getudata();
     }else if(op=='back'){
       wx.redirectTo({
-        url: '../test/user'
+        url: '../test/'+checkdata['page']
       });
     }
   },
@@ -33,7 +35,7 @@ Page({
     var self=this;
     var checkdata=wx.getStorageSync('userdata');
     wx.request({
-      url:"http://127.0.0.1:81/user/",
+      url:"http://127.0.0.1:81/"+checkdata['page'],
       data:'\r\n--XXX' +
       '\r\nContent-Disposition: form-data; name="code"' +'\r\n' +'\r\n' +checkdata['code']+
       '\r\n--XXX' +

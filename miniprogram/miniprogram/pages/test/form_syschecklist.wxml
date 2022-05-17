@@ -39,19 +39,19 @@
       <view class='tr'>
         <view class='td'>项目名称:</view>
         <view class='content'>
-        <textarea  id="projectname" auto-height bindblur="settxt">{{inipagedata.formcantain.projectname}}</textarea> 
+        <textarea  id="projectname" auto-height bindinput="settxt">{{inipagedata.formcantain.projectname}}</textarea> 
         </view>
       </view>
       <view class='tr'>
         <view class='td'>产品型号:</view>
         <view class='content'>
-        <textarea  id="producttype" auto-height bindblur="settxt">{{inipagedata.formcantain.producttype}}</textarea> 
+        <textarea  id="producttype" auto-height bindinput="settxt">{{inipagedata.formcantain.producttype}}</textarea> 
         </view>
       </view>
       <view class='tr'>
         <view class='td'>日期:</view>
         <view class='content'>
-        <textarea  id="data" auto-height  bindblur="settxt">{{inipagedata.formcantain.data}}</textarea> 
+        <textarea  id="data" auto-height  bindinput="settxt">{{inipagedata.formcantain.data}}</textarea> 
         </view>
       </view>
       <view class='tr'>
@@ -61,7 +61,7 @@
       <view class='tr'>
         <view class='td'>项目成员:</view> 
         <view class='content'>
-          <textarea  id="projectmember" auto-height bindblur="settxt">{{inipagedata.formcantain.projectmember}}</textarea> 
+          <textarea  id="projectmember" auto-height bindinput="settxt">{{inipagedata.formcantain.projectmember}}</textarea> 
         </view>
       </view>
       <view class='tittlel2'>1-供应商</view>
@@ -83,7 +83,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item01remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item01remarks}}</textarea>
+          <textarea id="item01remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item01remarks}}</textarea>
         </view>
       </view>
       <!--EMS-->
@@ -104,7 +104,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item02remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item02remarks}}</textarea>
+          <textarea id="item02remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item02remarks}}</textarea>
         </view>
       </view>
       <!--PCS-->
@@ -125,7 +125,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item03remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item03remarks}}</textarea>
+          <textarea id="item03remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item03remarks}}</textarea>
         </view>
       </view>
       <!--集装箱-->
@@ -146,7 +146,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item04remarks" auto-height  bindblur="settxt">{{inipagedata.formcantain.item04remarks}}</textarea>
+          <textarea id="item04remarks" auto-height  bindinput="settxt">{{inipagedata.formcantain.item04remarks}}</textarea>
         </view>
       </view>
 
@@ -170,7 +170,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item05remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item05remarks}}</textarea>
+          <textarea id="item05remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item05remarks}}</textarea>
         </view>
       </view> 
       <view class='line'></view>
@@ -189,7 +189,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item06remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item06remarks}}</textarea>
+          <textarea id="item06remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item06remarks}}</textarea>
         </view>
       </view> 
       <view class='line'></view>
@@ -208,7 +208,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item07remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item07remarks}}</textarea>
+          <textarea id="item07remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item07remarks}}</textarea>
         </view>
       </view> 
       <!--开关确认-->
@@ -229,7 +229,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item08remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item08remarks}}</textarea>
+          <textarea id="item08remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item08remarks}}</textarea>
         </view>
       </view>
       <view class='line'></view> 
@@ -248,7 +248,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item09remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item09remarks}}</textarea>
+          <textarea id="item09remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item09remarks}}</textarea>
         </view>
       </view>
       <view class='line'></view> 
@@ -267,7 +267,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item10remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item10remarks}}</textarea>
+          <textarea id="item10remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item10remarks}}</textarea>
         </view>
       </view>
       <view class='line'></view> 
@@ -286,7 +286,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item11remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item11remarks}}</textarea>
+          <textarea id="item11remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item11remarks}}</textarea>
         </view>
       </view>
       <!--电池仓检查-->
@@ -334,7 +334,7 @@
       </view> 
       <view class='tr'>
         <view class='td'>备注</view>
-        <view class='content'><textarea id="item14remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item14remarks}}</textarea></view>
+        <view class='content'><textarea id="item14remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item14remarks}}</textarea></view>
       </view> 
       <view class='line'></view> 
       <view class='tr'>
@@ -349,7 +349,7 @@
       </view> 
       <view class='tr'>
         <view class='td'>备注</view>
-        <view class='content'><textarea id="item15remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item15remarks}}</textarea></view>
+        <view class='content'><textarea id="item15remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item15remarks}}</textarea></view>
       </view> 
       <view class='line'></view> 
       <view class='tr'>
@@ -364,7 +364,7 @@
       </view> 
       <view class='tr'>
         <view class='td'>备注</view>
-        <view class='content'><textarea id="item16remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item16remarks}}</textarea></view>
+        <view class='content'><textarea id="item16remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item16remarks}}</textarea></view>
       </view> 
       <view class='line'></view> 
       <view class='tr'>
@@ -379,7 +379,7 @@
       </view> 
       <view class='tr'>
         <view class='td'>备注</view>
-        <view class='content'><textarea id="item17remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item17remarks}}</textarea></view>
+        <view class='content'><textarea id="item17remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item17remarks}}</textarea></view>
       </view> 
       <view class='line'></view> 
       <view class='tr'>
@@ -394,7 +394,7 @@
       </view> 
       <view class='tr'>
         <view class='td'>备注</view>
-        <view class='content'><textarea id="item18remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item18remarks}}</textarea></view>
+        <view class='content'><textarea id="item18remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item18remarks}}</textarea></view>
       </view> 
       <view class='line'></view> 
       <view class='tr'>
@@ -409,7 +409,7 @@
       </view> 
       <view class='tr'>
         <view class='td'>备注</view>
-        <view class='content'><textarea id="item19remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item19remarks}}</textarea></view>
+        <view class='content'><textarea id="item19remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item19remarks}}</textarea></view>
       </view>  
       <!--电气仓检查）-->
       <view class='line'></view>
@@ -429,7 +429,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item20remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item20remarks}}</textarea>
+          <textarea id="item20remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item20remarks}}</textarea>
         </view>
       </view>
       <view class='line'></view> 
@@ -448,7 +448,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item21remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item21remarks}}</textarea>
+          <textarea id="item21remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item21remarks}}</textarea>
         </view>
       </view>
       <view class='line'></view> 
@@ -467,7 +467,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item22remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item22remarks}}</textarea>
+          <textarea id="item22remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item22remarks}}</textarea>
         </view>
       </view>
       <view class='line'></view> 
@@ -486,7 +486,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item23remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item23remarks}}</textarea>
+          <textarea id="item23remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item23remarks}}</textarea>
         </view>
       </view>
       <view class='line'></view> 
@@ -505,7 +505,7 @@
       <view class='tr'>
         <view class='td'>备注</view> 
         <view class='content'>
-          <textarea id="item24remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item24remarks}}</textarea>
+          <textarea id="item24remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item24remarks}}</textarea>
         </view>
       </view>
       <!--外部接线检查-->
@@ -526,7 +526,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item25remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item25remarks}}</textarea>
+          <textarea id="item25remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item25remarks}}</textarea>
         </view>
       </view>
       <view class='line'></view> 
@@ -545,7 +545,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item26remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item26remarks}}</textarea>
+          <textarea id="item26remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item26remarks}}</textarea>
         </view>
       </view>
       <view class='tittlel2'> 
@@ -568,7 +568,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item27remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item27remarks}}</textarea>
+          <textarea id="item27remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item27remarks}}</textarea>
         </view>
       </view> 
 
@@ -588,7 +588,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item28remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item28remarks}}</textarea>
+          <textarea id="item28remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item28remarks}}</textarea>
         </view>
       </view> 
 
@@ -628,7 +628,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item30remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item30remarks}}</textarea>
+          <textarea id="item30remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item30remarks}}</textarea>
         </view>
       </view> 
 
@@ -648,7 +648,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item31remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item31remarks}}</textarea>
+          <textarea id="item31remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item31remarks}}</textarea>
         </view>
       </view> 
 
@@ -668,7 +668,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item32remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item32remarks}}</textarea>
+          <textarea id="item32remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item32remarks}}</textarea>
         </view>
       </view> 
 
@@ -690,7 +690,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item33remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item33remarks}}</textarea>
+          <textarea id="item33remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item33remarks}}</textarea>
         </view>
       </view>
 
@@ -710,7 +710,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item34remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item34remarks}}</textarea>
+          <textarea id="item34remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item34remarks}}</textarea>
         </view>
       </view>
 
@@ -730,7 +730,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item35remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item35remarks}}</textarea>
+          <textarea id="item35remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item35remarks}}</textarea>
         </view>
       </view>
 
@@ -750,7 +750,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item36remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item36remarks}}</textarea>
+          <textarea id="item36remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item36remarks}}</textarea>
         </view>
       </view>
 
@@ -772,7 +772,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item37remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item37remarks}}</textarea>
+          <textarea id="item37remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item37remarks}}</textarea>
         </view>
       </view> 
 
@@ -792,7 +792,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item38remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item38remarks}}</textarea>
+          <textarea id="item38remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item38remarks}}</textarea>
         </view>
       </view>
 
@@ -812,7 +812,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item39remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item39remarks}}</textarea>
+          <textarea id="item39remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item39remarks}}</textarea>
         </view>
       </view>
 
@@ -832,7 +832,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item40remarks" auto-height bindblur="settxt">{{inipagedata.formcantain.item40remarks}}</textarea>
+          <textarea id="item40remarks" auto-height bindinput="settxt">{{inipagedata.formcantain.item40remarks}}</textarea>
         </view>
       </view>
 
@@ -874,7 +874,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item42remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item42remarks}}</textarea>
+          <textarea id="item42remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item42remarks}}</textarea>
         </view>
       </view>
 
@@ -894,7 +894,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item43remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item43remarks}}</textarea>
+          <textarea id="item43remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item43remarks}}</textarea>
         </view>
       </view>
 
@@ -914,7 +914,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item44remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item44remarks}}</textarea>
+          <textarea id="item44remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item44remarks}}</textarea>
         </view>
       </view>
 
@@ -960,7 +960,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item46remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item46remarks}}</textarea>
+          <textarea id="item46remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item46remarks}}</textarea>
         </view>
       </view>
 
@@ -980,7 +980,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item47remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item47remarks}}</textarea>
+          <textarea id="item47remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item47remarks}}</textarea>
         </view>
       </view>
 
@@ -1000,7 +1000,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item48remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item48remarks}}</textarea>
+          <textarea id="item48remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item48remarks}}</textarea>
         </view>
       </view>
 
@@ -1040,7 +1040,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item50remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item50remarks}}</textarea>
+          <textarea id="item50remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item50remarks}}</textarea>
         </view>
       </view>
 
@@ -1060,7 +1060,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item51remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item51remarks}}</textarea>
+          <textarea id="item51remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item51remarks}}</textarea>
         </view>
       </view>
 
@@ -1080,7 +1080,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item52remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item52remarks}}</textarea>
+          <textarea id="item52remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item52remarks}}</textarea>
         </view>
       </view>
 
@@ -1102,7 +1102,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item53remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item53remarks}}</textarea>
+          <textarea id="item53remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item53remarks}}</textarea>
         </view>
       </view>
 
@@ -1122,7 +1122,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item54remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item54remarks}}</textarea>
+          <textarea id="item54remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item54remarks}}</textarea>
         </view>
       </view>
 
@@ -1164,7 +1164,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item56remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item56remarks}}</textarea>
+          <textarea id="item56remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item56remarks}}</textarea>
         </view>
       </view>
 
@@ -1184,7 +1184,7 @@
       <view class='tr'>
         <view class='td'>备注</view>
         <view class='content'>
-          <textarea id="item57remarks"  auto-height bindblur="settxt">{{inipagedata.formcantain.item57remarks}}</textarea>
+          <textarea id="item57remarks"  auto-height bindinput="settxt">{{inipagedata.formcantain.item57remarks}}</textarea>
         </view>
       </view>
       <view class='line'></view>

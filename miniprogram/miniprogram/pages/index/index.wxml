@@ -20,4 +20,7 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+ <view>
+  <button bindtap="qrtest">qrtest</button>
+ </view>
 </view>

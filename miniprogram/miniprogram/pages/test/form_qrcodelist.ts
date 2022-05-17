@@ -41,9 +41,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-    var u=require('../../utils/html5-qrcode.min.js');
-    this.getuser()
+  onLoad() { 
+    var checkformmark=wx.getStorageSync('checkformmark');
+    if(checkformmark==1){
+      this.setData({
+        iniuserdata:wx.getStorageSync('userdata'),
+        inipagedata:wx.getStorageSync('pagedata')
+        });
+        wx.setStorageSync('checkformmark',0);
+    }else{
+      this.getuser()
+    }
   },
 
   /**
@@ -56,8 +64,16 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-
+  onShow(){
+    var d=wx.getStorageSync('pagedata');
+    console.log("debug",d);
+    d.formcantain.codelist=JSON.parse(d.formcantain.codelist);
+    this.setData({ 
+      /**
+       * scanres:wx.getStorageSync('scandatas')
+       */
+      inipagedata:d
+    });
   },
 
   /**
@@ -105,8 +121,9 @@ Page({
   settxt(e: any){ 
     var temp=wx.getStorageSync('pagedata');
     temp.formcantain[e.target.id]=e.detail.value;
-    console.log(e.detail.value);
+    
     wx.setStorageSync('pagedata',temp);
+    console.log("settxt",temp);
     this.setData({ 
       inipagedata:wx.getStorageSync('pagedata')
       });
@@ -114,61 +131,78 @@ Page({
 /**
  * ####### Form Add #######
  */ 
- successm:function(e: any){
-
-    },
-   /**
- * ####### Scan History #######
- */    
-  judfe(id:any,res:any){
-    var data = this.getTableContent(id)
-    var index = -1;
-    for (var j = 0; j < data.length; ++j) {
-        if (data[j][1] == res) {
-              index = j;
-        }
-  }
-  if (index == -1) {
-          data.push([data.length+1,res]);
-          this.inserr(id,res)
-      } 
+successm:function(e: any){
+    this.upformdata(e);
 },
+/**
+   * 
+   * 上传基础信息 
+   */
+  upformdata(e: any){
+    var way=e.currentTarget.dataset.src;
+    var checkdata=wx.getStorageSync('userdata');
+    var formdata=wx.getStorageSync('pagedata');
+    formdata.formcantain['savemode']=way; 
 
- inserr(mytable:any,res:any){ 
-    var g=mytable.insertRow();
-    var p=g.insertCell();
-    p.innerHTML=mytable.rows.length;
-    p=g.insertCell();
-    p.innerHTML=res; 
-},
-
-  getTableContent(mytable:any){ 
-  var data = [];
-  for(var i=0,rows=mytable.rows.length; i<rows; i++){
-    for(var j=0,cells=mytable.rows[i].cells.length; j<cells; j++){
-      if(!data[i]){
-        data[i] = new Array();
+    wx.request({
+      url:"http://127.0.0.1:81/user/",
+      data:'\r\n--XXX' +
+      '\r\nContent-Disposition: form-data; name="code"' +'\r\n' +'\r\n' +checkdata['code']+
+      '\r\n--XXX' +
+      '\r\nContent-Disposition: form-data; name="key"' +'\r\n' +'\r\n' + checkdata['key']+
+      '\r\n--XXX--'+
+      '\r\nContent-Disposition: form-data; name="username"' +'\r\n' +'\r\n' + checkdata['username']+
+      '\r\n--XXX--'+
+      '\r\nContent-Disposition: form-data; name="htmlname"' +'\r\n' +'\r\n' +
+      '\r\n--XXX--'+
+      '\r\nContent-Disposition: form-data; name="formcantain"' +'\r\n' +'\r\n' +JSON.stringify(formdata)+
+      '\r\n--XXX--',
+      header:{
+        'content-type':'multipart/form-data; boundary=XXX'
+      },
+      method:"POST",
+      success:function(res){
+        wx.setStorageSync('pagedata',res.data),
+        console.log(res.data),
+        wx.redirectTo({
+          url: '../test/user'
+        });
       }
-      data[i][j] = mytable.rows[i].cells[j].innerHTML;
-    }
+    });
+  },
+/**
+   * 扫码
+   */
+  scan(){
+    var self=this;
+    wx.scanCode({
+      success(res){  
+        var datas=wx.getStorageSync('pagedata');  
+        var len=0;
+        if(datas.formcantain.codelist.length>0){
+          console.log("debuggg",datas.formcantain.codelist);
+          var codelist=JSON.parse(datas.formcantain.codelist);
+          len=codelist.length;
+        };
+        var index = -1;
+        for (var j = 0; j < len; ++j) { 
+            if (codelist[j].name == res.result) {
+                  index = j;
+            }
+        }; 
+        if (index == -1) {
+                if(len==0){
+                  codelist=[{id:len+1,name:res.result}];
+                }else{ 
+                  codelist.push({id:len+1,name:res.result});
+                  console.log('new',codelist);
+                } 
+            };
+        datas.formcantain.codelist=JSON.stringify(codelist) ;
+        wx.setStorageSync('pagedata',datas);
+        self.onShow();
+      }
+    })
   }
-  return data;
-},
- setResult(label:any, result:any) {
-    console.log(result);  
-    label.textContent = result; 
-    label.style.color = 'teal'; 
-    label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
-},
-/**
- *  ####### Scan Function #######
- */
-start(){
-     
-}
-/**
- * ####### Web Cam Scanning #######
- */
-// 
    
 })

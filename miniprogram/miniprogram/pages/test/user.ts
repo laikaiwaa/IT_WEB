@@ -6,7 +6,9 @@ Page({
    */
   data: {
     iniuserdata:"",
-    inipagedata:""
+    inipagedata:"",
+    serachname:'',
+    namelist:''
   },
   
   /**
@@ -15,27 +17,46 @@ Page({
   getuser(){ 
     var self=this;
     var checkdata=wx.getStorageSync('userdata');
-    wx.request({
-      url:"http://127.0.0.1:81/user/",
-      data:{
-        code:checkdata['code'],
-        key:checkdata['key'],
-        username:checkdata['username']
-      },
-      header:{
-        'content-type':'multipart/json'
-      },
-      method:"GET",
-      success:function(res){
-        wx.setStorageSync('pagedata',res.data),
-        console.log(res.data),
-        self.setData({
-          iniuserdata:wx.getStorageSync('userdata'),
-          inipagedata:wx.getStorageSync('pagedata')
-          });
+    if(checkdata['page']=='user' || this.data.serachname!=''){
+      var usernamet=''
+      console.log("checkkkkkkkkkkk");
+      if(this.data.serachname!=''){
+        usernamet=this.data.serachname
+      }else{
+        usernamet=checkdata['username']
       }
-    })
-    
+      wx.request({
+        url:"http://127.0.0.1:81/user/",
+        data:{
+          code:checkdata['code'],
+          key:checkdata['key'],
+          username:usernamet
+        },
+        header:{
+          'content-type':'multipart/json'
+        },
+        method:"GET",
+        success:function(res:any){
+          wx.setStorageSync('pagedata',res.data);  
+          self.setData({
+            iniuserdata:wx.getStorageSync('userdata'),
+            inipagedata:wx.getStorageSync('pagedata'),
+            namelist:wx.getStorageSync('namelist')
+            });
+        }
+      })
+    }else{
+      console.log("onload",wx.getStorageSync('pagedata')); 
+      self.setData({
+        iniuserdata:wx.getStorageSync('userdata'),
+        inipagedata:wx.getStorageSync('pagedata'),
+        namelist:wx.getStorageSync('namelist')
+        });
+    }; 
+  },
+  settxt(e: any){    
+    this.data.serachname=e.detail.value;
+    console.log(e.detail.value); 
   },
   onLoad () { 
      this.getuser();
@@ -97,28 +118,19 @@ Page({
     var way=event.currentTarget.dataset.src;
     if(way=="back"){
       this.back();
-    }else if(way=="quit"){
-      this.quit();
+    }else if(way=="checkform"){
+      this.getuser();
     }else if(way=="usehistory"){
       this.usehistory();
+    }else if(way=="quit"){
+      this.quit();
     }
   },
   back(){
-    var a=this.getuser;
-    wx.request({
-      url:'http://127.0.0.1:81/user/',
-      data:{
-        back:"yes"
-      },
-      header:{
-        'content-type':'multipart/json'
-      },
-      method:"GET",
-      success(res){
-        console.log(res.data);
-        a;
-      }
+    wx.redirectTo({
+      url:"../test/admin"
     })
+     
   },
   quit(){
     wx.clearStorageSync();
@@ -153,13 +165,14 @@ Page({
   checkform:function(e:any){
     var formfilename=e.currentTarget.dataset.src;
     var self=this;
+    var pagedata=wx.getStorageSync('pagedata');
     var checkdata=wx.getStorageSync('userdata');
     wx.request({
-      url:"http://127.0.0.1:81/user/",
+      url:"http://127.0.0.1:81/"+checkdata['page']+'/',
       data:{
         code:checkdata['code'],
         key:checkdata['key'],
-        username:checkdata['username'],
+        username:pagedata['username'],
         userkind:checkdata['userkind'],
         checkform:formfilename
       },
@@ -167,22 +180,29 @@ Page({
         'content-type':'multipart/json'
       },
       method:"GET",
-      success:function(res){  
+      success:function(res:any){  
         wx.setStorageSync('pagedata',res.data);
         wx.setStorageSync('checkformmark',1);
-        console.log(res.data);
-        var pagdata=wx.getStorageSync('pagedata');
+        var updata=wx.getStorageSync('pagedata');
         self.setData({
           iniuserdata:wx.getStorageSync('userdata'),
-          inipagedata:pagdata
+          inipagedata:updata
           }); 
-        if(pagdata['htmlname']=="job_fileslist.html"){
+        if(updata['htmlname']=="job_fileslist.html"){
           wx.redirectTo({
             url: '../test/form_fileslist',
           });
-        }else if(pagdata['htmlname']=="job_systemchecklist.html"){
+        }else if(updata['htmlname']=="job_systemchecklist.html"){
           wx.redirectTo({
             url: '../test/form_syschecklist',
+          });
+        }else if(updata['htmlname']=="QRcode.html"){
+          wx.redirectTo({
+            url: '../test/form_qrcodelist',
+          });
+        }else{
+          wx.redirectTo({
+            url: '../test/form_qrcodelist',
           });
         }
         
