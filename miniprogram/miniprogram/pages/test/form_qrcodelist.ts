@@ -12,7 +12,7 @@ Page({
     var self=this;
     var checkdata=wx.getStorageSync('userdata');
     wx.request({
-      url:"http://127.0.0.1:81/user/",
+      url:"https://www.kiewaalab.top:442/user/",
       data:'\r\n--XXX' +
       '\r\nContent-Disposition: form-data; name="code"' +'\r\n' +'\r\n' +checkdata['code']+
       '\r\n--XXX' +
@@ -145,7 +145,7 @@ successm:function(e: any){
     formdata.formcantain['savemode']=way; 
 
     wx.request({
-      url:"http://127.0.0.1:81/user/",
+      url:"https://www.kiewaalab.top:442/user/",
       data:'\r\n--XXX' +
       '\r\nContent-Disposition: form-data; name="code"' +'\r\n' +'\r\n' +checkdata['code']+
       '\r\n--XXX' +

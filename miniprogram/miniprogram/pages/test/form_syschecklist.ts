@@ -18,7 +18,7 @@ Page({
     var self=this;
     var checkdata=wx.getStorageSync('userdata');
     wx.request({
-      url:"http://127.0.0.1:81/user/",
+      url:"https://www.kiewaalab.top:442/user/",
       data:'\r\n--XXX' +
       '\r\nContent-Disposition: form-data; name="code"' +'\r\n' +'\r\n' +checkdata['code']+
       '\r\n--XXX' +
@@ -171,7 +171,7 @@ Page({
     formdata.formcantain['savemode']=way;
 
     wx.request({
-      url:"http://127.0.0.1:81/user/",
+      url:"https://www.kiewaalab.top:442/user/",
       data:'\r\n--XXX' +
       '\r\nContent-Disposition: form-data; name="code"' +'\r\n' +'\r\n' +checkdata['code']+
       '\r\n--XXX' +
@@ -210,7 +210,7 @@ Page({
       var fileaddress=wx.getStorageSync('fileaddress');
       console.log("fileaddress",fileaddress);
       wx.uploadFile({ 
-        url:"http://127.0.0.1:81/user/",
+        url:"https://www.kiewaalab.top:442/user/",
         filePath:filenamelist.path,
         name:"upchosefiles",
         formData: {

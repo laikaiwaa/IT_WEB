@@ -26,7 +26,7 @@ Page({
         usernamet=checkdata['username']
       }
       wx.request({
-        url:"http://127.0.0.1:81/user/",
+        url:"https://www.kiewaalab.top:442/user/",
         data:{
           code:checkdata['code'],
           key:checkdata['key'],
@@ -168,7 +168,7 @@ Page({
     var pagedata=wx.getStorageSync('pagedata');
     var checkdata=wx.getStorageSync('userdata');
     wx.request({
-      url:"http://127.0.0.1:81/"+checkdata['page']+'/',
+      url:"https://www.kiewaalab.top:442/"+checkdata['page']+'/',
       data:{
         code:checkdata['code'],
         key:checkdata['key'],

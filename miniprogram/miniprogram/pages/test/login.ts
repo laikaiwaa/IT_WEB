@@ -11,7 +11,7 @@ Page({
 //登录处理
   login(){
     wx.request({
-      url:'http://127.0.0.1:81/',
+      url:'https://www.kiewaalab.top:442/',
       data:'\r\n--XXX' +
       '\r\nContent-Disposition: form-data; name="username"' +
       '\r\n' +
